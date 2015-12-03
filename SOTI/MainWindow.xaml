@@ -5,19 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SOTI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="300" Width="300">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".3*"/>
-            <ColumnDefinition Width=".3*"/>
-            <ColumnDefinition Width=".3*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height=".2*"/>
-        </Grid.RowDefinitions>
-        <Button Content="Button" VerticalAlignment="Center" Width="75" HorizontalAlignment="Center" Grid.Row="1"/>
-        <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="1"/>
-        <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="2"/>
+        
     </Grid>
 </Window>
