@@ -11,9 +11,13 @@ namespace SOTI.Model
     class DataLayer
     {
         //Database Connection
-        string connectionString =
+
+        static string path = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)
+                     + "SOTI.accdb;";
+
+        static string connectionString =
             @"Provider=Microsoft.ACE.OLEDB.12.0;" +
-            @"Data Source=C:\Users\Mattia\Documents\GitHubVisualStudio\SOTI\SOTI.accdb;" +
+            @"Data Source=" + path +
             @"User Id=;Password=;";
 
         OleDbConnection conn = null;
@@ -42,8 +46,8 @@ namespace SOTI.Model
         {
             ConnectDB();
             this.cibi = ReadCibi();
-            this.ricette = ReadRicette();
             this.allergie = ReadAllergie();
+            this.ricette = ReadRicette();
             ReadPassi();
             conn.Close();
         }
@@ -131,11 +135,17 @@ namespace SOTI.Model
                 {
                     Ricetta newItem = new Ricetta();
                     newItem.id = (int)reader["ID"];
-                    newItem.nome = (String)reader["Nome"];
-                    newItem.allergia = (String)reader["Allergia"];
+                    newItem.nome = reader["Nome"].ToString();
+                    string allergia = reader["Allergia"].ToString();
                     newItem.immagine = reader["Immagine"].ToString();
                     newItem.passi = new List<Passo>();
 
+                    foreach (var item in allergie)
+                    {
+                        if (item.nome.Equals(allergia)){
+                            newItem.allergia = item;
+                        }
+                    }
                     ricette.Add(newItem);
                 }
 

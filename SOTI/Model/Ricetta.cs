@@ -6,7 +6,7 @@ namespace SOTI.Model
     {
         public int id { get; set; }
         public string nome { get; set; }
-        public string allergia { get; set; }
+        public Allergia allergia { get; set; }
         public string immagine { get; set; }
         public List<Passo> passi = new List<Passo>();
 
