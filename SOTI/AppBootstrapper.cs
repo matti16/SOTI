@@ -1,10 +1,4 @@
 ﻿using Caliburn.Micro;
-using SOTI.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace SOTI
@@ -20,7 +14,6 @@ namespace SOTI
 
         protected override void Configure()
         {
-            _container.re
             _container.Singleton<IEventAggregator, EventAggregator>();
             //_container.PerRequest<MainViewModel>();
         }
