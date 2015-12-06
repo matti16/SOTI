@@ -10,5 +10,6 @@
         public bool pesce { get; set; }
         public bool frutta { get; set; }
         public string immagine { get; set; }
+        public int prezzo { get; set; }
     }
 }

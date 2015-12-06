@@ -175,13 +175,14 @@ namespace SOTI.Model
                 {
                     Cibo newItem = new Cibo();
                     newItem.id = (int)reader["ID"];
-                    newItem.nome = (String)reader["Nome"];
-                    newItem.descrizione = (String)reader["Descrizione"];
+                    newItem.nome = reader["Nome"].ToString();
+                    newItem.descrizione = reader["Descrizione"].ToString();
                     newItem.uovo = (bool)reader["Uovo"];
                     newItem.latte = (bool)reader["Latte"];
                     newItem.pesce = (bool)reader["Pesce"];
                     newItem.frutta = (bool)reader["Frutta"];
                     newItem.immagine = reader["Immagine"].ToString();
+                    newItem.prezzo = (int)reader["Prezzo"];
 
                     cibi.Add(newItem);
                 }
