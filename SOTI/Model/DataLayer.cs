@@ -8,12 +8,14 @@ using System.Reflection;
 
 namespace SOTI.Model
 {
-    class DataLayer
+    public class DataLayer
     {
         //Database Connection
 
-        static string path = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)
-                     + "SOTI.accdb;";
+        //static string path = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)
+        //             + "SOTI.accdb;";
+
+        static string path = @"C:\Users\Francesco\Dev\SOTI\SOTI.accdb;";
 
         static string connectionString =
             @"Provider=Microsoft.ACE.OLEDB.12.0;" +
@@ -31,7 +33,7 @@ namespace SOTI.Model
             }
             catch
             {
-                ConnectDB();
+                throw;
             }
         }
 

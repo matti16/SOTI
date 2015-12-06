@@ -1,11 +1,12 @@
-﻿using Caliburn.Micro;
-using System.Windows;
-
-namespace SOTI
-{
+﻿namespace SOTI {
+    using System;
+    using System.Collections.Generic;
+    using Caliburn.Micro;
+    using ViewModels;
+    using Model;
     public class AppBootstrapper : BootstrapperBase
     {
-        private readonly SimpleContainer _container = new SimpleContainer();
+        public static readonly SimpleContainer container = new SimpleContainer();
 
         public AppBootstrapper()
         {
@@ -14,15 +15,34 @@ namespace SOTI
 
         protected override void Configure()
         {
-            _container.Singleton<IEventAggregator, EventAggregator>();
-            //_container.PerRequest<MainViewModel>();
+            container.Singleton<IWindowManager, WindowManager>();
+            container.Singleton<IEventAggregator, EventAggregator>();
+            container.Singleton<DataLayer>();
+            container.PerRequest<MainViewModel>();
         }
 
-
-        protected override void OnStartup(object sender, StartupEventArgs e)
+        protected override object GetInstance(Type service, string key)
         {
-            //DisplayRootViewFor<MainViewModel>();
+            var instance = container.GetInstance(service, key);
+            if (instance != null)
+                return instance;
+
+            throw new InvalidOperationException("Could not locate any instances.");
         }
 
+        protected override IEnumerable<object> GetAllInstances(Type service)
+        {
+            return container.GetAllInstances(service);
+        }
+
+        protected override void BuildUp(object instance)
+        {
+            container.BuildUp(instance);
+        }
+
+        protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
+        {
+            DisplayRootViewFor<MainViewModel>();
+        }
     }
 }

@@ -17,8 +17,8 @@
             <RowDefinition Height=".2*"/>
         </Grid.RowDefinitions>
         <ContentControl Name="ActiveItem" Grid.ColumnSpan="3" />
-        <Button Content="Button" VerticalAlignment="Center" Width="75" HorizontalAlignment="Center" Grid.Row="1"/>
-        <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="1"/>
-        <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="2"/>
+        <Button x:Name="GreenButton" Content="Verde" VerticalAlignment="Center" Width="75" HorizontalAlignment="Center" Grid.Row="1"/>
+        <Button x:Name="RedButton" Content="Rosso" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="1"/>
+        <Button x:Name="BlueButton" Content="Blu" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="2"/>
     </Grid>
 </UserControl>
