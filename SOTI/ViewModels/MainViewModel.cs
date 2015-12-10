@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 using System.ComponentModel.Composition;
 using SOTI.Message;
 using SOTI.Model;
+using SOTI.ViewModels.Recipe;
 
 namespace SOTI.ViewModels
 {
+    /// <summary>
+    /// ViewModel utilizzato per la gestione del ciclo di vita dell'applicazione
+    /// </summary>
     public class MainViewModel : Conductor<IScreen>.Collection.OneActive, IHandle<NavigationMessage>
     {
         private readonly IEventAggregator eventAggregator;
-        private readonly DataLayer dataLayer;
 
-        public MainViewModel(IEventAggregator eventAggregator, DataLayer dataLayer)
+        public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel)
         {
             this.eventAggregator = eventAggregator;
-            this.dataLayer = dataLayer;
+            ActivateItem(gameSelectionViewModel);
         }
 
         protected override void OnActivate()
@@ -33,24 +36,39 @@ namespace SOTI.ViewModels
             base.OnDeactivate(close);
         }
 
+        /// <summary>
+        /// Metodo per la gestione del bottone Verde
+        /// </summary>
         public void GreenButton()
         {
+            // Gestione di Arduino
+            // Informo tutti gli interessati che il bottone è stato premuto
             this.eventAggregator.PublishOnUIThread(new GreenButtonMessage());
         }
 
+        /// <summary>
+        /// Metodo per la gestione del bottone Rosso
+        /// </summary>
         public void RedButton()
         {
+            // Gestione di Arduino
+            // Informo tutti gli interessati che il bottone è stato premuto
             this.eventAggregator.PublishOnUIThread(new RedButtonMessage());
         }
 
+        /// <summary>
+        /// Metodo per la gestione del bottone Blu
+        /// </summary>
         public void BlueButton()
         {
+            // Gestione di Arduino
+            // Informo tutti gli interessati che il bottone è stato premuto
             this.eventAggregator.PublishOnUIThread(new BlueButtonMessage());
         }
 
         public void Handle(NavigationMessage message)
         {
-            //ActivateItem(AppBootstrapper.container.BuildUp());
+            ActivateItem(message.DestinationScreen);
         }
     }
 }

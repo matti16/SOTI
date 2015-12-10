@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SOTI.ViewModels;
 
 namespace SOTI.Message
 {
     public class NavigationMessage
     {
+        public NavigationMessage(BaseGameScreenViewModel destinationScreen)
+        {
+            this.DestinationScreen = destinationScreen;
+        }
+
+        public BaseGameScreenViewModel DestinationScreen { get; private set; }
     }
 }

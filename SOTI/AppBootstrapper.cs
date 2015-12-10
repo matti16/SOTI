@@ -4,6 +4,7 @@
     using Caliburn.Micro;
     using ViewModels;
     using Model;
+    using ViewModels.Recipe;
     public class AppBootstrapper : BootstrapperBase
     {
         public static readonly SimpleContainer container = new SimpleContainer();
@@ -15,10 +16,22 @@
 
         protected override void Configure()
         {
+            /*
+
+                IMPORTANTE
+                Ricordarsi di aggiungere SEMPRE i vari ViewModel che vengono utilizzati nell'applicazione al container.
+                In generale i servizi comuni a più ViewModel saranno tendenzialmente Singleton, mentre i singoli
+                ViewModel saranno PerRequest
+
+            */
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
             container.Singleton<DataLayer>();
             container.PerRequest<MainViewModel>();
+            container.PerRequest<GameSelectionViewModel>();
+            //Recipe Game View Models
+            container.PerRequest<ChooseRecipeViewModel>();
+            container.PerRequest<RecipeStepViewModel>();
         }
 
         protected override object GetInstance(Type service, string key)

@@ -1,47 +1,28 @@
 ﻿using Caliburn.Micro;
 using SOTI.Message;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SOTI.ViewModels.Recipe;
+using System.Windows;
 
 namespace SOTI.ViewModels
 {
-    public class GameSelectionViewModel : Screen, IHandle<RedButtonMessage>, IHandle<GreenButtonMessage>, IHandle<BlueButtonMessage>
+    public class GameSelectionViewModel : BaseGameScreenViewModel
     {
-        private readonly IEventAggregator eventAggregator;
-
-        public GameSelectionViewModel(IEventAggregator eventAggregator)
+        public GameSelectionViewModel(IEventAggregator eventAggregator) : base(eventAggregator)
         {
-            this.eventAggregator = eventAggregator;
+
         }
 
-        protected override void OnActivate()
+        public override void Handle(BlueButtonMessage message)
         {
-            this.eventAggregator.Subscribe(this);
-            base.OnActivate();
+            //Navigate to the ChooseRecipe Screen
+            this.NavigateToScreen<ChooseRecipeViewModel>();
+            base.Handle(message);
         }
 
-        protected override void OnDeactivate(bool close)
-        {
-            this.eventAggregator.Unsubscribe(this);
-            base.OnDeactivate(close);
-        }
+        public override Visibility GreenButtonVisibility { get { return Visibility.Hidden; } }
 
-        public void Handle(BlueButtonMessage message)
-        {
-            this.eventAggregator.PublishOnUIThread(new NavigationMessage());
-        }
+        public override Visibility RedButtonVisibility { get { return Visibility.Hidden; } }
 
-        public void Handle(GreenButtonMessage message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Handle(RedButtonMessage message)
-        {
-            throw new NotImplementedException();
-        }
+        public override string BlueButtonText { get { return "Recipe"; } }
     }
 }
