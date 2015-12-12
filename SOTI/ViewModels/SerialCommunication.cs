@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using SOTI.Message;
+using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
@@ -20,12 +22,16 @@ namespace SOTI.ViewModels
 
         private SerialPort port;
 
+        private readonly IEventAggregator eventAggregator;
 
-        public SerialCommunication()
+        public SerialCommunication(IEventAggregator eventAggregator)
         {
+            this.eventAggregator = eventAggregator;
+
             port = new SerialPort();
             port.BaudRate = 9600;
             port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            port.PortName = SerialPort.GetPortNames()[0]; //First port with a device
 
             port.Open();
 
@@ -44,11 +50,17 @@ namespace SOTI.ViewModels
             switch (inData)
             {
                 case GREEN:
+                    this.eventAggregator.PublishOnUIThread(new GreenButtonMessage());
                     break;
+
                 case RED:
+                    this.eventAggregator.PublishOnUIThread(new RedButtonMessage());
                     break;
+
                 case BLUE:
+                    this.eventAggregator.PublishOnUIThread(new BlueButtonMessage());
                     break;
+
                 default:
                     break;
             }
@@ -63,17 +75,13 @@ namespace SOTI.ViewModels
         /// <returns>Return 0</returns>
         public int LedsOn(bool green, bool red, bool blue)
         {
-            string leds = "";
-
             if (green){
-                leds += GREEN; }
+                port.Write(GREEN); }
             if (red){
-                leds += RED; }
+                port.Write(RED); }
             if (blue){
-                leds += BLUE; }
-
-            port.Write(leds);
-
+                port.Write(BLUE); }
+            
             return 0;
         }
 
