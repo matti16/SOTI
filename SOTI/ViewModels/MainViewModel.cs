@@ -17,10 +17,12 @@ namespace SOTI.ViewModels
     public class MainViewModel : Conductor<IScreen>.Collection.OneActive, IHandle<NavigationMessage>
     {
         private readonly IEventAggregator eventAggregator;
+        private readonly SerialCommunication serialCommunication;
 
-        public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel)
+        public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, SerialCommunication serialCommunication)
         {
             this.eventAggregator = eventAggregator;
+            this.serialCommunication = serialCommunication;
             ActivateItem(gameSelectionViewModel);
         }
 

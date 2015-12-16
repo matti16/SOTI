@@ -27,6 +27,9 @@
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
             container.Singleton<DataLayer>();
+            container.Singleton<SerialCommunication>();
+            container.Singleton<StateRicetta>();
+
             container.PerRequest<MainViewModel>();
             container.PerRequest<GameSelectionViewModel>();
             //Recipe Game View Models

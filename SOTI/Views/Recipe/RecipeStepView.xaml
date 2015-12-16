@@ -1,12 +1,17 @@
-﻿<UserControl x:Class="SOTI.Views.GameSelectionView"
+﻿<UserControl x:Class="SOTI.Views.Recipe.RecipeStepView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SOTI.Views"
+             xmlns:local="clr-namespace:SOTI.Views.Recipe"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Text="Choose the Game" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="38*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="Ingredienti" Background="#FF2CB023"/>
+
     </Grid>
 </UserControl>

@@ -20,5 +20,6 @@
         <Button x:Name="GreenButton" Content="{Binding ActiveItem.GreenButtonText}" Visibility="{Binding ActiveItem.GreenButtonVisibility}" VerticalAlignment="Center" Width="75" HorizontalAlignment="Center" Grid.Row="1"/>
         <Button x:Name="RedButton" Content="{Binding ActiveItem.RedButtonText}" Visibility="{Binding ActiveItem.RedButtonVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="1"/>
         <Button x:Name="BlueButton" Content="{Binding ActiveItem.BlueButtonText}" Visibility="{Binding ActiveItem.BlueButtonVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="2"/>
+        <TextBox x:Name="Cibo" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.Row="1"/>
     </Grid>
 </UserControl>

@@ -69,12 +69,18 @@
     <Compile Include="Message\NavigationMessage.cs" />
     <Compile Include="Message\BlueButtonMessage.cs" />
     <Compile Include="Message\RedButtonMessage.cs" />
+    <Compile Include="Model\Allergia.cs" />
+    <Compile Include="Model\Cibo.cs" />
+    <Compile Include="Model\DataLayer.cs" />
+    <Compile Include="Model\Passo.cs" />
+    <Compile Include="Model\Ricetta.cs" />
     <Compile Include="ViewModels\BaseGameScreenViewModel.cs" />
     <Compile Include="ViewModels\GameSelectionViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Recipe\ChooseRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\RecipeStepViewModel.cs" />
     <Compile Include="ViewModels\SerialCommunication.cs" />
+    <Compile Include="ViewModels\StateRicetta.cs" />
     <Compile Include="Views\GameSelectionView.xaml.cs">
       <DependentUpon>GameSelectionView.xaml</DependentUpon>
     </Compile>
@@ -83,6 +89,9 @@
     </Compile>
     <Compile Include="Views\Recipe\ChooseRecipeView.xaml.cs">
       <DependentUpon>ChooseRecipeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Recipe\RecipeStepView.xaml.cs">
+      <DependentUpon>RecipeStepView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -109,13 +118,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Recipe\RecipeStepView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Allergia.cs" />
-    <Compile Include="Model\Cibo.cs" />
-    <Compile Include="Model\DataLayer.cs" />
-    <Compile Include="Model\Passo.cs" />
-    <Compile Include="Model\Ricetta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -7,7 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="77*"/>
+        </Grid.RowDefinitions>
         <TextBlock Text="Choose the recipe" Background="Yellow"/>
-        <TextBox x:Name="recipeText" Background="Aqua" Margin="0,27,0,0"></TextBox>
+        <TextBox x:Name="NomeRicetta" Background="Aqua" Grid.Row="1" Grid.RowSpan="2"/>
+        <TextBox x:Name="Allergia" Background="#FFFF5701" Grid.Row="2"/>
     </Grid>
 </UserControl>

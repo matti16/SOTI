@@ -12,7 +12,7 @@ namespace SOTI.ViewModels
     /// <summary>
     /// Class that manages the cmmunication between the application and Arduino.
     /// </summary>
-    class SerialCommunication
+    public class SerialCommunication
     {   
         
         const string GREEN = "1";
@@ -46,7 +46,7 @@ namespace SOTI.ViewModels
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
-            string inData = sp.ReadExisting();
+            string inData = sp.ReadLine().Substring(0, 1);
             switch (inData)
             {
                 case GREEN:
