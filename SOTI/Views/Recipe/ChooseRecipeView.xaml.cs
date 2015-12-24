@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using SOTI.Message;
+using SOTI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,23 +26,27 @@ namespace SOTI.Views.Recipe
         private readonly IEventAggregator eventAggregator;
 
         private int videoState = 0;
+        private string allergieUri = @"pack://application:,,,/SOTI;component/Media/Images/Allergie/";
+        private string recipesUri = @"pack://application:,,,/SOTI;component/Media/Images/Recipes/";
 
         public ChooseRecipeView()
-        {   
+        {
             InitializeComponent();
             this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
             eventAggregator.Subscribe(this);
+            
             //Load Video
             this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Relax, UriKind.Relative);
             this.CenterBackMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
 
             //Handlers
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;
-
+            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
+            
             //Play
             CenterMedia.Play();
-            CenterBackMedia.Position = TimeSpan.Zero;
-            CenterBackMedia.Pause();
+            CenterBackMedia.Play();
+            this.eventAggregator.PublishOnUIThread(new RedButtonMessage());
         }
 
         private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
@@ -49,20 +54,17 @@ namespace SOTI.Views.Recipe
             switch (videoState)
             {
                 case 0:
-                    CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Point_Left_Bot, UriKind.Relative);
+                    CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Point_Left_Start, UriKind.Relative);
                     CenterMedia.Play();
-                    System.Threading.Thread.Sleep(1000);
                     videoState = 1;
                     break;
                 case 1:
                     CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
                     CenterMedia.Play();
-                    System.Threading.Thread.Sleep(3000);
                     videoState = 2;
                     break;
                 case 2:
-                    CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Scratch, UriKind.Relative);
-                    System.Threading.Thread.Sleep(3000);
+                    CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Scratch_start, UriKind.Relative);
                     CenterMedia.Play();
                     videoState = 0;
                     break;
@@ -84,8 +86,10 @@ namespace SOTI.Views.Recipe
 
         public void Handle(RecipeMessage message)
         {
-            string allergia_img = message.allergiaUri;
-            Allergia.Source = new BitmapImage(new Uri(allergia_img, UriKind.Relative));
+            string allergia_img = message.recipe.allergia.immagine;
+            string recipe_img = message.recipe.immagine;
+            Ricetta.Source = new BitmapImage(new Uri(recipesUri + recipe_img));
+            Allergia.Source = new BitmapImage(new Uri(allergieUri + allergia_img));
         }
     }
 }

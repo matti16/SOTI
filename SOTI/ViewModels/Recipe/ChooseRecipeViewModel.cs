@@ -38,7 +38,7 @@ namespace SOTI.ViewModels.Recipe
         {
             this.ricetta = ricetta;
             this.NomeRicetta = this.ricetta.nome;
-            this.eventAggregator.PublishOnUIThread(new RecipeMessage(nomeRicetta, ricetta.allergia.immagine));
+            this.eventAggregator.PublishOnUIThread(new RecipeMessage(this.ricetta));
         }
 
         private string nomeRicetta = "Ricetta";

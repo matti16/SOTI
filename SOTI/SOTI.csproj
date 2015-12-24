@@ -157,6 +157,11 @@
   <ItemGroup />
   <ItemGroup>
     <Resource Include="Media\Images\Allergie\Latte.jpg" />
+    <Resource Include="Media\Images\Allergie\Uova.png" />
+    <Resource Include="Media\Images\Recipes\BananaSnob.jpg" />
+    <Resource Include="Media\Images\Recipes\PastaCarne.png" />
+    <Resource Include="Media\Images\Allergie\Noce.jpg" />
+    <Resource Include="Media\Images\Allergie\Pesce.png" />
     <Content Include="Media\Video\Cuocolo\Happy_Start_1.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -169,10 +174,19 @@
     <Content Include="Media\Video\Cuocolo\OK_1.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Media\Video\Cuocolo\Point_Left_Bottom_End_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Media\Video\Cuocolo\Point_Left_Bottom_Start_1.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Video\Cuocolo\Relax_End_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Scratch_Head_Right_End_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Scratch_Head_Right_Loop_1.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Video\Cuocolo\Scratch_Head_Right_Start_1.mp4">
