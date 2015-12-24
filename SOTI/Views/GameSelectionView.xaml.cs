@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using SOTI.Message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +20,20 @@ namespace SOTI.Views
     /// <summary>
     /// Interaction logic for GameSelectionView.xaml
     /// </summary>
-    public partial class GameSelectionView : UserControl
+    public partial class GameSelectionView : UserControl, IHandle<FoodReadedMessage>
     {
+        private readonly IEventAggregator eventAggregator;
+
         public GameSelectionView()
         {
             InitializeComponent();
+            this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
+            eventAggregator.Subscribe(this);
+        }
+
+        public void Handle(FoodReadedMessage message)
+        {
+            throw new NotImplementedException();
         }
     }
 }
