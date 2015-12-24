@@ -18,7 +18,8 @@ namespace SOTI.ViewModels.Recipe
         /// </summary>
         /// <param name="eventAggregator"></param>
         public ChooseRecipeViewModel(IEventAggregator eventAggregator, DataLayer data, StateRicetta state) : base(eventAggregator)
-        {
+        {   
+
             this.data = data;
             this.state = state;
 
@@ -37,7 +38,7 @@ namespace SOTI.ViewModels.Recipe
         {
             this.ricetta = ricetta;
             this.NomeRicetta = this.ricetta.nome;
-            this.Allergia = this.ricetta.allergia.nome;
+            this.eventAggregator.PublishOnUIThread(new RecipeMessage(nomeRicetta, ricetta.allergia.immagine));
         }
 
         private string nomeRicetta = "Ricetta";
@@ -50,19 +51,6 @@ namespace SOTI.ViewModels.Recipe
                 {
                     nomeRicetta = value;
                     NotifyOfPropertyChange<string>(() => NomeRicetta);
-                }
-            }
-        }
-        private string allergia = "Allergia";
-        public string Allergia
-        {
-            get { return allergia; }
-            set
-            {
-                if (allergia != value)
-                {
-                    allergia = value;
-                    NotifyOfPropertyChange<string>(() => Allergia);
                 }
             }
         }
@@ -86,6 +74,7 @@ namespace SOTI.ViewModels.Recipe
             }
             showRecipe(data.ricette[currentRecipe]);
             base.Handle(message);
+
         }
 
     }

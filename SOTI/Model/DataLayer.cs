@@ -15,7 +15,8 @@ namespace SOTI.Model
         //static string path = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)
         //             + "SOTI.accdb;";
 
-        static string path = @"C:\Users\Francesco\Dev\SOTI\SOTI.accdb;";
+        //static string path = @"C:\Users\Francesco\Dev\SOTI\SOTI.accdb;";
+        static string path = @"C:\Users\Mattia\Documents\GitHubVisualStudio\SOTI\SOTI.accdb;";
 
         static string connectionString =
             @"Provider=Microsoft.ACE.OLEDB.12.0;" +
@@ -110,7 +111,7 @@ namespace SOTI.Model
                     Allergia newItem = new Allergia();
                     newItem.nome = reader["Nome"].ToString();
                     newItem.descrizione = reader["Descrizione"].ToString();
-
+                    newItem.immagine = reader["Immagine"].ToString();
                     allergie.Add(newItem);
                 }
 

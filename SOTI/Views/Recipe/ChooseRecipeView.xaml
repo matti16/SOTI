@@ -7,13 +7,31 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".3*"/>
+            <ColumnDefinition Width=".6*"/>
+            <!--<ColumnDefinition Width=".3*"/> -->
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="14*"/>
-            <RowDefinition Height="59*"/>
-            <RowDefinition Height="77*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".2*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Choose the recipe" Background="Yellow"/>
-        <TextBox x:Name="NomeRicetta" Background="Aqua" Grid.Row="1" Grid.RowSpan="2"/>
-        <TextBox x:Name="Allergia" Background="#FFFF5701" Grid.Row="2"/>
+        <ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="NomeRicetta" Background="Aqua" Grid.Row="0" />
+            <Image x:Name="Allergia" Grid.Row="1"/>
+        </Grid>
+
+        <MediaElement Name="CenterBackMedia" LoadedBehavior="Manual" Grid.Column="1"></MediaElement>
+        <MediaElement Name="CenterMedia" LoadedBehavior="Manual" Grid.Column="1"></MediaElement>
+
     </Grid>
+    
+       
+    
 </UserControl>

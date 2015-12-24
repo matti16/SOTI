@@ -7,6 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Text="Choose the Game" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".3*"/>
+            <ColumnDefinition Width=".3*"/>
+            <ColumnDefinition Width=".3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".2*"/>
+        </Grid.RowDefinitions>
+        <ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />
+        
+        <MediaElement Name="LeftBackMedia" LoadedBehavior="Manual" Grid.Column="0"></MediaElement>
+        <MediaElement Name="LeftMedia" LoadedBehavior="Manual" Grid.Column="0"></MediaElement>
+
+        <MediaElement Name="CenterBackMedia" LoadedBehavior="Manual" Grid.Column="1"></MediaElement>
+        <MediaElement Name="CenterMedia" LoadedBehavior="Manual" Grid.Column="1"></MediaElement>
+
+        <MediaElement Name="RightBackMedia" LoadedBehavior="Manual" Grid.Column="2"></MediaElement>
+        <MediaElement Name="RightMedia" LoadedBehavior="Manual" Grid.Column="2"></MediaElement>
+        
     </Grid>
 </UserControl>

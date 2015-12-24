@@ -69,6 +69,7 @@
     <Compile Include="Message\GreenButtonMessage.cs" />
     <Compile Include="Message\NavigationMessage.cs" />
     <Compile Include="Message\BlueButtonMessage.cs" />
+    <Compile Include="Message\RecipeMessage.cs" />
     <Compile Include="Message\RedButtonMessage.cs" />
     <Compile Include="Model\Allergia.cs" />
     <Compile Include="Model\Cibo.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Views\Recipe\RecipeStepView.xaml.cs">
       <DependentUpon>RecipeStepView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\VideoUri.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -153,6 +155,36 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Media\Images\Allergie\Latte.jpg" />
+    <Content Include="Media\Video\Cuocolo\Happy_Start_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Appear_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Blink_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\OK_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Point_Left_Bottom_Start_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Relax_End_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Scratch_Head_Right_Start_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Think_DEMO_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Thumb_Up_End_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
