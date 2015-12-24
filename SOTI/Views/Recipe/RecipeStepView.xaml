@@ -11,7 +11,14 @@
             <ColumnDefinition Width="37*"/>
             <ColumnDefinition Width="38*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="Ingredienti" Background="#FF2CB023"/>
+        <ListBox x:Name="Ingredienti" DisplayMemberPath="nome" Background="#FF2CB023"/>
+        <StackPanel Grid.Column="1">
+            <TextBlock TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"><Run Text="Giusto"/></TextBlock>
+            <TextBlock x:Name="Giusto" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"><Run Text="Giusto"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Text="Sbagliato"/>
+            <TextBlock x:Name="Sbagliato" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"><Run Text="Giusto"/></TextBlock>
+            <TextBlock x:Name="Risultato" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" FontSize="48"/>
+        </StackPanel>
 
     </Grid>
 </UserControl>

@@ -8,6 +8,7 @@ using System.ComponentModel.Composition;
 using SOTI.Message;
 using SOTI.Model;
 using SOTI.ViewModels.Recipe;
+using System.Windows.Input;
 
 namespace SOTI.ViewModels
 {
@@ -19,10 +20,16 @@ namespace SOTI.ViewModels
         private readonly IEventAggregator eventAggregator;
         private readonly SerialCommunication serialCommunication;
 
-        public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, SerialCommunication serialCommunication)
+        //public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, SerialCommunication serialCommunication)
+        //{
+        //    this.eventAggregator = eventAggregator;
+        //    this.serialCommunication = serialCommunication;
+        //    ActivateItem(gameSelectionViewModel);
+        //}
+
+        public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel)
         {
             this.eventAggregator = eventAggregator;
-            this.serialCommunication = serialCommunication;
             ActivateItem(gameSelectionViewModel);
         }
 
@@ -36,6 +43,28 @@ namespace SOTI.ViewModels
         {
             this.eventAggregator.Unsubscribe(this);
             base.OnDeactivate(close);
+        }
+
+        private string cibo = "Ciboooooo";
+        public virtual string Cibo
+        {
+            get { return cibo; }
+            set
+            {
+                if (cibo != value)
+                {
+                    cibo = value;
+                    NotifyOfPropertyChange<string>(() => Cibo);
+                }
+            }
+        }
+
+        public void ShowNameAction(KeyEventArgs keyArgs)
+        {
+            if (keyArgs.Key == Key.Enter)
+            {
+                this.eventAggregator.PublishOnUIThread(new FoodReadedMessage(this.Cibo));
+            }
         }
 
         /// <summary>

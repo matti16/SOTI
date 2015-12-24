@@ -12,7 +12,7 @@ namespace SOTI.ViewModels
     /// <summary>
     /// Classe base da cui tutti i ViewModel che gestiranno le schermate devono ereditare
     /// </summary>
-    public class BaseGameScreenViewModel : Screen, IHandle<RedButtonMessage>, IHandle<GreenButtonMessage>, IHandle<BlueButtonMessage>
+    public class BaseGameScreenViewModel : Screen, IHandle<RedButtonMessage>, IHandle<GreenButtonMessage>, IHandle<BlueButtonMessage>, IHandle<FoodReadedMessage>
     {
         protected readonly IEventAggregator eventAggregator;
 
@@ -162,5 +162,11 @@ namespace SOTI.ViewModels
         /// </summary>
         /// <param name="message">Non Utilizzato</param>
         public virtual void Handle(RedButtonMessage message) { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        public virtual void Handle(FoodReadedMessage message) { }
     }
 }

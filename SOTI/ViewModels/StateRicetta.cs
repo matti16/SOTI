@@ -21,14 +21,11 @@ namespace SOTI.ViewModels
 
         public void MoveNext()
         {
-            if (HasNext())
+            if (this.HasNext)
                 passo++;
         }
 
-        public bool HasNext()
-        {
-            return passo < ricetta.passi.Count - 1;
-        }
+        public bool HasNext { get { return passo < ricetta.passi.Count - 1; } }
 
         public Passo PassoCorrente { get { return this.ricetta.passi[passo]; } }
     }

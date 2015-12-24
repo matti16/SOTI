@@ -23,7 +23,7 @@ namespace SOTI.ViewModels.Recipe
             this.state = state;
 
             Random rnd = new Random();
-            int firstRecipe = rnd.Next(data.ricette.Count - 1);
+            int firstRecipe = rnd.Next(data.ricette.Count);
             currentRecipe = firstRecipe;
             showRecipe(data.ricette[currentRecipe]);
             
