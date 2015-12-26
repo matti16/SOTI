@@ -18,17 +18,18 @@
         </Grid.RowDefinitions>
         <ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />
 
-        <Grid Grid.Row="0" Grid.Column="0">
+        <Grid Grid.Row="0" Grid.Column="0" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".05*"/>
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="NomeRicetta" FontWeight="ExtraBlack" BorderBrush="White" Grid.Row="0" />
+            <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" HorizontalAlignment="Center" Foreground="MediumBlue"/>
             <Image x:Name="Ricetta" Grid.Row="1"></Image>
-            <TextBox Text="ATTENZIONE!" Grid.Row="2" Foreground="Red" FontWeight="ExtraBlack" BorderBrush="White"></TextBox>
-            <Image x:Name="Allergia" Grid.Row="3"/>
+            <TextBlock Text="Allergia" Grid.Row="3" Foreground="OrangeRed" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
+            <Image x:Name="Allergia" Grid.Row="4"/>
         </Grid>
 
         <MediaElement Name="CenterBackMedia" LoadedBehavior="Manual" Grid.Column="1"></MediaElement>
