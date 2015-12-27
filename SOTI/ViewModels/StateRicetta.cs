@@ -28,5 +28,7 @@ namespace SOTI.ViewModels
         public bool HasNext { get { return passo < ricetta.passi.Count - 1; } }
 
         public Passo PassoCorrente { get { return this.ricetta.passi[passo]; } }
+
+        public Allergia Allergia { get { return this.ricetta.allergia; } }
     }
 }

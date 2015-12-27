@@ -65,9 +65,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Message\AllergoloAllergiaMessage.cs" />
     <Compile Include="Message\FoodReadedMessage.cs" />
     <Compile Include="Message\GreenButtonMessage.cs" />
     <Compile Include="Message\GUIReadyMessage.cs" />
+    <Compile Include="Message\IngredientResultMessage.cs" />
     <Compile Include="Message\NavigationMessage.cs" />
     <Compile Include="Message\BlueButtonMessage.cs" />
     <Compile Include="Message\PassoMessage.cs" />
@@ -81,6 +83,8 @@
     <Compile Include="ViewModels\BaseGameScreenViewModel.cs" />
     <Compile Include="ViewModels\GameSelectionViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Message\AllergoloCiboMessage.cs" />
+    <Compile Include="ViewModels\Recipe\AllergoloRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\ChooseRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\RecipeStepViewModel.cs" />
     <Compile Include="ViewModels\SerialCommunication.cs" />
@@ -90,6 +94,9 @@
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Recipe\AllergoloRecipeView.xaml.cs">
+      <DependentUpon>AllergoloRecipeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Recipe\ChooseRecipeView.xaml.cs">
       <DependentUpon>ChooseRecipeView.xaml</DependentUpon>
@@ -118,6 +125,10 @@
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Recipe\AllergoloRecipeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Recipe\ChooseRecipeView.xaml">
       <SubType>Designer</SubType>
@@ -185,6 +196,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Video\Cuocolo\Relax_End_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Sad_Start_1.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Video\Cuocolo\Scratch_Head_Right_End_1.mp4">

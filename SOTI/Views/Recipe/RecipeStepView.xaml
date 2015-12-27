@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />
 
-        <Grid Name="PassoDoppio_Grid" Visibility="Visible" Margin="20">
+        <Grid Name="PassoDoppio_Grid" Visibility="Visible" Margin="20,20,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
@@ -27,10 +27,10 @@
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Name="UpIngredient_Txt" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Name="UpIngredient_Txt" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
             <Image Name="UpIngredient_Img" Grid.Row="1"></Image>
 
-            <TextBlock Name="BotIngredient_Txt" Grid.Row="3" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Name="BotIngredient_Txt" Grid.Row="3" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
             <Image Name="BotIngredient_Img" Grid.Row="4"></Image>
 
         </Grid>
@@ -41,7 +41,7 @@
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
             
-            <TextBlock Name="Ingredient_Txt" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Name="Ingredient_Txt" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
             <Image Name="Ingredient_Img" Grid.Row="1"></Image>
             
         </Grid>

@@ -20,10 +20,11 @@ namespace SOTI.Views.Recipe
     /// <summary>
     /// Interaction logic for RecipeStepView.xaml
     /// </summary>
-    public partial class RecipeStepView : UserControl, IHandle<PassoMessage>
+    public partial class RecipeStepView : UserControl, IHandle<PassoMessage>,IHandle<IngredientResultMessage>
     {
         private readonly IEventAggregator eventAggregator;
         private string baseUri = @"pack://application:,,,/SOTI;component/Media/Images/Cibi/";
+        private bool right_ingredient;
 
         public RecipeStepView()
         {
@@ -31,6 +32,12 @@ namespace SOTI.Views.Recipe
             this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
             eventAggregator.Subscribe(this);
 
+            resetVideo();
+            this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
+        }
+
+        private void resetVideo()
+        {
             //Load Video
             this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Think, UriKind.Relative);
             this.CenterBackMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
@@ -42,8 +49,6 @@ namespace SOTI.Views.Recipe
             //Play
             CenterMedia.Play();
             CenterBackMedia.Play();
-
-            this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
         }
 
         private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
@@ -84,6 +89,29 @@ namespace SOTI.Views.Recipe
                 //Ingredient_Img.Source = new BitmapImage(new Uri(baseUri + message.first.immagine));
                 PassoSingolo_Grid.Visibility = Visibility.Visible;               
             }
+        }
+
+        public void Handle(IngredientResultMessage message)
+        {
+            this.right_ingredient = message.right;
+            if (message.right == false)
+            {
+                this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Wrong_ingredient, UriKind.Relative);
+                CenterMedia.MediaEnded -= CenterMedia_MediaEnded;
+                CenterMedia.MediaEnded += CenterMedia_MediaEndedResult;
+            }
+            else
+            {
+                this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Rigth_ingredient, UriKind.Relative);
+                CenterMedia.MediaEnded -= CenterMedia_MediaEnded;
+                CenterMedia.MediaEnded += CenterMedia_MediaEndedResult;
+            }
+        }
+
+        private void CenterMedia_MediaEndedResult(object sender, RoutedEventArgs e)
+        {
+            this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
+            resetVideo();
         }
     }
 }

@@ -15,7 +15,6 @@ namespace SOTI.ViewModels.Recipe
         {
             this.state = state;
             this.passo = state.PassoCorrente;
-            this.Ingredienti = new ObservableCollection<Cibo>();
 
             showPasso();
         }
@@ -52,7 +51,7 @@ namespace SOTI.ViewModels.Recipe
                 {
                     this.state.MoveNext();
                     this.passo = state.PassoCorrente;
-                    showPasso();
+                    this.eventAggregator.PublishOnUIThread(new IngredientResultMessage(true));
                 }
                 else
                 {
@@ -61,7 +60,7 @@ namespace SOTI.ViewModels.Recipe
             }
             else
             {
-                
+                this.eventAggregator.PublishOnUIThread(new IngredientResultMessage(false));
             }
             base.Handle(message);
         }
@@ -69,6 +68,14 @@ namespace SOTI.ViewModels.Recipe
         public void Handle(GUIReadyMessage message)
         {
             showPasso();
+        }
+
+
+        public override void Handle(BlueButtonMessage message)
+        {
+            //Navigate to the ChooseRecipe Screen
+            this.NavigateToScreen<AllergoloRecipeViewModel>();
+            base.Handle(message);
         }
     }
 }

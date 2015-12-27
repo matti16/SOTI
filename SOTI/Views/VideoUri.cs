@@ -11,6 +11,8 @@ namespace SOTI.Views
         public const string Video = @"Media/Video";
 
         public const string Cuocolo = "/Cuocolo";
+        public const string Allergolo = "/Allergolo";
+        public const string Muscolo = "/Muscolo";
 
         public const string Appear = "/Appear_1.mp4";
         public const string Thumb_Up = "/Thumb_Up_End_1.mp4";
@@ -24,6 +26,9 @@ namespace SOTI.Views
         public const string Scratch_start = "/Scratch_Head_Right_Start_1.mp4";
         public const string Scratch_loop = "/Scratch_Head_Right_Loop_1.mp4";
         public const string Scratch_end = "/Scratch_Head_Right_End_1.mp4";
+
+        public const string Rigth_ingredient = "/Thumb_Up_End_1.mp4";
+        public const string Wrong_ingredient = "/Sad_Start_1.mp4";
 
     }
 }
