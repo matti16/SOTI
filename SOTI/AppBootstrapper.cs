@@ -5,6 +5,8 @@
     using ViewModels;
     using Model;
     using ViewModels.Recipe;
+    using ViewModels.Market;
+
     public class AppBootstrapper : BootstrapperBase
     {
         public static readonly SimpleContainer container = new SimpleContainer();
@@ -29,6 +31,7 @@
             container.Singleton<DataLayer>();
             container.Singleton<SerialCommunication>();
             container.Singleton<StateRicetta>();
+            container.Singleton<StateMarket>();
 
             container.PerRequest<MainViewModel>();
             container.PerRequest<GameSelectionViewModel>();
@@ -37,6 +40,9 @@
             container.PerRequest<RecipeStepViewModel>();
             container.PerRequest<AllergoloRecipeViewModel>();
             container.PerRequest<EndRecipeViewModel>();
+            //Market Game View Models
+            container.PerRequest<IntroViewModel>();
+
         }
 
         protected override object GetInstance(Type service, string key)

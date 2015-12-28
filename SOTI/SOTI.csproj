@@ -85,17 +85,22 @@
     <Compile Include="ViewModels\GameSelectionViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Message\AllergoloCiboMessage.cs" />
+    <Compile Include="ViewModels\Market\IntroViewModel.cs" />
     <Compile Include="ViewModels\Recipe\AllergoloRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\ChooseRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\EndRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\RecipeStepViewModel.cs" />
     <Compile Include="ViewModels\SerialCommunication.cs" />
+    <Compile Include="ViewModels\StateMarket.cs" />
     <Compile Include="ViewModels\StateRicetta.cs" />
     <Compile Include="Views\GameSelectionView.xaml.cs">
       <DependentUpon>GameSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Market\IntroView.xaml.cs">
+      <DependentUpon>IntroView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Recipe\AllergoloRecipeView.xaml.cs">
       <DependentUpon>AllergoloRecipeView.xaml</DependentUpon>
@@ -130,6 +135,10 @@
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Market\IntroView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Recipe\AllergoloRecipeView.xaml">
       <SubType>Designer</SubType>
@@ -180,6 +189,9 @@
     <Folder Include="Media\Images\Cibi\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Media\Video\Muscolo\Blink_1.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Media\Images\Allergie\Latte.jpg" />
     <Resource Include="Media\Images\Allergie\Uova.png" />
     <Resource Include="Media\Images\Recipes\BananaSnob.jpg" />
