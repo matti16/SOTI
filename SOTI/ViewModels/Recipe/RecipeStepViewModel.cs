@@ -10,6 +10,7 @@ namespace SOTI.ViewModels.Recipe
     {
         private Passo passo;
         private readonly StateRicetta state;
+        private bool finished = false;
 
         public RecipeStepViewModel(IEventAggregator eventAggregator, StateRicetta state) : base(eventAggregator)
         {
@@ -56,7 +57,8 @@ namespace SOTI.ViewModels.Recipe
                 }
                 else
                 {
-                    await this.NavigateToScreen<ChooseRecipeViewModel>();
+                    finished = true;
+                    this.eventAggregator.PublishOnUIThread(new RecipeFinishMessage());
                 }
             }
             else
@@ -69,7 +71,14 @@ namespace SOTI.ViewModels.Recipe
 
         public void Handle(GUIReadyMessage message)
         {
+            if (finished)
+            {
+                this.NavigateToScreen<GameSelectionViewModel>();
+            }
+            else
+            {
             showPasso();
+        }
         }
 
 
