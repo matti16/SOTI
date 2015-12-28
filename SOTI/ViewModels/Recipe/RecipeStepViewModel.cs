@@ -46,20 +46,19 @@ namespace SOTI.ViewModels.Recipe
 
         public ObservableCollection<Cibo> Ingredienti { get; private set; }
 
-        public override void Handle(FoodReadedMessage message)
+        public override async void Handle(FoodReadedMessage message)
         {
             if (message.Food == this.passo.ciboGiusto.id.ToString())
             {
                 this.Risultato = "Bravo";
-                System.Threading.Thread.Sleep(1000);
                 if (this.state.HasNext)
                 {
                     this.state.MoveNext();
-                    this.NavigateToScreen<RecipeStepViewModel>();
+                    await this.NavigateToScreen<RecipeStepViewModel>();
                 }
                 else
                 {
-                    this.NavigateToScreen<ChooseRecipeViewModel>();
+                    await this.NavigateToScreen<ChooseRecipeViewModel>();
                 }
             }
             else

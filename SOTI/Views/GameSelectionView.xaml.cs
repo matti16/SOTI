@@ -86,7 +86,7 @@ namespace SOTI.Views
             else
             {
                 LeftBackMedia.Stop();
-                System.Threading.Thread.Sleep(3000);
+                //System.Threading.Thread.Sleep(3000);
                 LeftMedia.Position = TimeSpan.Zero;
                 LeftMedia.Play();
             }
@@ -111,7 +111,7 @@ namespace SOTI.Views
             else
             {
                 CenterBackMedia.Stop();
-                System.Threading.Thread.Sleep(3000);
+                //System.Threading.Thread.Sleep(3000);
                 CenterMedia.Position = TimeSpan.Zero;
                 CenterMedia.Play();
             }
@@ -136,7 +136,7 @@ namespace SOTI.Views
             else
             {
                 RightBackMedia.Stop();
-                System.Threading.Thread.Sleep(3000);
+                //System.Threading.Thread.Sleep(3000);
                 RightMedia.Position = TimeSpan.Zero;
                 RightMedia.Play();
             }

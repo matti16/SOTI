@@ -57,11 +57,11 @@ namespace SOTI.ViewModels.Recipe
 
         public override Visibility BlueButtonVisibility { get { return Visibility.Hidden; } }
 
-        public override void Handle(GreenButtonMessage message)
+        public override async void Handle(GreenButtonMessage message)
         {
             //Navigate to the RecipeStep Screen
             this.state.initRicetta(ricetta);
-            this.NavigateToScreen<RecipeStepViewModel>();
+            await this.NavigateToScreen<RecipeStepViewModel>();
             base.Handle(message);
         }
 

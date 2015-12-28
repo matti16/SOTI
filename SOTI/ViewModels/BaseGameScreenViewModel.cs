@@ -117,13 +117,34 @@ namespace SOTI.ViewModels
 
         #endregion
 
+        private bool isNavigating = false;
+        public bool IsNavigating
+        {
+            get { return isNavigating; }
+            set
+            {
+                if (isNavigating != value)
+                {
+                    isNavigating = value;
+                    NotifyOfPropertyChange<bool>(() => IsNavigating);
+                }
+            }
+        }
+
         /// <summary>
         /// Ogni volta che un ViewModel viene caricato a schermo, questo metodo viene invocato
         /// </summary>
         protected override void OnActivate()
         {
             this.eventAggregator.Subscribe(this);
+            this.IsNavigating = true;
             base.OnActivate();
+        }
+
+        protected override void OnViewLoaded(object view)
+        {
+            this.IsNavigating = false;
+            base.OnViewLoaded(view);
         }
 
         /// <summary>
@@ -133,6 +154,7 @@ namespace SOTI.ViewModels
         protected override void OnDeactivate(bool close)
         {
             this.eventAggregator.Unsubscribe(this);
+            this.IsNavigating = false;
             base.OnDeactivate(close);
         }
 
@@ -140,9 +162,10 @@ namespace SOTI.ViewModels
         /// Metodo da utilizzare per la navigazione da una schermata di gioco all'altra
         /// </summary>
         /// <typeparam name="T">Schermata di destinazione</typeparam>
-        public void NavigateToScreen<T>() where T : BaseGameScreenViewModel
+        public async Task NavigateToScreen<T>() where T : BaseGameScreenViewModel
         {
-            this.eventAggregator.PublishOnUIThread(new NavigationMessage(AppBootstrapper.container.GetInstance<T>()));
+            this.IsNavigating = true;
+            await Task.Delay(1500).ContinueWith(t => this.eventAggregator.PublishOnBackgroundThread((new NavigationMessage(AppBootstrapper.container.GetInstance<T>()))));
         }
 
         /// <summary>

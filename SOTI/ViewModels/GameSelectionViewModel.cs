@@ -12,10 +12,10 @@ namespace SOTI.ViewModels
 
         }
 
-        public override void Handle(BlueButtonMessage message)
+        public override async void Handle(BlueButtonMessage message)
         {
             //Navigate to the ChooseRecipe Screen
-            this.NavigateToScreen<ChooseRecipeViewModel>();
+            await this.NavigateToScreen<ChooseRecipeViewModel>();
             base.Handle(message);
         }
 
