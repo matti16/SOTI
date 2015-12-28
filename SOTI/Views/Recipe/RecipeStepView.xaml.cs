@@ -20,7 +20,7 @@ namespace SOTI.Views.Recipe
     /// <summary>
     /// Interaction logic for RecipeStepView.xaml
     /// </summary>
-    public partial class RecipeStepView : UserControl, IHandle<PassoMessage>,IHandle<IngredientResultMessage>
+    public partial class RecipeStepView : UserControl, IHandle<PassoMessage>,IHandle<IngredientResultMessage>, IHandle<RecipeFinishMessage>
     {
         private readonly IEventAggregator eventAggregator;
         private string baseUri = @"pack://application:,,,/SOTI;component/Media/Images/Cibi/";
@@ -112,6 +112,18 @@ namespace SOTI.Views.Recipe
         {
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
             resetVideo();
+        }
+
+        public void Handle(RecipeFinishMessage message)
+        {
+            this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Recipe_finish, UriKind.Relative);
+            CenterMedia.MediaEnded -= CenterMedia_MediaEnded;
+            CenterMedia.MediaEnded += CenterMedia_Finish;
+        }
+
+        private void CenterMedia_Finish(object sender, RoutedEventArgs e)
+        {
+            this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
         }
     }
 }

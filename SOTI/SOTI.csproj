@@ -74,6 +74,7 @@
     <Compile Include="Message\NavigationMessage.cs" />
     <Compile Include="Message\BlueButtonMessage.cs" />
     <Compile Include="Message\PassoMessage.cs" />
+    <Compile Include="Message\RecipeFinishMessage.cs" />
     <Compile Include="Message\RecipeMessage.cs" />
     <Compile Include="Message\RedButtonMessage.cs" />
     <Compile Include="Model\Allergia.cs" />
