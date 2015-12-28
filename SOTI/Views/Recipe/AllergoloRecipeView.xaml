@@ -4,13 +4,32 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SOTI.Views.Recipe"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Name="userControl"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+        <i:Interaction.Behaviors>
+            <ei:DataStateBehavior TrueState="Faded" FalseState="Normal" Value="True" Binding="{Binding IsNavigating}"/>
+        </i:Interaction.Behaviors>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:1"/>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Normal"/>
+                <VisualState x:Name="Faded">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".3*"/>
             <ColumnDefinition Width=".6*"/>
-            <!--<ColumnDefinition Width=".3*"/> -->
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -24,14 +43,14 @@
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Name="Title" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
-            <TextBlock Name="Description" Grid.Row="1" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Name="Title" HorizontalAlignment="Center" FontWeight="Bold" />
+            <TextBlock Name="Description" Grid.Row="1" HorizontalAlignment="Center" />
             <Image Name="Immagine" Grid.Row="2"></Image>
             
         </Grid>
 
-        <MediaElement Name="CenterBackMedia" LoadedBehavior="Manual" Grid.Column="1"></MediaElement>
-        <MediaElement Name="CenterMedia" LoadedBehavior="Manual" Grid.Column="1"></MediaElement>
+        <MediaElement Name="CenterBackMedia" LoadedBehavior="Manual" Grid.Column="1" />
+        <MediaElement Name="CenterMedia" LoadedBehavior="Manual" Grid.Column="1" />
 
     </Grid>
 </UserControl>

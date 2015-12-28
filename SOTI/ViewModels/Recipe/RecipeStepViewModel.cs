@@ -6,7 +6,7 @@ using SOTI.Message;
 
 namespace SOTI.ViewModels.Recipe
 {
-    public class RecipeStepViewModel : BaseGameScreenViewModel, IHandle<GUIReadyMessage>
+    public class RecipeStepViewModel : BaseGameScreenViewModel, IHandle<GUIReadyMessage>, IHandle<FoodReadedMessage>
     {
         private Passo passo;
         private readonly StateRicetta state;
@@ -41,26 +41,28 @@ namespace SOTI.ViewModels.Recipe
 
         public ObservableCollection<Cibo> Ingredienti { get; private set; }
 
-        public override void Handle(FoodReadedMessage message)
+        public override async void Handle(FoodReadedMessage message)
         {
             if (message.Food == this.passo.ciboGiusto.id.ToString())
             {
                 
-                System.Threading.Thread.Sleep(1000);
+                //System.Threading.Thread.Sleep(1000);
                 if (this.state.HasNext)
                 {
                     this.state.MoveNext();
-                    this.passo = state.PassoCorrente;
+                    //this.passo = state.PassoCorrente;
                     this.eventAggregator.PublishOnUIThread(new IngredientResultMessage(true));
+                    await this.NavigateToScreen<RecipeStepViewModel>();
                 }
                 else
                 {
-                    this.NavigateToScreen<ChooseRecipeViewModel>();
+                    await this.NavigateToScreen<ChooseRecipeViewModel>();
                 }
             }
             else
             {
                 this.eventAggregator.PublishOnUIThread(new IngredientResultMessage(false));
+                //await this.NavigateToScreen<RecipeStepViewModel>();
             }
             base.Handle(message);
         }
@@ -71,10 +73,10 @@ namespace SOTI.ViewModels.Recipe
         }
 
 
-        public override void Handle(BlueButtonMessage message)
+        public override async void Handle(BlueButtonMessage message)
         {
             //Navigate to the ChooseRecipe Screen
-            this.NavigateToScreen<AllergoloRecipeViewModel>();
+            await this.NavigateToScreen<AllergoloRecipeViewModel>();
             base.Handle(message);
         }
     }
