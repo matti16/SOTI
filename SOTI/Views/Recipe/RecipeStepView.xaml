@@ -28,17 +28,47 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="38*"/>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width=".5*"/>
+            <!--<ColumnDefinition Width=".3*"/> -->
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="Ingredienti" DisplayMemberPath="nome" Background="#FF2CB023"/>
-        <StackPanel Grid.Column="1">
-            <TextBlock TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"><Run Text="Giusto"/></TextBlock>
-            <TextBlock x:Name="Giusto" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"><Run Text="Giusto"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Text="Sbagliato"/>
-            <TextBlock x:Name="Sbagliato" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"><Run Text="Giusto"/></TextBlock>
-            <TextBlock x:Name="Risultato" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" FontSize="48"/>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".2*"/>
+        </Grid.RowDefinitions>
+        <ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />
+
+        <Grid Name="PassoDoppio_Grid" Visibility="Visible" Margin="20,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".05*"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".5*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Name="UpIngredient_Txt" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+            <Image Name="UpIngredient_Img" Grid.Row="1"></Image>
+
+            <TextBlock Name="BotIngredient_Txt" Grid.Row="3" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+            <Image Name="BotIngredient_Img" Grid.Row="4"></Image>
+
+        </Grid>
+
+        <Grid Name="PassoSingolo_Grid" Visibility="Hidden" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Name="Ingredient_Txt" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+            <Image Name="Ingredient_Img" Grid.Row="1"></Image>
+            
+        </Grid>
+
+        <MediaElement Name="CenterBackMedia" LoadedBehavior="Manual" Grid.Column="1"></MediaElement>
+        <MediaElement Name="CenterMedia" LoadedBehavior="Manual" Grid.Column="1"></MediaElement>
 
     </Grid>
+
 </UserControl>

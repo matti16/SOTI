@@ -32,6 +32,7 @@ namespace SOTI.ViewModels
             port.BaudRate = 9600;
             port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
             port.PortName = SerialPort.GetPortNames()[0]; //First port with a device
+            
 
             port.Open();
 

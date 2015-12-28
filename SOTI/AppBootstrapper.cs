@@ -35,6 +35,7 @@
             //Recipe Game View Models
             container.PerRequest<ChooseRecipeViewModel>();
             container.PerRequest<RecipeStepViewModel>();
+            container.PerRequest<AllergoloRecipeViewModel>();
         }
 
         protected override object GetInstance(Type service, string key)

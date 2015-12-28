@@ -6,110 +6,76 @@ using SOTI.Message;
 
 namespace SOTI.ViewModels.Recipe
 {
-    public class RecipeStepViewModel : BaseGameScreenViewModel
+    public class RecipeStepViewModel : BaseGameScreenViewModel, IHandle<GUIReadyMessage>
     {
-        private readonly Passo passo;
+        private Passo passo;
         private readonly StateRicetta state;
 
         public RecipeStepViewModel(IEventAggregator eventAggregator, StateRicetta state) : base(eventAggregator)
         {
             this.state = state;
             this.passo = state.PassoCorrente;
-            this.Ingredienti = new ObservableCollection<Cibo>();
 
+            showPasso();
+        }
+
+        private void showPasso()
+        { 
             if (passo.passoDoppio)
             {
                 Random rnd = new Random();
                 if (rnd.Next(2) == 1)
                 {
-                    //Metto prima quello sbagliato
-                    this.Ingredienti.Add(passo.ciboSbagliato);
-                    //Poi quello giusto
-                    this.Ingredienti.Add(passo.ciboGiusto);
+                    this.eventAggregator.PublishOnUIThread(new PassoMessage(true, passo.ciboGiusto, passo.ciboSbagliato));
                 }
                 else
                 {
-                    //Metto prima quello giusto
-                    this.Ingredienti.Add(passo.ciboGiusto);
-                    //Poi quello sbagliato
-                    this.Ingredienti.Add(passo.ciboSbagliato);
+                    this.eventAggregator.PublishOnUIThread(new PassoMessage(true, passo.ciboSbagliato, passo.ciboGiusto));
                 }
-                this.Giusto = passo.ciboGiusto.nome;
-                this.Sbagliato = passo.ciboSbagliato.nome;
             }
             else
             {
-                this.Ingredienti.Add(passo.ciboGiusto);
-                this.Giusto = passo.ciboGiusto.nome;
+                this.eventAggregator.PublishOnUIThread(new PassoMessage(false, passo.ciboGiusto, null));
             }
         }
 
         public ObservableCollection<Cibo> Ingredienti { get; private set; }
 
-        public override async void Handle(FoodReadedMessage message)
+        public override void Handle(FoodReadedMessage message)
         {
             if (message.Food == this.passo.ciboGiusto.id.ToString())
             {
-                this.Risultato = "Bravo";
+                
+                System.Threading.Thread.Sleep(1000);
                 if (this.state.HasNext)
                 {
                     this.state.MoveNext();
-                    await this.NavigateToScreen<RecipeStepViewModel>();
+                    this.passo = state.PassoCorrente;
+                    this.eventAggregator.PublishOnUIThread(new IngredientResultMessage(true));
                 }
                 else
                 {
-                    await this.NavigateToScreen<ChooseRecipeViewModel>();
+                    this.NavigateToScreen<ChooseRecipeViewModel>();
                 }
             }
             else
             {
-                this.Risultato = "NOOOO";
+                this.eventAggregator.PublishOnUIThread(new IngredientResultMessage(false));
             }
             base.Handle(message);
         }
 
-        private string giusto = "";
-        public virtual string Giusto
+        public void Handle(GUIReadyMessage message)
         {
-            get { return giusto; }
-            set
-            {
-                if (giusto != value)
-                {
-                    giusto = value;
-                    NotifyOfPropertyChange<string>(() => Giusto);
-                }
-            }
+            showPasso();
         }
 
-        private string sbagliato = "";
-        public virtual string Sbagliato
-        {
-            get { return sbagliato; }
-            set
-            {
-                if (sbagliato != value)
-                {
-                    sbagliato = value;
-                    NotifyOfPropertyChange<string>(() => Sbagliato);
-                }
-            }
-        }
 
-        private string risultato = "";
-        public virtual string Risultato
+        public override void Handle(BlueButtonMessage message)
         {
-            get { return risultato; }
-            set
-            {
-                if (risultato != value)
-                {
-                    risultato = value;
-                    NotifyOfPropertyChange<string>(() => Risultato);
-                }
-            }
+            //Navigate to the ChooseRecipe Screen
+            this.NavigateToScreen<AllergoloRecipeViewModel>();
+            base.Handle(message);
         }
-
-        
     }
 }
