@@ -74,7 +74,6 @@
     <Compile Include="Message\NavigationMessage.cs" />
     <Compile Include="Message\BlueButtonMessage.cs" />
     <Compile Include="Message\PassoMessage.cs" />
-    <Compile Include="Message\RecipeFinishMessage.cs" />
     <Compile Include="Message\RecipeMessage.cs" />
     <Compile Include="Message\RedButtonMessage.cs" />
     <Compile Include="Model\Allergia.cs" />
@@ -88,6 +87,7 @@
     <Compile Include="Message\AllergoloCiboMessage.cs" />
     <Compile Include="ViewModels\Recipe\AllergoloRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\ChooseRecipeViewModel.cs" />
+    <Compile Include="ViewModels\Recipe\EndRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\RecipeStepViewModel.cs" />
     <Compile Include="ViewModels\SerialCommunication.cs" />
     <Compile Include="ViewModels\StateRicetta.cs" />
@@ -102,6 +102,9 @@
     </Compile>
     <Compile Include="Views\Recipe\ChooseRecipeView.xaml.cs">
       <DependentUpon>ChooseRecipeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Recipe\EndRecipeView.xaml.cs">
+      <DependentUpon>EndRecipeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Recipe\RecipeStepView.xaml.cs">
       <DependentUpon>RecipeStepView.xaml</DependentUpon>
@@ -133,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Recipe\ChooseRecipeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Recipe\EndRecipeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

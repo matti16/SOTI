@@ -36,6 +36,7 @@
             container.PerRequest<ChooseRecipeViewModel>();
             container.PerRequest<RecipeStepViewModel>();
             container.PerRequest<AllergoloRecipeViewModel>();
+            container.PerRequest<EndRecipeViewModel>();
         }
 
         protected override object GetInstance(Type service, string key)

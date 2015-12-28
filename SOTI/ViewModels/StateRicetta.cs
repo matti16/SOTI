@@ -30,5 +30,7 @@ namespace SOTI.ViewModels
         public Passo PassoCorrente { get { return this.ricetta.passi[passo]; } }
 
         public Allergia Allergia { get { return this.ricetta.allergia; } }
+
+        public Ricetta Ricetta { get { return this.ricetta; } }
     }
 }

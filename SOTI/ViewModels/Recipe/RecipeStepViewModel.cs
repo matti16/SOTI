@@ -10,7 +10,7 @@ namespace SOTI.ViewModels.Recipe
     {
         private Passo passo;
         private readonly StateRicetta state;
-        private bool finished = false;
+        private bool right = false;
 
         public RecipeStepViewModel(IEventAggregator eventAggregator, StateRicetta state) : base(eventAggregator)
         {
@@ -39,8 +39,7 @@ namespace SOTI.ViewModels.Recipe
                 this.eventAggregator.PublishOnUIThread(new PassoMessage(false, passo.ciboGiusto, null));
             }
         }
-
-        public ObservableCollection<Cibo> Ingredienti { get; private set; }
+        
 
         public override async void Handle(FoodReadedMessage message)
         {
@@ -51,14 +50,13 @@ namespace SOTI.ViewModels.Recipe
                 if (this.state.HasNext)
                 {
                     this.state.MoveNext();
-                    //this.passo = state.PassoCorrente;
+                    right = true;
                     this.eventAggregator.PublishOnUIThread(new IngredientResultMessage(true));
-                    await this.NavigateToScreen<RecipeStepViewModel>();
+                    
                 }
                 else
                 {
-                    finished = true;
-                    this.eventAggregator.PublishOnUIThread(new RecipeFinishMessage());
+                    await NavigateToScreen<EndRecipeViewModel>();
                 }
             }
             else
@@ -69,16 +67,17 @@ namespace SOTI.ViewModels.Recipe
             base.Handle(message);
         }
 
-        public void Handle(GUIReadyMessage message)
+        public async void Handle(GUIReadyMessage message)
         {
-            if (finished)
+            if (right)
             {
-                this.NavigateToScreen<GameSelectionViewModel>();
+                await this.NavigateToScreen<RecipeStepViewModel>();
             }
             else
             {
-            showPasso();
-        }
+                showPasso();
+            }
+
         }
 
 
