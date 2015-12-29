@@ -18,26 +18,29 @@ using System.Windows.Shapes;
 namespace SOTI.Views.Market
 {
     /// <summary>
-    /// Logica di interazione per IntroView.xaml
+    /// Logica di interazione per WaitingProductsView.xaml
     /// </summary>
-    public partial class IntroView : UserControl, IHandle<AllergieMarketMessage>
+    public partial class WaitingProductsView : UserControl, IHandle<FoodInCashMessage>, IHandle<FoodConfirmedMessage>
     {
         private IEventAggregator eventAggregator;
 
-        public IntroView()
+        public WaitingProductsView()
         {
             InitializeComponent();
             this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
             eventAggregator.Subscribe(this);
             
-            this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
 
         }
 
-        public void Handle(AllergieMarketMessage message)
+        public void Handle(FoodConfirmedMessage message)
         {
-            Allergia_1.Text = message.allergia_1.nome;
-            Allergia_2.Text = message.allergia_1.nome;
+            throw new NotImplementedException();
+        }
+
+        public void Handle(FoodInCashMessage message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

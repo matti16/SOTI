@@ -66,7 +66,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Message\AllergieMarketMessage.cs" />
     <Compile Include="Message\AllergoloAllergiaMessage.cs" />
+    <Compile Include="Message\FoodConfirmedMessage.cs" />
+    <Compile Include="Message\FoodInCashMessage.cs" />
     <Compile Include="Message\FoodReadedMessage.cs" />
     <Compile Include="Message\GreenButtonMessage.cs" />
     <Compile Include="Message\GUIReadyMessage.cs" />
@@ -76,6 +79,7 @@
     <Compile Include="Message\PassoMessage.cs" />
     <Compile Include="Message\RecipeMessage.cs" />
     <Compile Include="Message\RedButtonMessage.cs" />
+    <Compile Include="Message\ScontrinoMessage.cs" />
     <Compile Include="Model\Allergia.cs" />
     <Compile Include="Model\Cibo.cs" />
     <Compile Include="Model\DataLayer.cs" />
@@ -85,7 +89,12 @@
     <Compile Include="ViewModels\GameSelectionViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Message\AllergoloCiboMessage.cs" />
+    <Compile Include="ViewModels\Market\AllergoloMarketViewModel.cs" />
     <Compile Include="ViewModels\Market\IntroViewModel.cs" />
+    <Compile Include="ViewModels\Market\PaymentViewModel.cs" />
+    <Compile Include="ViewModels\Market\Purchase.cs" />
+    <Compile Include="ViewModels\Market\WaitingCardViewModel.cs" />
+    <Compile Include="ViewModels\Market\WaitingProductsViewModel.cs" />
     <Compile Include="ViewModels\Recipe\AllergoloRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\ChooseRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\EndRecipeViewModel.cs" />
@@ -99,8 +108,20 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Market\AllergoloMarketView.xaml.cs">
+      <DependentUpon>AllergoloMarketView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Market\IntroView.xaml.cs">
       <DependentUpon>IntroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Market\PaymentView.xaml.cs">
+      <DependentUpon>PaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Market\WaitingCardView.xaml.cs">
+      <DependentUpon>WaitingCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Market\WaitingProductsView.xaml.cs">
+      <DependentUpon>WaitingProductsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Recipe\AllergoloRecipeView.xaml.cs">
       <DependentUpon>AllergoloRecipeView.xaml</DependentUpon>
@@ -136,7 +157,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Market\AllergoloMarketView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Market\IntroView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Market\PaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Market\WaitingCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Market\WaitingProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
