@@ -42,6 +42,11 @@
             container.PerRequest<EndRecipeViewModel>();
             //Market Game View Models
             container.PerRequest<IntroViewModel>();
+            container.PerRequest<AllergoloMarketViewModel>();
+            container.PerRequest<PaymentViewModel>();
+            container.PerRequest<WaitingCardViewModel>();
+            container.PerRequest<WaitingProductsViewModel>();
+
 
         }
 
