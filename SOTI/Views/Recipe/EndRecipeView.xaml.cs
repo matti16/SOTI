@@ -24,6 +24,7 @@ namespace SOTI.Views.Recipe
     {
         private IEventAggregator eventAggregator;
         private string recipesUri = @"pack://application:,,,/SOTI;component/Media/Images/Recipes/";
+        private string videoUri = VideoUri.Video + VideoUri.Cuocolo;
 
         public EndRecipeView()
         {
@@ -32,8 +33,8 @@ namespace SOTI.Views.Recipe
             eventAggregator.Subscribe(this);
 
             //Load Video
-            this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Recipe_finish, UriKind.Relative);
-            this.CenterBackMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Recipe_finish, UriKind.Relative);
+            this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
 
             //Handlers
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;

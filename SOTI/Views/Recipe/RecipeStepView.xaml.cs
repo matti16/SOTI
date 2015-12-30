@@ -24,6 +24,7 @@ namespace SOTI.Views.Recipe
     {
         private readonly IEventAggregator eventAggregator;
         private string baseUri = @"pack://application:,,,/SOTI;component/Media/Images/Cibi/";
+        private string videoUri = VideoUri.Video + VideoUri.Cuocolo;
         private bool right_ingredient;
 
         public RecipeStepView()
@@ -32,15 +33,9 @@ namespace SOTI.Views.Recipe
             this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
             eventAggregator.Subscribe(this);
 
-            resetVideo();
-            this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
-        }
-
-        private void resetVideo()
-        {
             //Load Video
-            this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Think, UriKind.Relative);
-            this.CenterBackMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Waiting_ingredients, UriKind.Relative);
+            this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
 
             //Handlers
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;
@@ -49,14 +44,17 @@ namespace SOTI.Views.Recipe
             //Play
             CenterMedia.Play();
             CenterBackMedia.Play();
+
+            this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
         }
 
+        
         private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
         {
             CenterBackMedia.Position = TimeSpan.Zero;
             CenterBackMedia.Play();
         }
-
+        
         private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
         {
             CenterMedia.Position = TimeSpan.Zero;
@@ -111,7 +109,10 @@ namespace SOTI.Views.Recipe
         private void CenterMedia_MediaEndedResult(object sender, RoutedEventArgs e)
         {
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
-            resetVideo();
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Waiting_ingredients, UriKind.Relative);
+            CenterMedia.MediaEnded -= CenterMedia_MediaEndedResult;
+            CenterMedia.MediaEnded += CenterMedia_MediaEnded;
+            CenterMedia.Play();
         }
 
     }

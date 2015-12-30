@@ -34,7 +34,7 @@ namespace SOTI.Model
             }
             catch
             {
-                throw;
+                return;
             }
         }
 

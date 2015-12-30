@@ -39,23 +39,22 @@
         </Grid.RowDefinitions>
         <!--<ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />-->
 
-        <Grid Grid.Row="0" Grid.Column="0" Margin="20,20,0,0">
+        <Grid Grid.Row="0" Grid.Column="0" Margin="50,20,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
-                <RowDefinition Height=".05*"/>
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
             <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" HorizontalAlignment="Center" Foreground="MediumBlue"/>
             <Image x:Name="Ricetta" Grid.Row="1"></Image>
-            <TextBlock Text="Allergia" Grid.Row="3" Foreground="OrangeRed" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
-            <Image x:Name="Allergia" Grid.Row="4"/>
+            <TextBlock Text="Allergia"  Grid.Row="2" Margin="0,5,0,0" Foreground="OrangeRed" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
+            <Image x:Name="Allergia" Grid.Row="3"/>
         </Grid>
 
         <MediaElement x:Name="CenterBackMedia" LoadedBehavior="Manual" Grid.Column="1"/>
         <MediaElement x:Name="CenterMedia" LoadedBehavior="Manual" Grid.Column="1"/>
-        <TextBox x:Name="IsNavigating" FontWeight="ExtraBlack" BorderBrush="White" Grid.Row="1" Text="{Binding IsNavigating}" />
+        <TextBox x:Name="IsNavigating" Visibility="Hidden" FontWeight="ExtraBlack" BorderBrush="White" Grid.Row="1" Text="{Binding IsNavigating}" />
 
     </Grid>
     

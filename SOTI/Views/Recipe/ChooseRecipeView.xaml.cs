@@ -21,13 +21,13 @@ namespace SOTI.Views.Recipe
     /// <summary>
     /// Interaction logic for ChooseRecipeView.xaml
     /// </summary>
-    public partial class ChooseRecipeView : UserControl, IHandle<GreenButtonMessage>, IHandle<RecipeMessage>
+    public partial class ChooseRecipeView : UserControl, IHandle<RecipeMessage>
     {
         private readonly IEventAggregator eventAggregator;
-
-        private int videoState = 0;
+        
         private string allergieUri = @"pack://application:,,,/SOTI;component/Media/Images/Allergie/";
         private string recipesUri = @"pack://application:,,,/SOTI;component/Media/Images/Recipes/";
+        private string videoUri = VideoUri.Video + VideoUri.Cuocolo;
 
         public ChooseRecipeView()
         {
@@ -36,8 +36,8 @@ namespace SOTI.Views.Recipe
             eventAggregator.Subscribe(this);
             
             //Load Video
-            this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Relax, UriKind.Relative);
-            this.CenterBackMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Choosing_recipe, UriKind.Relative);
+            this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
 
             //Handlers
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;
@@ -51,25 +51,8 @@ namespace SOTI.Views.Recipe
 
         private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
         {
-            switch (videoState)
-            {
-                case 0:
-                    CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Point_Left_Start, UriKind.Relative);
-                    CenterMedia.Play();
-                    videoState = 1;
-                    break;
-                case 1:
-                    CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
-                    CenterMedia.Play();
-                    videoState = 2;
-                    break;
-                case 2:
-                    CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Scratch_start, UriKind.Relative);
-                    CenterMedia.Play();
-                    videoState = 0;
-                    break;
-            }
-
+            CenterMedia.Position = TimeSpan.Zero;
+            CenterMedia.Play();
         }
 
         private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
@@ -77,12 +60,7 @@ namespace SOTI.Views.Recipe
             CenterBackMedia.Position = TimeSpan.Zero;
             CenterBackMedia.Play();
         }
-
-        public void Handle(GreenButtonMessage message)
-        {
-            CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Thumb_Up, UriKind.Relative);
-            CenterMedia.Play();
-        }
+        
 
         public void Handle(RecipeMessage message)
         {

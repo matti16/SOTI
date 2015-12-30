@@ -79,7 +79,7 @@ namespace SOTI.Views
         {
             if (this.videoState_L == 0)
             {
-                this.LeftMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Think, UriKind.Relative);
+                this.LeftMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
                 LeftMedia.Play();
                 this.videoState_L++;
             }
@@ -104,7 +104,7 @@ namespace SOTI.Views
         {
             if (this.videoState_C == 0)
             {
-                this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Think, UriKind.Relative);
+                this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
                 CenterMedia.Play();
                 this.videoState_C++;
             }
@@ -129,7 +129,7 @@ namespace SOTI.Views
         {
             if (this.videoState_R == 0)
             {
-                this.RightMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Think, UriKind.Relative);
+                this.RightMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Blink, UriKind.Relative);
                 RightMedia.Play();
                 this.videoState_R++;
             }

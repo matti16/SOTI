@@ -226,6 +226,27 @@
     <Folder Include="Media\Images\Cibi\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Media\Video\Cuocolo\Appear.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\Blink.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\ChooseRecipe.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\FinishRecipe.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\RightIngredient.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\WaitingIngredients.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Cuocolo\WrongIngredient.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Media\Video\Muscolo\Blink_1.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -235,45 +256,6 @@
     <Resource Include="Media\Images\Recipes\PastaCarne.png" />
     <Resource Include="Media\Images\Allergie\Noce.jpg" />
     <Resource Include="Media\Images\Allergie\Pesce.png" />
-    <Content Include="Media\Video\Cuocolo\Happy_Start_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Appear_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Blink_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\OK_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Point_Left_Bottom_End_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Point_Left_Bottom_Start_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Relax_End_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Sad_Start_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Scratch_Head_Right_End_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Scratch_Head_Right_Loop_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Scratch_Head_Right_Start_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Think_DEMO_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\Thumb_Up_End_1.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
