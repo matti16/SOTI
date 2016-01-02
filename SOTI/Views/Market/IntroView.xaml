@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Name="Allergia_1"></TextBlock>
-        <TextBlock Name="Allergia_2"></TextBlock>
+        <TextBlock Name="Allergia_1" Margin="0,0,0,169"></TextBlock>
+        <TextBlock Name="Allergia_2" Margin="0,131,0,0"></TextBlock>
     </Grid>
 </UserControl>

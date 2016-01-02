@@ -17,12 +17,14 @@ namespace SOTI.ViewModels.Market
         {
             this.data = data;
             this.state = state;
+            list = new List<Purchase>();
             foreach( var pair in state.List_of_Products)
             {
                 string product = pair.Key.nome;
                 int quantity = pair.Value;
                 int price = data.cibi.Find(x => x.id.Equals(pair.Key.id)).prezzo * quantity;
                 Purchase item = new Purchase(product, quantity, price);
+                this.list.Add(item);
                 tot += price;
             }
 

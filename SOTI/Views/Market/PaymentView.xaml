@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <TextBlock Name="Prodotti" Margin="0,0,111,58"></TextBlock>
+        <TextBlock Name="Prezzi" Margin="189,0,0,58" TextAlignment="Right"/>
+        <TextBlock Name="Tot" Margin="0,247,0,0" TextAlignment="Right" FontWeight="Bold"/>
     </Grid>
 </UserControl>

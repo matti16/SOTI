@@ -35,7 +35,12 @@ namespace SOTI.Views.Market
 
         public void Handle(ScontrinoMessage message)
         {
-            throw new NotImplementedException();
+            foreach (var item in message.list)
+            {
+                Prodotti.Text += item.product + " x" + item.quantity.ToString() + "\n";
+                Prezzi.Text += item.price.ToString() + "\n"; 
+            }
+            Tot.Text = "TOTALE: " + message.tot.ToString();
         }
     }
 }

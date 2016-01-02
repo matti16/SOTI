@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <TextBlock Name="Product" Margin="0,0,0,169"></TextBlock>
+        <TextBlock Name="Description" Margin="0,131,0,0"></TextBlock>
     </Grid>
 </UserControl>

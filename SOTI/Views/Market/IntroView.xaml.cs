@@ -37,7 +37,7 @@ namespace SOTI.Views.Market
         public void Handle(AllergieMarketMessage message)
         {
             Allergia_1.Text = message.allergia_1.nome;
-            Allergia_2.Text = message.allergia_1.nome;
+            Allergia_2.Text = message.allergia_2.nome;
         }
     }
 }
