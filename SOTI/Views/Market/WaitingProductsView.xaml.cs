@@ -35,12 +35,22 @@ namespace SOTI.Views.Market
 
         public void Handle(FoodConfirmedMessage message)
         {
-            throw new NotImplementedException();
+            if (message.confirmed)
+            {
+                Product.Text = "Confirmed.";
+                Description.Text = "";
+            }
+            else
+            {
+                Product.Text = "Thrown Away!";
+                Description.Text = "";
+            }
         }
 
         public void Handle(FoodInCashMessage message)
         {
-            throw new NotImplementedException();
+            Product.Text = message.food.nome;
+            Description.Text = message.food.descrizione;
         }
     }
 }

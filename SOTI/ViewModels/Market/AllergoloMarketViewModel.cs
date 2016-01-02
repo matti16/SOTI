@@ -1,10 +1,11 @@
-﻿using Caliburn.Micro;
+﻿using System;
+using Caliburn.Micro;
 using SOTI.Message;
 using SOTI.Model;
 
 namespace SOTI.ViewModels.Market
 {
-    public class AllergoloMarketViewModel : BaseGameScreenViewModel
+    public class AllergoloMarketViewModel : BaseGameScreenViewModel, IHandle<GUIReadyMessage>
     {
         private readonly DataLayer data;
         private StateMarket state;
@@ -13,6 +14,10 @@ namespace SOTI.ViewModels.Market
         {
             this.data = data;
             this.state = state;
+        }
+
+        public void Handle(GUIReadyMessage message)
+        {
         }
 
         public override async void Handle(GreenButtonMessage message)

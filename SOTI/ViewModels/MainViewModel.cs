@@ -47,7 +47,7 @@ namespace SOTI.ViewModels
             base.OnDeactivate(close);
         }
 
-        private string cibo = "Ciboooooo";
+        private string cibo = "";
         public virtual string Cibo
         {
             get { return cibo; }

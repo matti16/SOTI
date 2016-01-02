@@ -2,6 +2,7 @@
 using SOTI.Message;
 using SOTI.Model;
 using System;
+using System.Collections.Generic;
 
 namespace SOTI.ViewModels.Market
 {
@@ -34,7 +35,7 @@ namespace SOTI.ViewModels.Market
                 int id = Int32.Parse(message.Food);
                 Cibo readed_food = data.cibi.Find(x => x.id == id);
                 state.ReadedFood(readed_food);
-
+                waiting_confirmation = true;
                 this.eventAggregator.PublishOnUIThread(new FoodInCashMessage(readed_food));
                 base.Handle(message);
             }
@@ -45,10 +46,10 @@ namespace SOTI.ViewModels.Market
         {
             if (waiting_confirmation)
             {
-                if ((state.Readed_food.frutta && state.Allergia_1.nome == FRUTTA) ||
-                     (state.Readed_food.latte && state.Allergia_1.nome == LATTE) ||
-                     (state.Readed_food.pesce && state.Allergia_1.nome == PESCE) ||
-                     (state.Readed_food.uovo && state.Allergia_1.nome == UOVA))
+                if ((state.Readed_food.frutta && (state.Allergia_1.nome == FRUTTA || state.Allergia_2.nome == FRUTTA) ) ||
+                     (state.Readed_food.latte && (state.Allergia_1.nome == LATTE || state.Allergia_2.nome == LATTE) ) ||
+                     (state.Readed_food.pesce && (state.Allergia_1.nome == PESCE || state.Allergia_2.nome == PESCE) ) ||
+                     (state.Readed_food.uovo && (state.Allergia_1.nome == UOVA || state.Allergia_2.nome == UOVA) ) )
                 {
                     await NavigateToScreen<AllergoloMarketViewModel>();
                 }
@@ -61,12 +62,14 @@ namespace SOTI.ViewModels.Market
             }
             base.Handle(message);
         }
+        
 
         public override void Handle(RedButtonMessage message)
         {
             if (waiting_confirmation)
             {
                 this.eventAggregator.PublishOnUIThread(new FoodConfirmedMessage(false));
+                waiting_confirmation = false;
             }
             base.Handle(message);
         }
