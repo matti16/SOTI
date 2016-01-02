@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SOTI.Views.Recipe
 {
@@ -23,8 +24,12 @@ namespace SOTI.Views.Recipe
     public partial class RecipeStepView : UserControl, IHandle<PassoMessage>,IHandle<IngredientResultMessage>
     {
         private readonly IEventAggregator eventAggregator;
+        private MediaPlayer audioPlayer;
+        private DispatcherTimer timer = new DispatcherTimer();
+
         private string baseUri = @"pack://application:,,,/SOTI;component/Media/Images/Cibi/";
         private string videoUri = VideoUri.Video + VideoUri.Cuocolo;
+        private string audioUri = AudioUri.Audio + AudioUri.Recipe;
         private bool right_ingredient;
 
         public RecipeStepView()
@@ -32,6 +37,8 @@ namespace SOTI.Views.Recipe
             InitializeComponent();
             this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
             eventAggregator.Subscribe(this);
+            this.Loaded += RecipeStepView_Loaded;
+            this.Unloaded += RecipeStepView_Unloaded;
 
             //Load Video
             this.CenterMedia.Source = new Uri(videoUri + VideoUri.Waiting_ingredients, UriKind.Relative);
@@ -46,9 +53,37 @@ namespace SOTI.Views.Recipe
             CenterBackMedia.Play();
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
+
+            audioPlayer = new MediaPlayer();
+            audioPlayer.Open(new Uri(audioUri + AudioUri.WaitingIngredients, UriKind.Relative));
+            audioPlayer.Play();
+            
         }
 
-        
+        private void RecipeStepView_Unloaded(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            audioPlayer.Stop();
+        }
+
+        private void RecipeStepView_Loaded(object sender, RoutedEventArgs e)
+        {
+            timer.Interval = new TimeSpan(0, 0, 20);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        /// <summary>
+        /// Let the user know that we are waiting for the ingredient every X seconds.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            audioPlayer.Open(new Uri(audioUri + AudioUri.WaitingIngredients, UriKind.Relative));
+            audioPlayer.Play();
+        }
+
         private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
         {
             CenterBackMedia.Position = TimeSpan.Zero;
@@ -89,21 +124,33 @@ namespace SOTI.Views.Recipe
             }
         }
 
+        /// <summary>
+        /// Method to make the GUI reactive to the feedback regarding the correctness of a readed ingredient.
+        /// </summary>
+        /// <param name="message"></param>
         public void Handle(IngredientResultMessage message)
         {
+            timer.Stop();
             this.right_ingredient = message.right;
             if (message.right == false)
             {
                 this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Wrong_ingredient, UriKind.Relative);
                 CenterMedia.MediaEnded -= CenterMedia_MediaEnded;
                 CenterMedia.MediaEnded += CenterMedia_MediaEndedResult;
+
+                audioPlayer.Open(new Uri(audioUri + AudioUri.WrongIngredient, UriKind.Relative));
             }
             else
             {
                 this.CenterMedia.Source = new Uri(VideoUri.Video + VideoUri.Cuocolo + VideoUri.Rigth_ingredient, UriKind.Relative);
                 CenterMedia.MediaEnded -= CenterMedia_MediaEnded;
                 CenterMedia.MediaEnded += CenterMedia_MediaEndedResult;
+
+                audioPlayer.Open(new Uri(audioUri + AudioUri.RightIngredient, UriKind.Relative));
             }
+
+            audioPlayer.Play();
+
         }
 
         private void CenterMedia_MediaEndedResult(object sender, RoutedEventArgs e)
@@ -113,6 +160,7 @@ namespace SOTI.Views.Recipe
             CenterMedia.MediaEnded -= CenterMedia_MediaEndedResult;
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;
             CenterMedia.Play();
+            timer.Start();
         }
 
     }

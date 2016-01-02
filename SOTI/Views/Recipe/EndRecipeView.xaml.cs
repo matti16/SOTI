@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SOTI.Views.Recipe
 {
@@ -25,12 +26,17 @@ namespace SOTI.Views.Recipe
         private IEventAggregator eventAggregator;
         private string recipesUri = @"pack://application:,,,/SOTI;component/Media/Images/Recipes/";
         private string videoUri = VideoUri.Video + VideoUri.Cuocolo;
+        private string audioUri = AudioUri.Audio + AudioUri.Recipe;
+        private MediaPlayer audioPlayer;
+        private DispatcherTimer timer = new DispatcherTimer();
 
         public EndRecipeView()
         {
             InitializeComponent();
             this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
             eventAggregator.Subscribe(this);
+            this.Loaded += EndRecipeView_Loaded;
+            this.Unloaded += EndRecipeView_Unloaded;
 
             //Load Video
             this.CenterMedia.Source = new Uri(videoUri + VideoUri.Recipe_finish, UriKind.Relative);
@@ -45,6 +51,29 @@ namespace SOTI.Views.Recipe
             CenterBackMedia.Play();
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
+
+            audioPlayer = new MediaPlayer();
+            audioPlayer.Open(new Uri(audioUri + AudioUri.FinishRecipe, UriKind.Relative));
+            audioPlayer.Play();
+        }
+
+        private void EndRecipeView_Unloaded(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            audioPlayer.Stop();
+        }
+
+        private void EndRecipeView_Loaded(object sender, RoutedEventArgs e)
+        {
+            timer.Tick += Timer_Tick;
+            timer.Interval = new TimeSpan(0, 0, 9);
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            audioPlayer.Open(new Uri(audioUri + AudioUri.FinishRecipe, UriKind.Relative));
+            audioPlayer.Play();
         }
 
         private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)

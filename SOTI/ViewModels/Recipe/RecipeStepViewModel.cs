@@ -15,13 +15,12 @@ namespace SOTI.ViewModels.Recipe
         public RecipeStepViewModel(IEventAggregator eventAggregator, StateRicetta state) : base(eventAggregator)
         {
             this.state = state;
-            this.passo = state.PassoCorrente;
-
             showPasso();
         }
 
         private void showPasso()
-        { 
+        {
+            this.passo = state.PassoCorrente;
             if (passo.passoDoppio)
             {
                 Random rnd = new Random();
@@ -67,11 +66,12 @@ namespace SOTI.ViewModels.Recipe
             base.Handle(message);
         }
 
-        public async void Handle(GUIReadyMessage message)
+        public void Handle(GUIReadyMessage message)
         {
             if (right)
             {
-                await this.NavigateToScreen<RecipeStepViewModel>();
+                showPasso();
+                //await this.NavigateToScreen<RecipeStepViewModel>();
             }
             else
             {

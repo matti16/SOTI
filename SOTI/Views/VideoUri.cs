@@ -16,11 +16,19 @@ namespace SOTI.Views
 
         public const string Appear = "/Appear.mp4";
         public const string Blink = "/Blink.mp4";
+        
+        // CUOCOLO
         public const string Choosing_recipe = "/ChooseRecipe.mp4";
         public const string Waiting_ingredients = "/WaitingIngredients.mp4";
         public const string Rigth_ingredient = "/RightIngredient.mp4";
         public const string Wrong_ingredient = "/WrongIngredient.mp4";
         public const string Recipe_finish = "/FinishRecipe.mp4";
+
+        // ALLERGOLO
+        public const string Waiting_confirm = "/";
+
+        // MUSCOLO
+
 
     }
 }
