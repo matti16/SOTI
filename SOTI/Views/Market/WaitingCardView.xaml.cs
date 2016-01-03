@@ -22,6 +22,7 @@ namespace SOTI.Views.Market
     {
         private string videoUri = VideoUri.Video + VideoUri.Muscolo;
 
+
         public WaitingCardView()
         {
             InitializeComponent();
