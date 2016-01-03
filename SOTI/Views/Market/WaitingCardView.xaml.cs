@@ -20,9 +20,43 @@ namespace SOTI.Views.Market
     /// </summary>
     public partial class WaitingCardView : UserControl
     {
+        private string videoUri = VideoUri.Video + VideoUri.Muscolo;
+
         public WaitingCardView()
         {
             InitializeComponent();
+
+            //Load Video
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Appear, UriKind.Relative);
+            this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
+
+            //Handlers
+            CenterMedia.MediaEnded += CenterMedia_AppearEnded;
+            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
+
+            //Play
+            CenterMedia.Play();
+            CenterBackMedia.Play();
+        }
+
+        private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)
+        {
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Waiting_Card, UriKind.Relative);
+            CenterMedia.MediaEnded -= CenterMedia_AppearEnded;
+            CenterMedia.MediaEnded += CenterMedia_MediaEnded;
+            CenterMedia.Play();
+        }
+
+        private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            CenterMedia.Position = TimeSpan.Zero;
+            CenterMedia.Play();
+        }
+
+        private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            CenterBackMedia.Position = TimeSpan.Zero;
+            CenterBackMedia.Play();
         }
     }
 }

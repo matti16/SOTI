@@ -34,19 +34,51 @@ namespace SOTI.Views.Recipe
             this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
             eventAggregator.Subscribe(this);
 
+            //Load Video
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Appear_Recipe, UriKind.Relative);
+            this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
+
+            //Handlers
+            CenterMedia.MediaEnded += CenterMedia_AppearEnded;
+            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
+
+            //Play
+            CenterMedia.Play();
+            CenterBackMedia.Play();
+
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
+        }
+
+        private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)
+        {
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Waiting, UriKind.Relative);
+            CenterMedia.MediaEnded -= CenterMedia_AppearEnded;
+            CenterMedia.MediaEnded += CenterMedia_MediaEnded;
+            CenterMedia.Play();
+        }
+
+        private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            CenterMedia.Position = TimeSpan.Zero;
+            CenterMedia.Play();
+        }
+
+        private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            CenterBackMedia.Position = TimeSpan.Zero;
+            CenterBackMedia.Play();
         }
 
         public void Handle(AllergoloCiboMessage message)
         {
-            Title.Text = message.ingredient.nome;
+            Title.Text = message.ingredient.nome.ToUpper();
             Description.Text = message.ingredient.descrizione;
             //Immagine.Source = new BitmapImage(new Uri(cibiUri + message.ingredient.immagine));
         }
 
         public void Handle(AllergoloAllergiaMessage message)
         {
-            Title.Text = message.allergia.nome;
+            Title.Text = message.allergia.nome.ToUpper();
             Description.Text = message.allergia.descrizione;
             Immagine.Source = new BitmapImage(new Uri(allergieUri + message.allergia.immagine));
         }

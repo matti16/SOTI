@@ -25,9 +25,17 @@ namespace SOTI.Views
         public const string Recipe_finish = "/FinishRecipe.mp4";
 
         // ALLERGOLO
-        public const string Waiting_confirm = "/";
+        public const string Appear_Market = "/AppearMarket.mp4";
+        public const string Appear_Recipe = "/AppearRecipe.mp4";
+        public const string Waiting = "/Waiting.mp4";
 
         // MUSCOLO
+        public const string Intro = "/Waiting.mp4";
+        public const string Waiting_Card = "/Waiting.mp4";
+        public const string Waiting_Products = "/Waiting.mp4";
+        public const string Waiting_confirm = "/Waiting.mp4";
+        public const string Product_OK = "/RightProduct.mp4";
+        public const string Scontrino = "/Waiting.mp4";
 
 
     }

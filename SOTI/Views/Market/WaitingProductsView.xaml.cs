@@ -22,7 +22,7 @@ namespace SOTI.Views.Market
     /// </summary>
     public partial class WaitingProductsView : UserControl, IHandle<FoodInCashMessage>, IHandle<FoodConfirmedMessage>
     {
-        private IEventAggregator eventAggregator;
+        private readonly IEventAggregator eventAggregator;
 
         public WaitingProductsView()
         {

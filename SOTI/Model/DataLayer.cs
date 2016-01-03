@@ -32,9 +32,9 @@ namespace SOTI.Model
                 conn = new OleDbConnection(connectionString);
                 conn.Open();
             }
-            catch
+            catch(AccessViolationException)
             {
-                return;
+                ConnectDB();
             }
         }
 

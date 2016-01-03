@@ -23,7 +23,7 @@ namespace SOTI.Views.Recipe
     /// </summary>
     public partial class EndRecipeView : UserControl, IHandle<RecipeMessage>
     {
-        private IEventAggregator eventAggregator;
+        private readonly IEventAggregator eventAggregator;
         private string recipesUri = @"pack://application:,,,/SOTI;component/Media/Images/Recipes/";
         private string videoUri = VideoUri.Video + VideoUri.Cuocolo;
         private string audioUri = AudioUri.Audio + AudioUri.Recipe;
