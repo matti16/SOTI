@@ -13,12 +13,12 @@ namespace SOTI.Views
 
         public const string Recipe = "Recipe/";
 
-        public const string Appear = "Appear.mp3";
-        public const string ChooseRecipe = "ChooseRecipe.mp3";
-        public const string FinishRecipe = "FinishRecipe.mp3";
-        public const string RightIngredient = "RightIngredient.mp3";
-        public const string WaitingIngredients = "WaitingIngredients.mp3";
-        public const string WrongIngredient = "WrongIngredient.mp3";
+        public const string Appear = "AppearSquirrel.mp3";
+        public const string ChooseRecipe = "ChooseRecipeSquirrel.mp3";
+        public const string FinishRecipe = "FinishRecipeSquirrel.mp3";
+        public const string RightIngredient = "RightIngredientSquirrel.mp3";
+        public const string WaitingIngredients = "WaitingIngredientsSquirrel.mp3";
+        public const string WrongIngredient = "WrongIngredientSquirrel.mp3";
 
     }
 }

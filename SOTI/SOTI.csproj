@@ -227,22 +227,22 @@
     <Folder Include="Media\Images\Cibi\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Media\Audio\Recipe\Appear.mp3">
+    <Content Include="Media\Audio\Recipe\AppearSquirrel.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Audio\Recipe\ChooseRecipe.mp3">
+    <Content Include="Media\Audio\Recipe\ChooseRecipeSquirrel.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Audio\Recipe\FinishRecipe.mp3">
+    <Content Include="Media\Audio\Recipe\FinishRecipeSquirrel.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Audio\Recipe\RightIngredient.mp3">
+    <Content Include="Media\Audio\Recipe\RightIngredientSquirrel.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Audio\Recipe\WaitingIngredients.mp3">
+    <Content Include="Media\Audio\Recipe\WaitingIngredientsSquirrel.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Audio\Recipe\WrongIngredient.mp3">
+    <Content Include="Media\Audio\Recipe\WrongIngredientSquirrel.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Video\Cuocolo\Appear.mp4">

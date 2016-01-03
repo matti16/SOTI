@@ -37,23 +37,9 @@ namespace SOTI.ViewModels.Recipe
         private void showRecipe(Ricetta ricetta)
         {
             this.ricetta = ricetta;
-            this.NomeRicetta = this.ricetta.nome;
             this.eventAggregator.PublishOnUIThread(new RecipeMessage(this.ricetta));
         }
-
-        private string nomeRicetta = "Ricetta";
-        public string NomeRicetta
-        {
-            get { return nomeRicetta; }
-            set
-            {
-                if (nomeRicetta != value)
-                {
-                    nomeRicetta = value;
-                    NotifyOfPropertyChange<string>(() => NomeRicetta);
-                }
-            }
-        }
+        
 
         public override Visibility BlueButtonVisibility { get { return Visibility.Hidden; } }
 

@@ -90,7 +90,7 @@ namespace SOTI.Views.Recipe
 
         public void Handle(RecipeMessage message)
         {
-            this.NomeRicetta.Text = message.recipe.nome;
+            this.NomeRicetta.Text = message.recipe.nome.ToUpper();
             this.Ricetta.Source = new BitmapImage(new Uri(recipesUri + message.recipe.immagine));
 
         }

@@ -47,10 +47,10 @@
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Name="UpIngredient_Txt" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+            <TextBlock Name="UpIngredient_Txt" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"></TextBlock>
             <Image Name="UpIngredient_Img" Grid.Row="1"></Image>
 
-            <TextBlock Name="BotIngredient_Txt" Grid.Row="3" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+            <TextBlock Name="BotIngredient_Txt" Grid.Row="3" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"></TextBlock>
             <Image Name="BotIngredient_Img" Grid.Row="4"></Image>
 
         </Grid>
@@ -60,8 +60,8 @@
                 <RowDefinition Height=".5*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            
-            <TextBlock Name="Ingredient_Txt" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+
+            <TextBlock Name="Ingredient_Txt" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"></TextBlock>
             <Image Name="Ingredient_Img" Grid.Row="1"></Image>
             
         </Grid>

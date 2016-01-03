@@ -46,9 +46,9 @@
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" HorizontalAlignment="Center" Foreground="MediumBlue"/>
+            <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" TextAlignment="Center" Foreground="MediumBlue" FontSize="20"/>
             <Image x:Name="Ricetta" Grid.Row="1"></Image>
-            <TextBlock Text="Allergia"  Grid.Row="2" Margin="0,5,0,0" Foreground="OrangeRed" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Text="Allergia" Margin="0,10,0,0" Grid.Row="2" Foreground="OrangeRed" FontWeight="Bold" TextAlignment="Center" FontSize="20"></TextBlock>
             <Image x:Name="Allergia" Grid.Row="3"/>
         </Grid>
 
