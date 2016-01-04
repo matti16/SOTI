@@ -18,6 +18,7 @@ namespace SOTI.ViewModels.Market
 
         public void Handle(GUIReadyMessage message)
         {
+            this.eventAggregator.PublishOnUIThread(new WrongProductMessage(state.Readed_food, state.Allergia_1, state.Allergia_2));
         }
 
         public override async void Handle(GreenButtonMessage message)

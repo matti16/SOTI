@@ -80,6 +80,7 @@
     <Compile Include="Message\RecipeMessage.cs" />
     <Compile Include="Message\RedButtonMessage.cs" />
     <Compile Include="Message\ScontrinoMessage.cs" />
+    <Compile Include="Message\WrongProductMessage.cs" />
     <Compile Include="Model\Allergia.cs" />
     <Compile Include="Model\Cibo.cs" />
     <Compile Include="Model\DataLayer.cs" />
@@ -249,6 +250,7 @@
     <Resource Include="Media\Images\Supermarket\Cashier.jpg" />
     <Resource Include="Media\Images\Supermarket\SacchettoSpesa.jpeg" />
     <Resource Include="Media\Images\Supermarket\Supermarket.jpg" />
+    <Resource Include="Media\Images\Supermarket\Attenzione.jpg" />
     <Content Include="Media\Video\Allergolo\AppearRecipe.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
