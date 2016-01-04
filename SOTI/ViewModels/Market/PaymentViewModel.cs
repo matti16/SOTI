@@ -17,6 +17,9 @@ namespace SOTI.ViewModels.Market
         {
             this.data = data;
             this.state = state;
+
+            this.HelpMessage = "Bravissimo! Ecco il tuo scontrino! Premi Verde per uscire.";
+
             list = new List<Purchase>();
             foreach( var pair in state.List_of_Products)
             {

@@ -14,6 +14,8 @@ namespace SOTI.ViewModels.Market
         {
             this.data = data;
             this.state = state;
+
+            this.HelpMessage = "Riporta indietro il prodotto. Poi premi Verde per continuare.";
         }
 
         public void Handle(GUIReadyMessage message)

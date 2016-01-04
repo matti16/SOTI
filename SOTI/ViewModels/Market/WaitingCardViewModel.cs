@@ -10,7 +10,7 @@ namespace SOTI.ViewModels.Market
 
         public WaitingCardViewModel(IEventAggregator eventAggregator) : base(eventAggregator)
         {
-
+            this.HelpMessage = "Vai a fare la spesa. Quando hai finito passa la tessera.";
         }
 
         public override async void Handle(FoodReadedMessage message)

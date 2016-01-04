@@ -21,6 +21,9 @@ namespace SOTI.ViewModels.Market
         {
             this.state = state;
             this.data = data;
+
+            this.HelpMessage = "Fai attenzione alle Allergie di Muscolo! Poi premi Verde per continuare.";
+
             RandomizeAllergie();
         }
 

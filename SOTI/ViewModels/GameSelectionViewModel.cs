@@ -10,7 +10,7 @@ namespace SOTI.ViewModels
     {
         public GameSelectionViewModel(IEventAggregator eventAggregator) : base(eventAggregator)
         {
-
+            this.HelpMessage = "Scegli un gioco premendo il pulsante.";
         }
 
         public override async void Handle(BlueButtonMessage message)

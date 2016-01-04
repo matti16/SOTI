@@ -9,6 +9,110 @@
              x:Class="SOTI.Views.MainView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyleGreen" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel x:Name="border" SnapsToDevicePixels="true" >
+                            <Image x:Name="image" Source="/SOTI;component/Media/Images/Buttons/GreenButton.png" d:LayoutOverrides="LeftPosition, RightPosition" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true"/>
+                            <Trigger Property="IsMouseOver" Value="true"/>
+                            <Trigger Property="IsPressed" Value="true"/>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="TextElement.Foreground" TargetName="textBlock" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyleRed" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel x:Name="border" SnapsToDevicePixels="true" >
+                            <Image x:Name="image" Source="/SOTI;component/Media/Images/Buttons/RedButton.png" d:LayoutOverrides="LeftPosition, RightPosition" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true"/>
+                            <Trigger Property="IsMouseOver" Value="true"/>
+                            <Trigger Property="IsPressed" Value="true"/>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="TextElement.Foreground" TargetName="textBlock" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyleBlue" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel x:Name="border" SnapsToDevicePixels="true" >
+                            <Image x:Name="image" Source="/SOTI;component/Media/Images/Buttons/BlueButton.png" d:LayoutOverrides="LeftPosition, RightPosition" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true"/>
+                            <Trigger Property="IsMouseOver" Value="true"/>
+                            <Trigger Property="IsPressed" Value="true"/>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="TextElement.Foreground" TargetName="textBlock" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".3*"/>
@@ -17,13 +121,14 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height=".2*"/>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
         <ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />
-        <Button x:Name="GreenButton" Content="{Binding ActiveItem.GreenButtonText}" Visibility="{Binding ActiveItem.GreenButtonVisibility}" VerticalAlignment="Center" Width="75" HorizontalAlignment="Center" Grid.Row="1"/>
-        <Button x:Name="RedButton" Content="{Binding ActiveItem.RedButtonText}" Visibility="{Binding ActiveItem.RedButtonVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="1"/>
-        <Button x:Name="BlueButton" Content="{Binding ActiveItem.BlueButtonText}" Visibility="{Binding ActiveItem.BlueButtonVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Row="1" Grid.Column="2"/>
-        <TextBox x:Name="Cibo" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.Row="1">
+        <Button x:Name="GreenButton" Visibility="{Binding ActiveItem.GreenButtonVisibility}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Style="{DynamicResource ButtonStyleGreen}" Content="{Binding ActiveItem.GreenButtonText}" Margin="5" Width="90"/>
+        <Button x:Name="RedButton" Content="{Binding ActiveItem.RedButtonText}" Visibility="{Binding ActiveItem.RedButtonVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Style="{DynamicResource ButtonStyleRed}" Margin="5" Width="90"/>
+        <Button x:Name="BlueButton" Content="{Binding ActiveItem.BlueButtonText}" Visibility="{Binding ActiveItem.BlueButtonVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Style="{DynamicResource ButtonStyleBlue}" Margin="5" Width="90"/>
+        <TextBox x:Name="Cibo" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.Row="2">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="KeyDown">
                     <cal:ActionMessage MethodName="ShowNameAction">
@@ -32,5 +137,6 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </TextBox>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="3" FontWeight="Bold" FontSize="20" Text="{Binding ActiveItem.HelpMessage}"/>
     </Grid>
 </UserControl>

@@ -16,6 +16,13 @@ namespace SOTI.ViewModels
     public class BaseGameScreenViewModel : Screen, IHandle<RedButtonMessage>, IHandle<GreenButtonMessage>, IHandle<BlueButtonMessage>, IHandle<FoodReadedMessage>
     {
         protected readonly IEventAggregator eventAggregator;
+        private readonly SerialCommunication serialCommunication;
+
+        //public BaseGameScreenViewModel(IEventAggregator eventAggregator, SerialCommunication serialCommunication)
+        //{
+        //    this.eventAggregator = eventAggregator;
+        //    this.serialCommunication = serialCommunication;
+        //}
 
         public BaseGameScreenViewModel(IEventAggregator eventAggregator)
         {
@@ -131,6 +138,21 @@ namespace SOTI.ViewModels
                 }
             }
         }
+
+        private string helpMessage = "HelpMessage";
+        public virtual string HelpMessage
+        {
+            get { return helpMessage; }
+            set
+            {
+                if (helpMessage != value)
+                {
+                    helpMessage = value;
+                    NotifyOfPropertyChange<string>(() => HelpMessage);
+                }
+            }
+        }
+
 
         /// <summary>
         /// Ogni volta che un ViewModel viene caricato a schermo, questo metodo viene invocato

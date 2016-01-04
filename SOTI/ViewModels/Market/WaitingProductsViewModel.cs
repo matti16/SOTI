@@ -21,12 +21,16 @@ namespace SOTI.ViewModels.Market
         {
             this.data = data;
             this.state = state;
+
+            this.HelpMessage = "Ora passa sulla cassa i prodotti. Quando hai finito, passa la tessera per pagare.";
         }
 
 
         public override async void Handle(FoodReadedMessage message)
         {
             if (waiting_confirmation) {  return; }
+
+            this.HelpMessage = "Premi Verde per confermare, Rosso per annullare.";
 
             if (message.Food == CARD)
             {
@@ -58,6 +62,7 @@ namespace SOTI.ViewModels.Market
                 else
                 {
                     this.eventAggregator.PublishOnUIThread(new FoodConfirmedMessage(true));
+                    this.HelpMessage = "Ora passa sulla cassa i prodotti. Quando hai finito, passa la tessera per pagare.";
                     state.AddToList(state.Readed_food);
                 }
                 waiting_confirmation = false;

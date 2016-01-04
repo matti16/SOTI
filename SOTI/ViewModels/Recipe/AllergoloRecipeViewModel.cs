@@ -12,6 +12,7 @@ namespace SOTI.ViewModels.Recipe
 
         public AllergoloRecipeViewModel(IEventAggregator eventAggregator, StateRicetta state) : base(eventAggregator)
         {
+            this.HelpMessage = "Ascolta il Dr. Allergolo. Poi premi Verde per continuare.";
             this.state = state;
         }
 

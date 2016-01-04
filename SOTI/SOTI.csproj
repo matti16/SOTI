@@ -251,6 +251,9 @@
     <Resource Include="Media\Images\Supermarket\SacchettoSpesa.jpeg" />
     <Resource Include="Media\Images\Supermarket\Supermarket.jpg" />
     <Resource Include="Media\Images\Supermarket\Attenzione.jpg" />
+    <Resource Include="Media\Images\Buttons\BlueButton.png" />
+    <Resource Include="Media\Images\Buttons\GreenButton.png" />
+    <Resource Include="Media\Images\Buttons\RedButton.png" />
     <Content Include="Media\Video\Allergolo\AppearRecipe.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

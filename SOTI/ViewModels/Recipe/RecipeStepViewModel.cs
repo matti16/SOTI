@@ -15,6 +15,9 @@ namespace SOTI.ViewModels.Recipe
         public RecipeStepViewModel(IEventAggregator eventAggregator, StateRicetta state) : base(eventAggregator)
         {
             this.state = state;
+
+            this.HelpMessage = "Porta l'ingrediente corretto";
+
             showPasso();
         }
 
