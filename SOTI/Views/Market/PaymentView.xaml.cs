@@ -23,6 +23,7 @@ namespace SOTI.Views.Market
     public partial class PaymentView : UserControl, IHandle<ScontrinoMessage>
     {
         private IEventAggregator eventAggregator;
+        private string videoUri = VideoUri.Video + VideoUri.Muscolo;
 
         public PaymentView()
         {
@@ -30,17 +31,46 @@ namespace SOTI.Views.Market
             this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
             eventAggregator.Subscribe(this);
 
+            //Load Video
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Scontrino, UriKind.Relative);
+            this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
+
+            //Handlers
+            CenterMedia.MediaEnded += CenterMedia_MediaEnded;
+            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
+
+            //Play
+            CenterMedia.Play();
+            CenterBackMedia.Play();
+
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
         }
 
+        /// <summary>
+        /// Show the information about the shopping.
+        /// </summary>
+        /// <param name="message"></param>
         public void Handle(ScontrinoMessage message)
         {
             foreach (var item in message.list)
             {
-                Prodotti.Text += item.product + " x" + item.quantity.ToString() + "\n";
-                Prezzi.Text += item.price.ToString() + "\n"; 
+                Prodotti.Text += item.product.ToUpper() + " x" + item.quantity.ToString() + "\n";
+                Prezzi.Text += item.price.ToString() + " €   \n"; 
             }
-            Tot.Text = "TOTALE: " + message.tot.ToString();
+            Tot.Text = message.tot.ToString() + " €   \n";
+        }
+
+
+        private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            CenterMedia.Position = TimeSpan.Zero;
+            CenterMedia.Play();
+        }
+
+        private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            CenterBackMedia.Position = TimeSpan.Zero;
+            CenterBackMedia.Play();
         }
     }
 }

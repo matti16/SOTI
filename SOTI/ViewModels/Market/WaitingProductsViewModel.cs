@@ -26,6 +26,8 @@ namespace SOTI.ViewModels.Market
 
         public override async void Handle(FoodReadedMessage message)
         {
+            if (waiting_confirmation) {  return; }
+
             if (message.Food == CARD)
             {
                 await this.NavigateToScreen<PaymentViewModel>();
@@ -58,7 +60,7 @@ namespace SOTI.ViewModels.Market
                     this.eventAggregator.PublishOnUIThread(new FoodConfirmedMessage(true));
                     state.AddToList(state.Readed_food);
                 }
-
+                waiting_confirmation = false;
             }
             base.Handle(message);
         }

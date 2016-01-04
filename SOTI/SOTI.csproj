@@ -246,7 +246,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Media\Images\Recipes\BananePigiama.jpg" />
-    <Resource Include="Media\Images\supermarket.jpg" />
+    <Resource Include="Media\Images\Supermarket\Cashier.jpg" />
+    <Resource Include="Media\Images\Supermarket\SacchettoSpesa.jpeg" />
+    <Resource Include="Media\Images\Supermarket\Supermarket.jpg" />
     <Content Include="Media\Video\Allergolo\AppearRecipe.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

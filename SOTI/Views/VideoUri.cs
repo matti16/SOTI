@@ -33,7 +33,7 @@ namespace SOTI.Views
         public const string Intro = "/Waiting.mp4";
         public const string Waiting_Card = "/Waiting.mp4";
         public const string Waiting_Products = "/Waiting.mp4";
-        public const string Waiting_confirm = "/Waiting.mp4";
+        public const string Waiting_Confirm = "/Waiting.mp4";
         public const string Product_OK = "/RightProduct.mp4";
         public const string Scontrino = "/Waiting.mp4";
 

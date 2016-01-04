@@ -3,12 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SOTI.Views.Market"
+             xmlns:local="clr-namespace:SOTI.Views.Recipe"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Name="userControl" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Name="Prodotti" Margin="0,0,111,58"></TextBlock>
-        <TextBlock Name="Prezzi" Margin="189,0,0,58" TextAlignment="Right"/>
-        <TextBlock Name="Tot" Margin="0,247,0,0" TextAlignment="Right" FontWeight="Bold"/>
+        <i:Interaction.Behaviors>
+            <ei:DataStateBehavior TrueState="Faded" FalseState="Normal" Value="True" Binding="{Binding IsNavigating}"/>
+        </i:Interaction.Behaviors>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:1"/>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Normal"/>
+                <VisualState x:Name="Faded">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".3*"/>
+            <ColumnDefinition Width=".6*"/>
+            <!--<ColumnDefinition Width=".3*"/> -->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".2*"/>
+        </Grid.RowDefinitions>
+        <!--<ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />-->
+
+        <Grid Grid.Row="0" Grid.Column="0" Margin="30,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".2*"/>
+                <RowDefinition Height=".1*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".1*"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height=".1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".2*"/>
+                    <ColumnDefinition Width=".1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" TextAlignment="Center" FontWeight="Black" FontSize="20" TextWrapping="Wrap"> SOTI MARKET </TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Center" FontWeight="Black" FontSize="18" TextWrapping="Wrap"> Scontrino</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" TextAlignment="Left" Name="Prodotti" FontSize="15" TextWrapping="Wrap"></TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" TextAlignment="Right" Name="Prezzi" FontSize="15" TextWrapping="Wrap"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2" TextAlignment="Right" FontWeight="Black" FontSize="18" TextWrapping="Wrap"> TOTALE</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="2" TextAlignment="Right" Name="Tot" FontSize="18" TextWrapping="Wrap"></TextBlock>
+            </Grid>
+            <Image Margin="0,20,0,0" Source="pack://application:,,,/SOTI;component/Media/Images/Supermarket/SacchettoSpesa.jpeg" Grid.Row="1"></Image>
+        </Grid>
+
+        <MediaElement x:Name="CenterBackMedia" LoadedBehavior="Manual" Grid.Column="1"/>
+        <MediaElement x:Name="CenterMedia" LoadedBehavior="Manual" Grid.Column="1"/>
+        <TextBox x:Name="IsNavigating" Visibility="Hidden" FontWeight="ExtraBlack" BorderBrush="White" Grid.Row="1" Text="{Binding IsNavigating}" />
+
+
     </Grid>
+
 </UserControl>
