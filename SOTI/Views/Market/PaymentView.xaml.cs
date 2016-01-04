@@ -22,7 +22,7 @@ namespace SOTI.Views.Market
     /// </summary>
     public partial class PaymentView : UserControl, IHandle<ScontrinoMessage>
     {
-        private IEventAggregator eventAggregator;
+        private readonly IEventAggregator eventAggregator;
         private string videoUri = VideoUri.Video + VideoUri.Muscolo;
 
         public PaymentView()

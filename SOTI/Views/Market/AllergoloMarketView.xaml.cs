@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using SOTI.Message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,13 +20,16 @@ namespace SOTI.Views.Market
     /// <summary>
     /// Logica di interazione per AllergoloMarketView.xaml
     /// </summary>
-    public partial class AllergoloMarketView : UserControl
+    public partial class AllergoloMarketView : UserControl, IHandle<WrongProductMessage>
     {
+        private readonly IEventAggregator eventAggregator;
         private string videoUri = VideoUri.Video + VideoUri.Allergolo;
 
         public AllergoloMarketView()
         {
             InitializeComponent();
+            this.eventAggregator = AppBootstrapper.container.GetInstance<IEventAggregator>();
+            eventAggregator.Subscribe(this);
 
             //Load Video
             this.CenterMedia.Source = new Uri(videoUri + VideoUri.Appear_Market, UriKind.Relative);
@@ -37,6 +42,8 @@ namespace SOTI.Views.Market
             //Play
             CenterMedia.Play();
             CenterBackMedia.Play();
+
+            this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
         }
 
         private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)
@@ -45,6 +52,12 @@ namespace SOTI.Views.Market
             CenterMedia.MediaEnded -= CenterMedia_AppearEnded;
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;
             CenterMedia.Play();
+        }
+
+        public void Handle(WrongProductMessage message)
+        {
+            Product.Text = message.product.nome.ToUpper() + ".";
+            Allergie.Text = message.allergia_1.nome.ToUpper() + " e " + message.allergia_2.nome.ToUpper() + ".";
         }
 
         private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
@@ -58,5 +71,7 @@ namespace SOTI.Views.Market
             CenterBackMedia.Position = TimeSpan.Zero;
             CenterBackMedia.Play();
         }
+
+        
     }
 }
