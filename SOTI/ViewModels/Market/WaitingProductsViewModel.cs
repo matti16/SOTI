@@ -3,6 +3,7 @@ using SOTI.Message;
 using SOTI.Model;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace SOTI.ViewModels.Market
 {
@@ -31,6 +32,7 @@ namespace SOTI.ViewModels.Market
             if (waiting_confirmation) {  return; }
 
             this.HelpMessage = "Premi Verde per confermare, Rosso per annullare.";
+            ShowButtons();
 
             if (message.Food == CARD)
             {
@@ -63,6 +65,7 @@ namespace SOTI.ViewModels.Market
                 {
                     this.eventAggregator.PublishOnUIThread(new FoodConfirmedMessage(true));
                     this.HelpMessage = "Ora passa sulla cassa i prodotti. Quando hai finito, passa la tessera per pagare.";
+                    HideButtons();
                     state.AddToList(state.Readed_food);
                 }
                 waiting_confirmation = false;
@@ -81,6 +84,17 @@ namespace SOTI.ViewModels.Market
             base.Handle(message);
         }
 
+        private void ShowButtons()
+        {
+            this.GreenButtonVisibility = Visibility.Visible;
+            this.RedButtonVisibility = Visibility.Visible;
+        }
+
+        private void HideButtons()
+        {
+            this.GreenButtonVisibility = Visibility.Hidden;
+            this.RedButtonVisibility = Visibility.Hidden;
+        }
 
     }
 }

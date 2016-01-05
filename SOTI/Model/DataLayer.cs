@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Reflection;
+using System.Runtime.ExceptionServices;
 
 namespace SOTI.Model
 {
@@ -12,10 +13,10 @@ namespace SOTI.Model
     {
         //Database Connection
 
-        //static string path = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)
-        //             + "SOTI.accdb;";
+        static string path = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)
+                     + "/DataBase/SOTI.accdb;";
 
-        static string path = @"C:\Users\Francesco\Dev\SOTI\SOTI.accdb;";
+        //static string path = @"C:\Users\Francesco\Dev\SOTI\SOTI.accdb;";
         //static string path = @"C:\Users\Mattia\Documents\GitHubVisualStudio\SOTI\SOTI.accdb;";
 
         static string connectionString =
@@ -25,6 +26,7 @@ namespace SOTI.Model
 
         OleDbConnection conn = null;
 
+        [HandleProcessCorruptedStateExceptions]
         private void ConnectDB()
         {
             try
@@ -32,7 +34,7 @@ namespace SOTI.Model
                 conn = new OleDbConnection(connectionString);
                 conn.Open();
             }
-            catch(AccessViolationException)
+            catch(AccessViolationException ex)
             {
                 ConnectDB();
             }

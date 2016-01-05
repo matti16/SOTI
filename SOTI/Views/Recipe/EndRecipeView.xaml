@@ -43,7 +43,7 @@
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" HorizontalAlignment="Center" Foreground="GreenYellow" FontSize="20"/>
+            <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" HorizontalAlignment="Center" Foreground="GreenYellow" FontSize="20" FontFamily="Comic Sans MS"/>
             <Image x:Name="Ricetta" Grid.Row="1"></Image>
         </Grid>
 

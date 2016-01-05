@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SOTI.ViewModels.Market
 {
@@ -23,6 +24,8 @@ namespace SOTI.ViewModels.Market
             this.data = data;
 
             this.HelpMessage = "Fai attenzione alle Allergie di Muscolo! Poi premi Verde per continuare.";
+            this.GreenButtonText = "Conferma";
+            this.RedButtonText = "Cambia";
 
             RandomizeAllergie();
         }
@@ -57,5 +60,7 @@ namespace SOTI.ViewModels.Market
             this.eventAggregator.PublishOnUIThread(new AllergieMarketMessage(state.Allergia_1, state.Allergia_2));
             base.Handle(message);
         }
+
+        public override Visibility BlueButtonVisibility { get { return Visibility.Hidden; } }
     }
 }

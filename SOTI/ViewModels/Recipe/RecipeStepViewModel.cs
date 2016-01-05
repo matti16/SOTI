@@ -3,6 +3,7 @@ using SOTI.Model;
 using System;
 using System.Collections.ObjectModel;
 using SOTI.Message;
+using System.Windows;
 
 namespace SOTI.ViewModels.Recipe
 {
@@ -16,7 +17,8 @@ namespace SOTI.ViewModels.Recipe
         {
             this.state = state;
 
-            this.HelpMessage = "Porta l'ingrediente corretto";
+            this.HelpMessage = "Porta l'ingrediente corretto!";
+            this.BlueButtonText = "Aiuto";
 
             showPasso();
         }
@@ -83,6 +85,8 @@ namespace SOTI.ViewModels.Recipe
 
         }
 
+        public override Visibility RedButtonVisibility { get { return Visibility.Hidden; } }
+        public override Visibility GreenButtonVisibility { get { return Visibility.Hidden; } }
 
         public override async void Handle(BlueButtonMessage message)
         {

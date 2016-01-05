@@ -8,7 +8,7 @@ namespace SOTI.Views
 {
     public static class VideoUri
     {
-        public const string Video = @"Media/Video";
+        public static string Video = @"Media/Video";
 
         public const string Cuocolo = "/Cuocolo";
         public const string Allergolo = "/Allergolo";

@@ -2,6 +2,7 @@
 using Caliburn.Micro;
 using SOTI.Message;
 using SOTI.Model;
+using System.Windows;
 
 namespace SOTI.ViewModels.Market
 {
@@ -15,7 +16,8 @@ namespace SOTI.ViewModels.Market
             this.data = data;
             this.state = state;
 
-            this.HelpMessage = "Riporta indietro il prodotto. Poi premi Verde per continuare.";
+            this.HelpMessage = "Riporta indietro il prodotto! Poi premi Verde per continuare.";
+            this.GreenButtonText = "Continua";
         }
 
         public void Handle(GUIReadyMessage message)
@@ -28,6 +30,9 @@ namespace SOTI.ViewModels.Market
             await this.NavigateToScreen<WaitingProductsViewModel>();
             base.Handle(message);
         }
+
+        public override Visibility BlueButtonVisibility { get { return Visibility.Hidden; } }
+        public override Visibility RedButtonVisibility { get { return Visibility.Hidden; } }
 
     }
 }

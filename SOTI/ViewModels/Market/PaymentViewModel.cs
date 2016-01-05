@@ -3,6 +3,7 @@ using Caliburn.Micro;
 using SOTI.Model;
 using SOTI.Message;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace SOTI.ViewModels.Market
 {
@@ -19,6 +20,7 @@ namespace SOTI.ViewModels.Market
             this.state = state;
 
             this.HelpMessage = "Bravissimo! Ecco il tuo scontrino! Premi Verde per uscire.";
+            this.GreenButtonText = "Esci";
 
             list = new List<Purchase>();
             foreach( var pair in state.List_of_Products)
@@ -44,5 +46,8 @@ namespace SOTI.ViewModels.Market
             await this.NavigateToScreen<GameSelectionViewModel>();
             base.Handle(message);
         }
+
+        public override Visibility BlueButtonVisibility { get { return Visibility.Hidden; } }
+        public override Visibility RedButtonVisibility { get { return Visibility.Hidden; } }
     }
 }

@@ -29,7 +29,8 @@ namespace SOTI.ViewModels
 
         public override Visibility GreenButtonVisibility { get { return Visibility.Hidden; } }
 
-        public override string RedButtonText { get { return "Market"; } }
-        public override string BlueButtonText { get { return "Recipe"; } }
+        public override string RedButtonText { get { return "Spesa"; } }
+        public override string BlueButtonText { get { return "Ricetta"; } }
+        
     }
 }

@@ -13,6 +13,7 @@ namespace SOTI.ViewModels.Recipe
         public AllergoloRecipeViewModel(IEventAggregator eventAggregator, StateRicetta state) : base(eventAggregator)
         {
             this.HelpMessage = "Ascolta il Dr. Allergolo. Poi premi Verde per continuare.";
+            this.GreenButtonText = "Continua";
             this.state = state;
         }
 
@@ -31,10 +32,9 @@ namespace SOTI.ViewModels.Recipe
             }
         }
 
-        public override void Handle(GreenButtonMessage message)
+        public override async void Handle(GreenButtonMessage message)
         {
-            //Navigate to the RecipeStep Screen
-            this.NavigateToScreen<RecipeStepViewModel>();
+            await this.NavigateToScreen<RecipeStepViewModel>();
             base.Handle(message);
         }
 

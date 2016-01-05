@@ -1,6 +1,7 @@
 ﻿using System;
 using Caliburn.Micro;
 using SOTI.Message;
+using System.Windows;
 
 namespace SOTI.ViewModels.Market
 {
@@ -21,6 +22,10 @@ namespace SOTI.ViewModels.Market
             }
             base.Handle(message);
         }
+
+        public override Visibility GreenButtonVisibility { get { return Visibility.Hidden; } }
+        public override Visibility BlueButtonVisibility { get { return Visibility.Hidden; } }
+        public override Visibility RedButtonVisibility { get { return Visibility.Hidden; } }
 
     }
 }

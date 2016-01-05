@@ -228,6 +228,9 @@
     <Folder Include="Media\Images\Cibi\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataBase\SOTI.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Media\Audio\Recipe\AppearSquirrel.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

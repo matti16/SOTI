@@ -42,7 +42,7 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <StackPanel x:Name="border" SnapsToDevicePixels="true" >
                             <Image x:Name="image" Source="/SOTI;component/Media/Images/Buttons/GreenButton.png" d:LayoutOverrides="LeftPosition, RightPosition" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true"/>
@@ -70,7 +70,7 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <StackPanel x:Name="border" SnapsToDevicePixels="true" >
                             <Image x:Name="image" Source="/SOTI;component/Media/Images/Buttons/RedButton.png" d:LayoutOverrides="LeftPosition, RightPosition" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true"/>
@@ -98,7 +98,7 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <StackPanel x:Name="border" SnapsToDevicePixels="true" >
                             <Image x:Name="image" Source="/SOTI;component/Media/Images/Buttons/BlueButton.png" d:LayoutOverrides="LeftPosition, RightPosition" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true"/>
@@ -137,6 +137,10 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </TextBox>
-        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="3" FontWeight="Bold" FontSize="20" Text="{Binding ActiveItem.HelpMessage}"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="3" FontWeight="Bold" FontSize="25" Text="{Binding ActiveItem.HelpMessage}" FontFamily="Comic Sans MS" Foreground="OrangeRed">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
+            </TextBlock.Effect>
+        </TextBlock>
     </Grid>
 </UserControl>

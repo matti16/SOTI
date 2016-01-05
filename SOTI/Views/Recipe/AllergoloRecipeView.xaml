@@ -43,8 +43,8 @@
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Name="Title" HorizontalAlignment="Center" FontWeight="Black" FontSize="20" Margin="0,10,0,0"/>
-            <TextBlock Name="Description" Grid.Row="1" FontWeight="Bold" TextAlignment="Justify" TextWrapping="Wrap" FontSize="15"/>
+            <TextBlock Name="Title" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="0,10,0,0" FontFamily="Comic Sans MS"/>
+            <TextBlock Name="Description" Grid.Row="1" TextAlignment="Justify" TextWrapping="Wrap" FontSize="18" FontFamily="Comic Sans MS"/>
             <Image Name="Immagine" Grid.Row="2"></Image>
             
         </Grid>

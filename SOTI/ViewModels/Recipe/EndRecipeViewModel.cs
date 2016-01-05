@@ -14,6 +14,7 @@ namespace SOTI.ViewModels.Recipe
         {
             this.recipe = state.Ricetta;
             this.HelpMessage = "Bravissimo! Abbiamo finito! Premi Verde per uscire.";
+            this.GreenButtonText = "Esci";
         }
 
         public void Handle(GUIReadyMessage message)
@@ -29,7 +30,6 @@ namespace SOTI.ViewModels.Recipe
         }
 
         public override Visibility RedButtonVisibility { get { return Visibility.Hidden; } }
-
         public override Visibility BlueButtonVisibility { get { return Visibility.Hidden; } }
 
     }

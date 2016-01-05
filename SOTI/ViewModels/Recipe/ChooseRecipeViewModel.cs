@@ -24,6 +24,8 @@ namespace SOTI.ViewModels.Recipe
             this.state = state;
 
             this.HelpMessage = "Scegli la ricetta da cucinare. Fai molta attenzione all'allergia!";
+            this.RedButtonText = "Cambia";
+            this.GreenButtonText = "Conferma";
 
             Random rnd = new Random();
             int firstRecipe = rnd.Next(data.ricette.Count);

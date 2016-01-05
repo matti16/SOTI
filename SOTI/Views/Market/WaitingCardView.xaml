@@ -43,7 +43,7 @@
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="SOTI MARKET" FontWeight="ExtraBlack" Grid.Row="0" TextAlignment="Center" Foreground="Magenta" FontSize="50" TextWrapping="Wrap"/>
+            <TextBlock Text="SOTI MARKET" FontWeight="ExtraBlack" Grid.Row="0" TextAlignment="Center" Foreground="Magenta" FontSize="50" TextWrapping="Wrap" FontFamily="Comic Sans MS"/>
             <Image Source="pack://application:,,,/SOTI;component/Media/Images/Supermarket/Supermarket.jpg" Grid.Row="1"></Image>
         </Grid>
 

@@ -43,7 +43,7 @@
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="SOTI MARKET" FontWeight="ExtraBlack" Grid.Row="0" TextAlignment="Center" Foreground="Magenta" FontSize="50" TextWrapping="Wrap"/>
+            <TextBlock Text="SOTI MARKET" FontWeight="ExtraBlack" Grid.Row="0" TextAlignment="Center" Foreground="Magenta" FontSize="50" TextWrapping="Wrap" FontFamily="Comic Sans MS"/>
             <Image Source="pack://application:,,,/SOTI;component/Media/Images/Supermarket/Cashier.jpg" Grid.Row="1"></Image>
         </Grid>
         
@@ -53,8 +53,8 @@
                 <RowDefinition Height=".5*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="ProductName" FontWeight="Black" Grid.Row="0" TextAlignment="Center" FontSize="20" TextWrapping="Wrap"/>
-            <TextBlock x:Name="ProductDescription" FontWeight="Bold" Grid.Row="1" TextAlignment="Justify" FontSize="15" TextWrapping="Wrap"/>
+            <TextBlock x:Name="ProductName" FontWeight="Bold" Grid.Row="0" TextAlignment="Center" FontSize="20" TextWrapping="Wrap" FontFamily="Comic Sans MS"/>
+            <TextBlock x:Name="ProductDescription" Grid.Row="1" TextAlignment="Justify" FontSize="15" TextWrapping="Wrap" FontFamily="Comic Sans MS"/>
             <Image x:Name="ProductImg" Grid.Row="2"></Image>
         </Grid>
 
