@@ -24,22 +24,21 @@ namespace SOTI.ViewModels.Market
             this.state = state;
 
             this.HelpMessage = "Ora passa sulla cassa i prodotti. Quando hai finito, passa la tessera per pagare.";
+            this.GreenButtonText = "Conferma";
+            this.RedButtonText = "Scarta";
         }
 
 
         public override async void Handle(FoodReadedMessage message)
         {
             if (waiting_confirmation) {  return; }
-
-            this.HelpMessage = "Premi Verde per confermare, Rosso per annullare.";
-            ShowButtons();
-
             if (message.Food == CARD)
             {
                 await this.NavigateToScreen<PaymentViewModel>();
             }
             else
             {
+                this.HelpMessage = "Premi Verde per confermare, Rosso per annullare.";
                 int id = Int32.Parse(message.Food);
                 Cibo readed_food = data.cibi.Find(x => x.id == id);
                 state.ReadedFood(readed_food);
@@ -65,7 +64,6 @@ namespace SOTI.ViewModels.Market
                 {
                     this.eventAggregator.PublishOnUIThread(new FoodConfirmedMessage(true));
                     this.HelpMessage = "Ora passa sulla cassa i prodotti. Quando hai finito, passa la tessera per pagare.";
-                    HideButtons();
                     state.AddToList(state.Readed_food);
                 }
                 waiting_confirmation = false;
@@ -86,15 +84,13 @@ namespace SOTI.ViewModels.Market
 
         private void ShowButtons()
         {
-            this.GreenButtonVisibility = Visibility.Visible;
-            this.RedButtonVisibility = Visibility.Visible;
+            RedButtonVisibility = Visibility.Visible;
+            GreenButtonVisibility = Visibility.Visible;
         }
 
-        private void HideButtons()
-        {
-            this.GreenButtonVisibility = Visibility.Hidden;
-            this.RedButtonVisibility = Visibility.Hidden;
-        }
+        public override Visibility GreenButtonVisibility { get { return Visibility.Visible; } }
+        public override Visibility RedButtonVisibility { get { return Visibility.Visible; } }
+        public override Visibility BlueButtonVisibility { get { return Visibility.Hidden; } }
 
     }
 }

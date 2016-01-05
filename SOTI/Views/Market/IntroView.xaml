@@ -46,9 +46,17 @@
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="Allergia_1" FontWeight="Bold" Grid.Row="0" TextAlignment="Center" Foreground="OrangeRed" FontSize="20" FontFamily="Comic Sans MS"/>
+            <TextBlock x:Name="Allergia_1" FontWeight="Bold" Grid.Row="0" TextAlignment="Center" Foreground="DodgerBlue" FontSize="20" FontFamily="Comic Sans MS">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
             <Image x:Name="Allergia_1_img" Grid.Row="1"></Image>
-            <TextBlock x:Name="Allergia_2" Margin="0,10,0,0" Grid.Row="2" Foreground="OrangeRed" FontWeight="Bold" TextAlignment="Center" FontSize="20" FontFamily="Comic Sans MS"></TextBlock>
+            <TextBlock x:Name="Allergia_2" Margin="0,10,0,0" Grid.Row="2" Foreground="DodgerBlue" FontWeight="Bold" TextAlignment="Center" FontSize="20" FontFamily="Comic Sans MS">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
             <Image x:Name="Allergia_2_img" Grid.Row="3"/>
         </Grid>
 

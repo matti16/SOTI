@@ -47,10 +47,18 @@
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Name="UpIngredient_Txt" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" FontFamily="Comic Sans MS"></TextBlock>
+            <TextBlock Name="UpIngredient_Txt" HorizontalAlignment="Center" Foreground="DodgerBlue" FontWeight="Bold" FontSize="20" FontFamily="Comic Sans MS">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
             <Image Name="UpIngredient_Img" Grid.Row="1"></Image>
 
-            <TextBlock Name="BotIngredient_Txt" Grid.Row="3" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" FontFamily="Comic Sans MS"></TextBlock>
+            <TextBlock Name="BotIngredient_Txt" Grid.Row="3" Foreground="DodgerBlue" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" FontFamily="Comic Sans MS">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
             <Image Name="BotIngredient_Img" Grid.Row="4"></Image>
 
         </Grid>
@@ -61,7 +69,11 @@
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Name="Ingredient_Txt" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" FontFamily="Comic Sans MS"></TextBlock>
+            <TextBlock Name="Ingredient_Txt" HorizontalAlignment="Center" Foreground="DodgerBlue" FontWeight="Bold" FontSize="20" FontFamily="Comic Sans MS">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
             <Image Name="Ingredient_Img" Grid.Row="1"></Image>
             
         </Grid>
