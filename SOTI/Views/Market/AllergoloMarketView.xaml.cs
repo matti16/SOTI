@@ -47,9 +47,16 @@ namespace SOTI.Views.Market
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
 
+
             audioPlayer = new MediaPlayer();
             audioPlayer.Open(new Uri(audioUri + AudioUri.AllergoloMarket, UriKind.Relative));
             audioPlayer.Play();
+            this.Unloaded += View_Unloaded;
+        }
+
+        private void View_Unloaded(object sender, RoutedEventArgs e)
+        {
+            audioPlayer.Stop();
         }
 
         private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)

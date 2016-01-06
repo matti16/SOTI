@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
-using System.Reflection;
-using System.Runtime.ExceptionServices;
 
 namespace SOTI.Model
 {
@@ -31,7 +29,6 @@ namespace SOTI.Model
             conn = new OleDbConnection(connectionString);
             if (conn.State != System.Data.ConnectionState.Open)
             {
-                conn.ResetState();
                 conn.Open();
             }
             
@@ -46,17 +43,11 @@ namespace SOTI.Model
         //Constructor
         public DataLayer()
         {
-            try {
                 ConnectDB();
                 this.cibi = ReadCibi();
                 this.allergie = ReadAllergie();
                 this.ricette = ReadRicette();
                 ReadPassi();
-            }
-            finally
-            {
-                conn.Close();
-            }
         }
 
         private void ReadPassi()

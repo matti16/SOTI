@@ -63,9 +63,9 @@
 
         </Grid>
 
-        <Grid Name="PassoSingolo_Grid" Visibility="Hidden" Margin="20">
+        <Grid Name="PassoSingolo_Grid" Visibility="Visible" Margin="20,50,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
 

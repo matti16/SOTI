@@ -28,7 +28,7 @@ namespace SOTI.Views.Market
         private string cibiUri = @"pack://application:,,,/SOTI;component/Media/Images/Cibi/";
 
         private string audioUri = AudioUri.Audio + AudioUri.Market;
-        private MediaPlayer audioPlayer;
+        private MediaPlayer audioPlayer = new MediaPlayer();
         private DispatcherTimer timer = new DispatcherTimer();
 
         public WaitingProductsView()
@@ -52,7 +52,7 @@ namespace SOTI.Views.Market
             //Audio
             this.Loaded += View_Loaded;
             this.Unloaded += View_Unloaded;
-            audioPlayer = new MediaPlayer();
+            timer.Tick += Timer_Tick;
             audioPlayer.Open(new Uri(audioUri + AudioUri.WaitingProducts, UriKind.Relative));
             audioPlayer.Play();
         }
@@ -65,7 +65,6 @@ namespace SOTI.Views.Market
         /// <param name="e"></param>
         private void View_Loaded(object sender, RoutedEventArgs e)
         {
-            timer.Tick += Timer_Tick;
             timer.Interval = new TimeSpan(0, 1, 0);
             timer.Start();
         }
