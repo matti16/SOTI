@@ -226,7 +226,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Media\Images\Cibi\" />
-    <Folder Include="Media\Video\Muscolo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataBase\SOTI.accdb">
@@ -250,6 +249,14 @@
     <Content Include="Media\Audio\Recipe\WrongIngredientSquirrel.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Media\Video\Muscolo\Appear.mp4" />
+    <Content Include="Media\Video\Muscolo\Blink.mp4" />
+    <Content Include="Media\Video\Muscolo\ConfirmProduct.mp4" />
+    <Content Include="Media\Video\Muscolo\FinishSpesa.mp4" />
+    <Content Include="Media\Video\Muscolo\IntroAllergie.mp4" />
+    <Content Include="Media\Video\Muscolo\ReadingProducts.mp4" />
+    <Content Include="Media\Video\Muscolo\RightProduct.mp4" />
+    <Content Include="Media\Video\Muscolo\WaitingCard.mp4" />
     <Resource Include="Media\Images\Recipes\BananePigiama.jpg" />
     <Resource Include="Media\Images\Supermarket\Cashier.jpg" />
     <Resource Include="Media\Images\Supermarket\SacchettoSpesa.jpeg" />
