@@ -268,6 +268,7 @@
     <Content Include="Media\Video\Cuocolo\Blink.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Media\Video\Cuocolo\ChooseRecipe.mp4" />
     <Content Include="Media\Video\Cuocolo\FinishRecipe.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
