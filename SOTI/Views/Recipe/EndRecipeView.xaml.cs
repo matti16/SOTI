@@ -40,15 +40,12 @@ namespace SOTI.Views.Recipe
 
             //Load Video
             this.CenterMedia.Source = new Uri(videoUri + VideoUri.Recipe_finish, UriKind.Relative);
-            this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
 
             //Handlers
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;
-            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
 
             //Play
             CenterMedia.Play();
-            CenterBackMedia.Play();
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
 
@@ -74,12 +71,6 @@ namespace SOTI.Views.Recipe
         {
             audioPlayer.Open(new Uri(audioUri + AudioUri.FinishRecipe, UriKind.Relative));
             audioPlayer.Play();
-        }
-
-        private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            CenterBackMedia.Position = TimeSpan.Zero;
-            CenterBackMedia.Play();
         }
 
         private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)

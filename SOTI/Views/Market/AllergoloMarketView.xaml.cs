@@ -37,7 +37,6 @@ namespace SOTI.Views.Market
 
             //Handlers
             CenterMedia.MediaEnded += CenterMedia_AppearEnded;
-            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
 
             //Play
             CenterMedia.Play();
@@ -65,13 +64,7 @@ namespace SOTI.Views.Market
             CenterMedia.Position = TimeSpan.Zero;
             CenterMedia.Play();
         }
-
-        private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            CenterBackMedia.Position = TimeSpan.Zero;
-            CenterBackMedia.Play();
-        }
-
+        
         
     }
 }

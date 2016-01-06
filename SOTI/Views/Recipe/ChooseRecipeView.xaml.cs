@@ -42,12 +42,11 @@ namespace SOTI.Views.Recipe
             this.Loaded += ChooseRecipeView_Loaded;
             
             //Load Video
-            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Choosing_recipe, UriKind.Relative);
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Appear, UriKind.Relative);
             this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
 
             //Handlers
-            CenterMedia.MediaEnded += CenterMedia_MediaEnded;
-            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
+            CenterMedia.MediaEnded += CenterMedia_AppearEnded;
             
             //Play
             CenterMedia.Play();
@@ -74,6 +73,7 @@ namespace SOTI.Views.Recipe
             audioPlayer.Stop();
         }
 
+
         private void AudioPlayer_MediaEnded(object sender, EventArgs e)
         {
             audioPlayer.Open(new Uri(audioUri + AudioUri.ChooseRecipe, UriKind.Relative));
@@ -99,12 +99,15 @@ namespace SOTI.Views.Recipe
             CenterMedia.Play();
         }
 
-        private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
+        private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)
         {
-            CenterBackMedia.Position = TimeSpan.Zero;
-            CenterBackMedia.Play();
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Choosing_recipe, UriKind.Relative);
+            CenterMedia.MediaEnded -= CenterMedia_AppearEnded;
+            CenterMedia.MediaEnded += CenterMedia_MediaEnded;
+            CenterMedia.Play();
         }
-        
+
+
         /// <summary>
         /// Manage the RecipeMessage showing in the GUI the new recipe.
         /// </summary>

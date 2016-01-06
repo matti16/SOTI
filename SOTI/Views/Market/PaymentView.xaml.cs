@@ -33,15 +33,12 @@ namespace SOTI.Views.Market
 
             //Load Video
             this.CenterMedia.Source = new Uri(videoUri + VideoUri.Scontrino, UriKind.Relative);
-            this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
 
             //Handlers
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;
-            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
 
             //Play
             CenterMedia.Play();
-            CenterBackMedia.Play();
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
         }
@@ -65,12 +62,6 @@ namespace SOTI.Views.Market
         {
             CenterMedia.Position = TimeSpan.Zero;
             CenterMedia.Play();
-        }
-
-        private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            CenterBackMedia.Position = TimeSpan.Zero;
-            CenterBackMedia.Play();
         }
     }
 }

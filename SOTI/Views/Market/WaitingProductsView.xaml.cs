@@ -25,7 +25,6 @@ namespace SOTI.Views.Market
         private readonly IEventAggregator eventAggregator;
         private string videoUri = VideoUri.Video + VideoUri.Muscolo;
         private string cibiUri = @"pack://application:,,,/SOTI;component/Media/Images/Cibi/";
-        private bool confirming = false;
 
         public WaitingProductsView()
         {
@@ -41,7 +40,6 @@ namespace SOTI.Views.Market
 
             //Handlers
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;
-            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
 
             //Play
             CenterMedia.Play();
@@ -108,12 +106,6 @@ namespace SOTI.Views.Market
             CenterMedia.Position = TimeSpan.Zero;
             CenterMedia.Play();
         }
-
-
-        private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            CenterBackMedia.Position = TimeSpan.Zero;
-            CenterBackMedia.Play();
-        }
+        
     }
 }

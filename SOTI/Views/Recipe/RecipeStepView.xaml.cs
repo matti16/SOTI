@@ -46,7 +46,6 @@ namespace SOTI.Views.Recipe
 
             //Handlers
             CenterMedia.MediaEnded += CenterMedia_MediaEnded;
-            CenterBackMedia.MediaEnded += CenterBackMedia_MediaEnded;
 
             //Play
             CenterMedia.Play();
@@ -83,13 +82,7 @@ namespace SOTI.Views.Recipe
             audioPlayer.Open(new Uri(audioUri + AudioUri.WaitingIngredients, UriKind.Relative));
             audioPlayer.Play();
         }
-
-        private void CenterBackMedia_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            CenterBackMedia.Position = TimeSpan.Zero;
-            CenterBackMedia.Play();
-        }
-        
+                
         private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
         {
             CenterMedia.Position = TimeSpan.Zero;
