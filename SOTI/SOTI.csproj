@@ -226,6 +226,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Media\Images\Cibi\" />
+    <Folder Include="Media\Video\Allergolo\" />
+    <Folder Include="Media\Video\Muscolo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataBase\SOTI.accdb">
@@ -257,25 +259,10 @@
     <Resource Include="Media\Images\Buttons\BlueButton.png" />
     <Resource Include="Media\Images\Buttons\GreenButton.png" />
     <Resource Include="Media\Images\Buttons\RedButton.png" />
-    <Content Include="Media\Video\Allergolo\AppearRecipe.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Allergolo\AppearMarket.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Allergolo\Blink.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Allergolo\Waiting.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Media\Video\Cuocolo\Appear.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Video\Cuocolo\Blink.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Cuocolo\ChooseRecipe.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Video\Cuocolo\FinishRecipe.mp4">
@@ -288,18 +275,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Video\Cuocolo\WrongIngredient.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Muscolo\Appear.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Muscolo\Blink.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Muscolo\RightProduct.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Media\Video\Muscolo\Waiting.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Media\Images\Allergie\Latte.jpg" />
