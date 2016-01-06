@@ -100,10 +100,10 @@ namespace SOTI.Views.Recipe
                 PassoSingolo_Grid.Visibility = Visibility.Hidden;
 
                 UpIngredient_Txt.Text = message.first.nome.ToUpper();
-                //UpIngredient_Img.Source = new BitmapImage(new Uri(baseUri + message.first.immagine));
+                UpIngredient_Img.Source = new BitmapImage(new Uri(baseUri + message.first.immagine));
 
                 BotIngredient_Txt.Text = message.second.nome.ToUpper();
-                //BotIngredient_Img.Source = new BitmapImage(new Uri(baseUri + message.second.immagine));
+                BotIngredient_Img.Source = new BitmapImage(new Uri(baseUri + message.second.immagine));
 
                 PassoDoppio_Grid.Visibility = Visibility.Visible;
 
@@ -112,7 +112,7 @@ namespace SOTI.Views.Recipe
             {
                 PassoDoppio_Grid.Visibility = Visibility.Hidden;
                 Ingredient_Txt.Text = message.first.nome.ToUpper();
-                //Ingredient_Img.Source = new BitmapImage(new Uri(baseUri + message.first.immagine));
+                Ingredient_Img.Source = new BitmapImage(new Uri(baseUri + message.first.immagine));
                 PassoSingolo_Grid.Visibility = Visibility.Visible;               
             }
         }

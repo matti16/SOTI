@@ -131,7 +131,7 @@ namespace SOTI.Views.Market
             timer.Stop();
             ProductName.Text = message.food.nome.ToUpper();
             ProductDescription.Text = message.food.descrizione;
-            //ProductImg.Source = new BitmapImage(new Uri(cibiUri + message.food.immagine));
+            ProductImg.Source = new BitmapImage(new Uri(cibiUri + message.food.immagine));
 
             CashGrid.Visibility = Visibility.Hidden;
             ProductGrid.Visibility = Visibility.Visible;

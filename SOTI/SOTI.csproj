@@ -224,9 +224,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Media\Images\Cibi\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Media\Audio\Market\AllergoloMarket.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -238,6 +236,23 @@
     <Content Include="SOTI.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Media\Images\Cibi\Acqua.jpg" />
+    <Resource Include="Media\Images\Cibi\Banana.jpg" />
+    <Resource Include="Media\Images\Cibi\Burro.jpg" />
+    <Resource Include="Media\Images\Cibi\CioccolatoFondente.jpg" />
+    <Resource Include="Media\Images\Cibi\CioccolatoLatte.jpg" />
+    <Resource Include="Media\Images\Cibi\Crostata.jpg" />
+    <Resource Include="Media\Images\Cibi\Finocchio.jpg" />
+    <Resource Include="Media\Images\Cibi\Formaggio.png" />
+    <Resource Include="Media\Images\Cibi\Margarina.jpg" />
+    <Resource Include="Media\Images\Cibi\OlioOliva.jpg" />
+    <Resource Include="Media\Images\Cibi\Pepe.jpg" />
+    <Resource Include="Media\Images\Cibi\Pizza.jpg" />
+    <Resource Include="Media\Images\Cibi\Sale.jpg" />
+    <Resource Include="Media\Images\Cibi\Uova.png" />
+    <Resource Include="Media\Images\Cibi\Wurstel.jpg" />
+    <Resource Include="Media\Images\Cibi\Zucca.gif" />
+    <Resource Include="Media\Images\Cibi\Zucchero.jpg" />
     <Content Include="Media\Audio\Market\BillModified.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

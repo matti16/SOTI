@@ -74,7 +74,7 @@ namespace SOTI.Views.Recipe
         {
             Title.Text = message.ingredient.nome.ToUpper();
             Description.Text = message.ingredient.descrizione;
-            //Immagine.Source = new BitmapImage(new Uri(cibiUri + message.ingredient.immagine));
+            Immagine.Source = new BitmapImage(new Uri(cibiUri + message.ingredient.immagine));
         }
 
         public void Handle(AllergoloAllergiaMessage message)

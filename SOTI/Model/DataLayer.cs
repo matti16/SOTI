@@ -31,7 +31,7 @@ namespace SOTI.Model
             conn = new OleDbConnection(connectionString);
             if (conn.State != System.Data.ConnectionState.Open)
             {
-                conn.Close();
+                conn.ResetState();
                 conn.Open();
             }
             
