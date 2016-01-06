@@ -28,6 +28,9 @@ namespace SOTI.Views.Recipe
 
         private string videoUri = VideoUri.Video + VideoUri.Allergolo;
 
+        private string audioUri = AudioUri.Audio + AudioUri.Recipe;
+        private MediaPlayer audioPlayer;
+
         public AllergoloRecipeView()
         {
             InitializeComponent();
@@ -46,6 +49,10 @@ namespace SOTI.Views.Recipe
             CenterBackMedia.Play();
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
+
+            audioPlayer = new MediaPlayer();
+            audioPlayer.Open(new Uri(audioUri + AudioUri.AllergoloRecipe, UriKind.Relative));
+            audioPlayer.Play();
         }
 
         private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)

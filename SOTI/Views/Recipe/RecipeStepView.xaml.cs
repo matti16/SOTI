@@ -67,7 +67,7 @@ namespace SOTI.Views.Recipe
 
         private void RecipeStepView_Loaded(object sender, RoutedEventArgs e)
         {
-            timer.Interval = new TimeSpan(0, 0, 20);
+            timer.Interval = new TimeSpan(0, 1, 0);
             timer.Tick += Timer_Tick;
             timer.Start();
         }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SOTI.Views.Market
 {
@@ -22,29 +23,61 @@ namespace SOTI.Views.Market
     {
         private string videoUri = VideoUri.Video + VideoUri.Muscolo;
 
+        private string audioUri = AudioUri.Audio + AudioUri.Market;
+        private MediaPlayer audioPlayer;
+        private DispatcherTimer timer = new DispatcherTimer();
+
         public WaitingCardView()
         {
             InitializeComponent();
 
             //Load Video
-            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Appear, UriKind.Relative);
-            this.CenterBackMedia.Source = new Uri(videoUri + VideoUri.Blink, UriKind.Relative);
+            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Waiting_Card, UriKind.Relative);
 
             //Handlers
-            CenterMedia.MediaEnded += CenterMedia_AppearEnded;
+            CenterMedia.MediaEnded += CenterMedia_MediaEnded;
 
             //Play
             CenterMedia.Play();
-            CenterBackMedia.Play();
+
+            //Audio
+            this.Loaded += View_Loaded;
+            this.Unloaded += View_Unloaded;
+            audioPlayer = new MediaPlayer();
+            audioPlayer.Open(new Uri(audioUri + AudioUri.WaitingCard, UriKind.Relative));
+            audioPlayer.Play();
         }
 
-        private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)
+
+        /// <summary>
+        /// Sart the timer when the view is loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void View_Loaded(object sender, RoutedEventArgs e)
         {
-            this.CenterMedia.Source = new Uri(videoUri + VideoUri.Waiting_Card, UriKind.Relative);
-            CenterMedia.MediaEnded -= CenterMedia_AppearEnded;
-            CenterMedia.MediaEnded += CenterMedia_MediaEnded;
-            CenterMedia.Play();
+            timer.Tick += Timer_Tick;
+            timer.Interval = new TimeSpan(0, 1, 0);
+            timer.Start();
         }
+
+        private void View_Unloaded(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            audioPlayer.Stop();
+        }
+
+        /// <summary>
+        /// Restart the audio when the timer is over.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            audioPlayer.Open(new Uri(audioUri + AudioUri.WaitingCard, UriKind.Relative));
+            audioPlayer.Play();
+        }
+
 
         private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
         {

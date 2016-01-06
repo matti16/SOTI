@@ -14,7 +14,7 @@ namespace SOTI.Model
         //Database Connection
 
         static string path = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)
-                     + "/DataBase/SOTI.accdb;";
+                     + "\\SOTI.accdb;";
 
         //static string path = @"C:\Users\Francesco\Dev\SOTI\SOTI.accdb;";
         //static string path = @"C:\Users\Mattia\Documents\GitHubVisualStudio\SOTI\SOTI.accdb;";
@@ -22,22 +22,19 @@ namespace SOTI.Model
         static string connectionString =
             @"Provider=Microsoft.ACE.OLEDB.12.0;" +
             @"Data Source=" + path +
-            @"User Id=;Password=;";
+            @"User Id=Admin;";
 
         OleDbConnection conn = null;
-
-        [HandleProcessCorruptedStateExceptions]
+        
         private void ConnectDB()
         {
-            try
+            conn = new OleDbConnection(connectionString);
+            if (conn.State != System.Data.ConnectionState.Open)
             {
-                conn = new OleDbConnection(connectionString);
+                conn.Close();
                 conn.Open();
             }
-            catch(AccessViolationException ex)
-            {
-                ConnectDB();
-            }
+            
         }
 
 
@@ -49,12 +46,17 @@ namespace SOTI.Model
         //Constructor
         public DataLayer()
         {
-            ConnectDB();
-            this.cibi = ReadCibi();
-            this.allergie = ReadAllergie();
-            this.ricette = ReadRicette();
-            ReadPassi();
-            conn.Close();
+            try {
+                ConnectDB();
+                this.cibi = ReadCibi();
+                this.allergie = ReadAllergie();
+                this.ricette = ReadRicette();
+                ReadPassi();
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void ReadPassi()

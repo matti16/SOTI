@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SOTI.Views.Market
 {
@@ -25,6 +26,10 @@ namespace SOTI.Views.Market
         private readonly IEventAggregator eventAggregator;
         private string videoUri = VideoUri.Video + VideoUri.Muscolo;
         private string cibiUri = @"pack://application:,,,/SOTI;component/Media/Images/Cibi/";
+
+        private string audioUri = AudioUri.Audio + AudioUri.Market;
+        private MediaPlayer audioPlayer;
+        private DispatcherTimer timer = new DispatcherTimer();
 
         public WaitingProductsView()
         {
@@ -44,11 +49,49 @@ namespace SOTI.Views.Market
             //Play
             CenterMedia.Play();
             CenterBackMedia.Play();
-
+            //Audio
+            this.Loaded += View_Loaded;
+            this.Unloaded += View_Unloaded;
+            audioPlayer = new MediaPlayer();
+            audioPlayer.Open(new Uri(audioUri + AudioUri.WaitingProducts, UriKind.Relative));
+            audioPlayer.Play();
         }
+
+
+        /// <summary>
+        /// Sart the timer when the view is loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void View_Loaded(object sender, RoutedEventArgs e)
+        {
+            timer.Tick += Timer_Tick;
+            timer.Interval = new TimeSpan(0, 1, 0);
+            timer.Start();
+        }
+
+        private void View_Unloaded(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            audioPlayer.Stop();
+        }
+
+        /// <summary>
+        /// Restart the audio when the timer is over.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            audioPlayer.Open(new Uri(audioUri + AudioUri.WaitingProducts, UriKind.Relative));
+            audioPlayer.Play();
+        }
+
+
 
         public void Handle(FoodConfirmedMessage message)
         {
+            audioPlayer.Stop();
             if (message.confirmed)
             {
                 this.CenterMedia.Source = new Uri(videoUri + VideoUri.Product_OK, UriKind.Relative);
@@ -61,6 +104,7 @@ namespace SOTI.Views.Market
                 ProductGrid.Visibility = Visibility.Hidden;
                 CashGrid.Visibility = Visibility.Visible;
             }
+            timer.Start();
         }
 
         /// <summary>
@@ -84,6 +128,7 @@ namespace SOTI.Views.Market
         /// <param name="message"></param>
         public void Handle(FoodInCashMessage message)
         {
+            timer.Stop();
             ProductName.Text = message.food.nome.ToUpper();
             ProductDescription.Text = message.food.descrizione;
             //ProductImg.Source = new BitmapImage(new Uri(cibiUri + message.food.immagine));
@@ -91,6 +136,8 @@ namespace SOTI.Views.Market
             CashGrid.Visibility = Visibility.Hidden;
             ProductGrid.Visibility = Visibility.Visible;
 
+            audioPlayer.Open(new Uri(audioUri + AudioUri.ConfirmProduct, UriKind.Relative));
+            audioPlayer.Play();
             this.CenterMedia.Source = new Uri(videoUri + VideoUri.Waiting_Confirm, UriKind.Relative);
             CenterMedia.Play();
         }

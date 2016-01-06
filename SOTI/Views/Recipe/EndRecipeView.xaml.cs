@@ -49,24 +49,36 @@ namespace SOTI.Views.Recipe
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
 
+            //Audio
             audioPlayer = new MediaPlayer();
             audioPlayer.Open(new Uri(audioUri + AudioUri.FinishRecipe, UriKind.Relative));
             audioPlayer.Play();
         }
+
+        /// <summary>
+        /// Sart the timer when the view is loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EndRecipeView_Loaded(object sender, RoutedEventArgs e)
+        {
+            timer.Tick += Timer_Tick;
+            timer.Interval = new TimeSpan(0, 1, 0);
+            timer.Start();
+        }
+
 
         private void EndRecipeView_Unloaded(object sender, RoutedEventArgs e)
         {
             timer.Stop();
             audioPlayer.Stop();
         }
-
-        private void EndRecipeView_Loaded(object sender, RoutedEventArgs e)
-        {
-            timer.Tick += Timer_Tick;
-            timer.Interval = new TimeSpan(0, 0, 9);
-            timer.Start();
-        }
-
+        
+        /// <summary>
+        /// Restart the audio when the timer is over.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             audioPlayer.Open(new Uri(audioUri + AudioUri.FinishRecipe, UriKind.Relative));

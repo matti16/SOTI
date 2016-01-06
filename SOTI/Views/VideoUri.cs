@@ -30,12 +30,12 @@ namespace SOTI.Views
         public const string Waiting = "/Waiting.mp4";
 
         // MUSCOLO
-        public const string Intro = "/Waiting.mp4";
-        public const string Waiting_Card = "/Waiting.mp4";
-        public const string Waiting_Products = "/Waiting.mp4";
-        public const string Waiting_Confirm = "/Waiting.mp4";
+        public const string Intro = "/IntroAllergie.mp4";
+        public const string Waiting_Card = "/WaitingCard.mp4";
+        public const string Waiting_Products = "/ReadingProducts.mp4";
+        public const string Waiting_Confirm = "/ConfirmProduct.mp4";
         public const string Product_OK = "/RightProduct.mp4";
-        public const string Scontrino = "/Waiting.mp4";
+        public const string Scontrino = "/FinishSpesa.mp4";
 
 
     }

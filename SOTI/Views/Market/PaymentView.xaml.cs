@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SOTI.Views.Market
 {
@@ -24,6 +25,10 @@ namespace SOTI.Views.Market
     {
         private readonly IEventAggregator eventAggregator;
         private string videoUri = VideoUri.Video + VideoUri.Muscolo;
+
+        private string audioUri = AudioUri.Audio + AudioUri.Market;
+        private MediaPlayer audioPlayer;
+        private DispatcherTimer timer = new DispatcherTimer();
 
         public PaymentView()
         {
@@ -41,7 +46,44 @@ namespace SOTI.Views.Market
             CenterMedia.Play();
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
+            //Audio
+            this.Loaded += View_Loaded;
+            this.Unloaded += View_Unloaded;
+            audioPlayer = new MediaPlayer();
+            audioPlayer.Open(new Uri(audioUri + AudioUri.Scontrino, UriKind.Relative));
+            audioPlayer.Play();
         }
+
+
+        /// <summary>
+        /// Sart the timer when the view is loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void View_Loaded(object sender, RoutedEventArgs e)
+        {
+            timer.Tick += Timer_Tick;
+            timer.Interval = new TimeSpan(0, 1, 0);
+            timer.Start();
+        }
+
+        private void View_Unloaded(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            audioPlayer.Stop();
+        }
+
+        /// <summary>
+        /// Restart the audio when the timer is over.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            audioPlayer.Open(new Uri(audioUri + AudioUri.Scontrino, UriKind.Relative));
+            audioPlayer.Play();
+        }
+
 
         /// <summary>
         /// Show the information about the shopping.
@@ -49,10 +91,19 @@ namespace SOTI.Views.Market
         /// <param name="message"></param>
         public void Handle(ScontrinoMessage message)
         {
+            int i = 0; int partial = 0;
             foreach (var item in message.list)
             {
+                if (i >= 10)
+                {
+                    Prodotti.Text += "Altro...\n";
+                    Prezzi.Text += (message.tot - partial).ToString() + " €   \n";
+                    break;
+                }
                 Prodotti.Text += item.product.ToUpper() + " x" + item.quantity.ToString() + "\n";
-                Prezzi.Text += item.price.ToString() + " €   \n"; 
+                Prezzi.Text += item.price.ToString() + " €   \n";
+                partial += item.price;
+                i++;
             }
             Tot.Text = message.tot.ToString() + " €   \n";
         }

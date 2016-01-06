@@ -12,6 +12,7 @@ namespace SOTI.Views
         public const string Audio = @"Media/Audio/";
 
         public const string Recipe = "Recipe/";
+        public const string Market = "Market/";
 
         public const string Appear = "AppearSquirrel.mp3";
         public const string ChooseRecipe = "ChooseRecipeSquirrel.mp3";
@@ -19,6 +20,14 @@ namespace SOTI.Views
         public const string RightIngredient = "RightIngredientSquirrel.mp3";
         public const string WaitingIngredients = "WaitingIngredientsSquirrel.mp3";
         public const string WrongIngredient = "WrongIngredientSquirrel.mp3";
+        public const string AllergoloRecipe = "AllergoloRecipe.mp3";
+
+        public const string Intro = "IntroModified.mp3";
+        public const string WaitingCard = "WaitingCardModified.mp3";
+        public const string WaitingProducts = "WaitingProductsModified.mp3";
+        public const string ConfirmProduct = "ProductConfirmModified.mp3";
+        public const string Scontrino = "BillModified.mp3";
+        public const string AllergoloMarket = "AllergoloMarket.mp3";
 
     }
 }

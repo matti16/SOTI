@@ -63,7 +63,7 @@ namespace SOTI.Views.Recipe
         private void ChooseRecipeView_Loaded(object sender, RoutedEventArgs e)
         {
             timer.Tick += Timer_Tick;
-            timer.Interval = new TimeSpan(0, 0, 15);
+            timer.Interval = new TimeSpan(0, 1, 0);
             timer.Start();
         }
 

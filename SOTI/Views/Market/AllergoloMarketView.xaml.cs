@@ -25,6 +25,9 @@ namespace SOTI.Views.Market
         private readonly IEventAggregator eventAggregator;
         private string videoUri = VideoUri.Video + VideoUri.Allergolo;
 
+        private string audioUri = AudioUri.Audio + AudioUri.Market;
+        private MediaPlayer audioPlayer;
+
         public AllergoloMarketView()
         {
             InitializeComponent();
@@ -43,6 +46,10 @@ namespace SOTI.Views.Market
             CenterBackMedia.Play();
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
+
+            audioPlayer = new MediaPlayer();
+            audioPlayer.Open(new Uri(audioUri + AudioUri.AllergoloMarket, UriKind.Relative));
+            audioPlayer.Play();
         }
 
         private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)

@@ -228,7 +228,29 @@
     <Folder Include="Media\Images\Cibi\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBase\SOTI.accdb">
+    <Content Include="Media\Audio\Market\AllergoloMarket.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Audio\Market\AllergoloRecipe.mp3" />
+    <Content Include="Media\Audio\Recipe\AllergoloRecipe.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SOTI.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Audio\Market\BillModified.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Audio\Market\IntroModified.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Audio\Market\ProductConfirmModified.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Audio\Market\WaitingCardModified.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Audio\Market\WaitingProductsModified.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Audio\Recipe\AppearSquirrel.mp3">
@@ -249,14 +271,30 @@
     <Content Include="Media\Audio\Recipe\WrongIngredientSquirrel.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Video\Muscolo\Appear.mp4" />
-    <Content Include="Media\Video\Muscolo\Blink.mp4" />
-    <Content Include="Media\Video\Muscolo\ConfirmProduct.mp4" />
-    <Content Include="Media\Video\Muscolo\FinishSpesa.mp4" />
-    <Content Include="Media\Video\Muscolo\IntroAllergie.mp4" />
-    <Content Include="Media\Video\Muscolo\ReadingProducts.mp4" />
-    <Content Include="Media\Video\Muscolo\RightProduct.mp4" />
-    <Content Include="Media\Video\Muscolo\WaitingCard.mp4" />
+    <Content Include="Media\Video\Muscolo\Appear.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Muscolo\Blink.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Muscolo\ConfirmProduct.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Muscolo\FinishSpesa.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Muscolo\IntroAllergie.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Muscolo\ReadingProducts.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Muscolo\RightProduct.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Muscolo\WaitingCard.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Media\Images\Recipes\BananePigiama.jpg" />
     <Resource Include="Media\Images\Supermarket\Cashier.jpg" />
     <Resource Include="Media\Images\Supermarket\SacchettoSpesa.jpeg" />
@@ -265,17 +303,27 @@
     <Resource Include="Media\Images\Buttons\BlueButton.png" />
     <Resource Include="Media\Images\Buttons\GreenButton.png" />
     <Resource Include="Media\Images\Buttons\RedButton.png" />
-    <Content Include="Media\Video\Allergolo\AppearMarket.mp4" />
-    <Content Include="Media\Video\Allergolo\AppearRecipe.mp4" />
-    <Content Include="Media\Video\Allergolo\Blink.mp4" />
-    <Content Include="Media\Video\Allergolo\Waiting.mp4" />
+    <Content Include="Media\Video\Allergolo\AppearMarket.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Allergolo\AppearRecipe.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Allergolo\Blink.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Video\Allergolo\Waiting.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Media\Video\Cuocolo\Appear.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Video\Cuocolo\Blink.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Video\Cuocolo\ChooseRecipe.mp4" />
+    <Content Include="Media\Video\Cuocolo\ChooseRecipe.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Media\Video\Cuocolo\FinishRecipe.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

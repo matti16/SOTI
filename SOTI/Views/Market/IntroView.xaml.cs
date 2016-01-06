@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SOTI.Views.Market
 {
@@ -25,6 +26,10 @@ namespace SOTI.Views.Market
         private readonly IEventAggregator eventAggregator;
         private string allergieUri = @"pack://application:,,,/SOTI;component/Media/Images/Allergie/";
         private string videoUri = VideoUri.Video + VideoUri.Muscolo;
+
+        private string audioUri = AudioUri.Audio + AudioUri.Market;
+        private MediaPlayer audioPlayer;
+        private DispatcherTimer timer = new DispatcherTimer();
 
         public IntroView()
         {
@@ -45,6 +50,43 @@ namespace SOTI.Views.Market
 
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
 
+            //Audio
+            this.Loaded += View_Loaded;
+            this.Unloaded += View_Unloaded;
+            audioPlayer = new MediaPlayer();
+            audioPlayer.Open(new Uri(audioUri + AudioUri.Intro, UriKind.Relative));
+            audioPlayer.Play();
+
+        }
+
+        /// <summary>
+        /// Sart the timer when the view is loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void View_Loaded(object sender, RoutedEventArgs e)
+        {
+            timer.Tick += Timer_Tick;
+            timer.Interval = new TimeSpan(0, 1, 0);
+            timer.Start();
+        }
+
+
+        private void View_Unloaded(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            audioPlayer.Stop();
+        }
+
+        /// <summary>
+        /// Restart the audio when the timer is over.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            audioPlayer.Open(new Uri(audioUri + AudioUri.Intro, UriKind.Relative));
+            audioPlayer.Play();
         }
 
         private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)
@@ -61,7 +103,10 @@ namespace SOTI.Views.Market
             CenterMedia.Play();
         }
 
-
+        /// <summary>
+        /// Show the two allergies on the screen.
+        /// </summary>
+        /// <param name="message"></param>
         public void Handle(AllergieMarketMessage message)
         {
             Allergia_1.Text = message.allergia_1.nome.ToUpper();
