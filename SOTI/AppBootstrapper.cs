@@ -6,7 +6,8 @@
     using Model;
     using ViewModels.Recipe;
     using ViewModels.Market;
-
+    using System.Dynamic;
+    using System.Windows;
     public class AppBootstrapper : BootstrapperBase
     {
         public static readonly SimpleContainer container = new SimpleContainer();
@@ -71,7 +72,13 @@
 
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
         {
-            DisplayRootViewFor<MainViewModel>();
+            dynamic settings = new ExpandoObject();
+            settings.WindowStyle = WindowStyle.None;
+            settings.WindowState = WindowState.Maximized;
+            settings.ShowInTaskbar = false;
+            settings.Title = "Test";
+
+            DisplayRootViewFor<MainViewModel>(settings);
         }
     }
 }
