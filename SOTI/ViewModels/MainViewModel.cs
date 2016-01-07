@@ -29,7 +29,7 @@ namespace SOTI.ViewModels
         }
         */
 
-        public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel)
+        public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, DataLayer data)
         {
             this.eventAggregator = eventAggregator;
             ActivateItem(gameSelectionViewModel);

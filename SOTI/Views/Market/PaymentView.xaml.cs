@@ -94,10 +94,10 @@ namespace SOTI.Views.Market
             int i = 0; int partial = 0;
             foreach (var item in message.list)
             {
-                if (i >= 10)
+                if (i >= 9)
                 {
                     Prodotti.Text += "Altro...\n";
-                    Prezzi.Text += (message.tot - partial).ToString() + " €   \n";
+                    //Prezzi.Text += (message.tot - partial).ToString() + " €   \n";
                     break;
                 }
                 Prodotti.Text += item.product.ToUpper() + " x" + item.quantity.ToString() + "\n";

@@ -67,6 +67,25 @@ namespace SOTI.ViewModels
             }
         }
 
+
+        public int SwitchGreen()
+        {
+            port.Write(GREEN);
+            return 0;
+        }
+
+        public int SwitchRed()
+        {
+            port.Write(RED);
+            return 0;
+        }
+
+        public int SwitchBlue()
+        {
+            port.Write(BLUE);
+            return 0;
+        }
+
         /// <summary>
         /// Turn on the requested leds.
         /// </summary>
