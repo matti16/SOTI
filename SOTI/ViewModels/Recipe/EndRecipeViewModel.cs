@@ -13,7 +13,7 @@ namespace SOTI.ViewModels.Recipe
         public EndRecipeViewModel(IEventAggregator eventAggregator, StateRicetta state) : base(eventAggregator)
         {
             this.recipe = state.Ricetta;
-            this.HelpMessage = "Bravissimo! Abbiamo finito! Premi Verde per uscire.";
+            this.HelpMessage = "Bravissimo! Abbiamo finito!";
             this.GreenButtonText = "Esci";
         }
 

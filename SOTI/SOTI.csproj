@@ -238,6 +238,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Media\FoodIcon.ico" />
+    <Resource Include="Media\Images\Cibi\Carota.png" />
+    <Resource Include="Media\Images\Cibi\Uva.png" />
     <Content Include="SOTI.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

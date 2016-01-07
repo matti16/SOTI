@@ -19,7 +19,7 @@ namespace SOTI.ViewModels.Market
             this.data = data;
             this.state = state;
 
-            this.HelpMessage = "Bravissimo! Ecco il tuo scontrino! Premi Verde per uscire.";
+            this.HelpMessage = "Bravissimo! Ecco il tuo scontrino!";
             this.GreenButtonText = "Esci";
 
             list = new List<Purchase>();

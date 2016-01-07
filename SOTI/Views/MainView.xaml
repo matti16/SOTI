@@ -120,9 +120,9 @@
             <ColumnDefinition Width=".3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height=".7*"/>
             <RowDefinition Height=".1*"/>
-            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".2*"/>
         </Grid.RowDefinitions>
         <ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />
         <Button x:Name="GreenButton" Visibility="{Binding ActiveItem.GreenButtonVisibility}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Style="{DynamicResource ButtonStyleGreen}" Content="{Binding ActiveItem.GreenButtonText}" Margin="5" Width="90"/>

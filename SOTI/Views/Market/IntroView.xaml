@@ -35,7 +35,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height=".2*"/>
+            <RowDefinition Height=".05*"/>
         </Grid.RowDefinitions>
         <!--<ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />-->
 
