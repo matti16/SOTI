@@ -23,6 +23,7 @@ namespace SOTI
         public MainWindow()
         {
             InitializeComponent();
+            this.Icon = new BitmapImage(new Uri("pack://application:,,,/SOTI;component/Media/FoodIcon.ico"));
         }
     }
 }
