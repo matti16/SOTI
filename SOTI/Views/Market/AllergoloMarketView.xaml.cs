@@ -57,6 +57,7 @@ namespace SOTI.Views.Market
         private void View_Unloaded(object sender, RoutedEventArgs e)
         {
             audioPlayer.Stop();
+            this.eventAggregator.Unsubscribe(this);
         }
 
         private void CenterMedia_AppearEnded(object sender, RoutedEventArgs e)

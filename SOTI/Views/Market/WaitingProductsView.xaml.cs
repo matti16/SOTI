@@ -72,7 +72,8 @@ namespace SOTI.Views.Market
         private void View_Unloaded(object sender, RoutedEventArgs e)
         {
             timer.Stop();
-            audioPlayer.Stop();
+            audioPlayer.Close();
+            this.eventAggregator.Unsubscribe(this);
         }
 
         /// <summary>
@@ -90,7 +91,7 @@ namespace SOTI.Views.Market
 
         public void Handle(FoodConfirmedMessage message)
         {
-            audioPlayer.Stop();
+            audioPlayer.Close();
             if (message.confirmed)
             {
                 this.CenterMedia.Source = new Uri(videoUri + VideoUri.Product_OK, UriKind.Relative);
@@ -128,6 +129,7 @@ namespace SOTI.Views.Market
         public void Handle(FoodInCashMessage message)
         {
             timer.Stop();
+            audioPlayer.Close();
             ProductName.Text = message.food.nome.ToUpper();
             ProductDescription.Text = message.food.descrizione;
             ProductImg.Source = new BitmapImage(new Uri(cibiUri + message.food.immagine));

@@ -71,6 +71,7 @@ namespace SOTI.Views.Recipe
         {
             timer.Stop();
             audioPlayer.Stop();
+            this.eventAggregator.Unsubscribe(this);
         }
 
 

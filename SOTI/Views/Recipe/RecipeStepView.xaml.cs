@@ -63,6 +63,7 @@ namespace SOTI.Views.Recipe
         {
             timer.Stop();
             audioPlayer.Stop();
+            this.eventAggregator.Unsubscribe(this);
         }
 
         private void RecipeStepView_Loaded(object sender, RoutedEventArgs e)
