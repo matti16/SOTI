@@ -75,8 +75,15 @@
             dynamic settings = new ExpandoObject();
             settings.WindowStyle = WindowStyle.None;
             settings.WindowState = WindowState.Maximized;
+            /*
+            settings.Top = 0;
+            settings.Left = 0;
+            settings.Width = 1024;
+            settings.Height = 768;
+            */
             settings.ShowInTaskbar = false;
-            settings.Title = "Test";
+            settings.SizeToContent = SizeToContent.Manual;
+            settings.Title = "SOTI";
 
             DisplayRootViewFor<MainViewModel>(settings);
         }
