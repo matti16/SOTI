@@ -82,6 +82,7 @@
     <Compile Include="Message\PassoMessage.cs" />
     <Compile Include="Message\RecipeMessage.cs" />
     <Compile Include="Message\RedButtonMessage.cs" />
+    <Compile Include="Message\ScartiMessage.cs" />
     <Compile Include="Message\ScontrinoMessage.cs" />
     <Compile Include="Message\WrongProductMessage.cs" />
     <Compile Include="Model\Allergia.cs" />
@@ -229,7 +230,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="cpg-foods-icon.ico" />
     <Content Include="Media\Audio\Market\AllergoloMarket.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -238,28 +238,33 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Media\FoodIcon.ico" />
-    <Resource Include="Media\Images\Cibi\Carota.png" />
-    <Resource Include="Media\Images\Cibi\Uva.png" />
+    <Resource Include="Media\Images\Cibi\banana.png" />
+    <Resource Include="Media\Images\Cibi\carote.png" />
+    <Resource Include="Media\Images\Cibi\cioccolato_fondente.png" />
+    <Resource Include="Media\Images\Cibi\cioccolato_latte.png" />
+    <Resource Include="Media\Images\Cibi\crostata.png" />
+    <Resource Include="Media\Images\Cibi\finocchio.png" />
+    <Resource Include="Media\Images\Cibi\olio.png" />
+    <Resource Include="Media\Images\Cibi\pepe.png" />
+    <Resource Include="Media\Images\Cibi\pizza.png" />
+    <Resource Include="Media\Images\Cibi\sale.png" />
+    <Resource Include="Media\Images\Cibi\uova.png" />
+    <Resource Include="Media\Images\Cibi\uva.png" />
+    <Resource Include="Media\Images\Cibi\acqua.png" />
+    <Resource Include="Media\Images\Cibi\wurstel.png" />
+    <Resource Include="Media\Images\Cibi\zucca.png" />
+    <Resource Include="Media\Images\Cibi\zucchero.png" />
+    <Resource Include="Media\Images\Cibi\formaggio.jpg" />
+    <Resource Include="Media\Images\Recipes\banane_in_pigiama.png" />
+    <Resource Include="Media\Images\Recipes\pasta_wurstel.png" />
+    <Resource Include="Media\Images\Allergie\frutta_guscio.png" />
+    <Resource Include="Media\Images\Allergie\latticini.png" />
+    <Resource Include="Media\Images\Cibi\burro.jpg" />
+    <Resource Include="Media\Images\Supermarket\exclamation.gif" />
     <Content Include="SOTI.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Media\Images\Cibi\Acqua.jpg" />
-    <Resource Include="Media\Images\Cibi\Banana.jpg" />
-    <Resource Include="Media\Images\Cibi\Burro.jpg" />
-    <Resource Include="Media\Images\Cibi\CioccolatoFondente.jpg" />
-    <Resource Include="Media\Images\Cibi\CioccolatoLatte.jpg" />
-    <Resource Include="Media\Images\Cibi\Crostata.jpg" />
-    <Resource Include="Media\Images\Cibi\Finocchio.jpg" />
-    <Resource Include="Media\Images\Cibi\Formaggio.png" />
-    <Resource Include="Media\Images\Cibi\Margarina.jpg" />
-    <Resource Include="Media\Images\Cibi\OlioOliva.jpg" />
-    <Resource Include="Media\Images\Cibi\Pepe.jpg" />
-    <Resource Include="Media\Images\Cibi\Pizza.jpg" />
-    <Resource Include="Media\Images\Cibi\Sale.jpg" />
-    <Resource Include="Media\Images\Cibi\Uova.png" />
-    <Resource Include="Media\Images\Cibi\Wurstel.jpg" />
-    <Resource Include="Media\Images\Cibi\Zucca.gif" />
-    <Resource Include="Media\Images\Cibi\Zucchero.jpg" />
+    <Resource Include="Media\Images\Cibi\margarina.jpg" />
     <Content Include="Media\Audio\Market\BillModified.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -317,7 +322,6 @@
     <Content Include="Media\Video\Muscolo\WaitingCard.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Media\Images\Recipes\BananePigiama.jpg" />
     <Resource Include="Media\Images\Supermarket\Cashier.jpg" />
     <Resource Include="Media\Images\Supermarket\SacchettoSpesa.jpeg" />
     <Resource Include="Media\Images\Supermarket\Supermarket.jpg" />
@@ -358,11 +362,8 @@
     <Content Include="Media\Video\Cuocolo\WrongIngredient.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Media\Images\Allergie\Latte.jpg" />
-    <Resource Include="Media\Images\Allergie\Uova.png" />
-    <Resource Include="Media\Images\Recipes\PastaCarne.png" />
-    <Resource Include="Media\Images\Allergie\Noce.jpg" />
-    <Resource Include="Media\Images\Allergie\Pesce.png" />
+    <Resource Include="Media\Images\Allergie\uova.png" />
+    <Resource Include="Media\Images\Allergie\pesce.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

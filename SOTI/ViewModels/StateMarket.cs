@@ -13,10 +13,12 @@ namespace SOTI.ViewModels
         public Allergia Allergia_2 { get; private set; }
         public Cibo Readed_food { get; private set; } 
         public Dictionary<Cibo, int> List_of_Products { get; private set; }
+        public List<Cibo> Scartati { get; private set; }
 
         public void InitMarket(Allergia first, Allergia second)
         {
             List_of_Products = new Dictionary<Cibo, int>();
+            Scartati = new List<Cibo>();
             Allergia_1 = first;
             Allergia_2 = second;
         }
@@ -35,6 +37,14 @@ namespace SOTI.ViewModels
             else
             {
                 List_of_Products.Add(food, 1);
+            }
+        }
+
+        public void AddScarto(Cibo food)
+        {
+            if ( !Scartati.Contains(food))
+            {
+                Scartati.Add(food);
             }
         }
     }

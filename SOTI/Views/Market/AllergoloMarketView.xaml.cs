@@ -70,8 +70,8 @@ namespace SOTI.Views.Market
 
         public void Handle(WrongProductMessage message)
         {
-            Product.Text = message.product.nome.ToUpper() + ".";
-            Allergie.Text = message.allergia_1.nome.ToUpper() + " e " + message.allergia_2.nome.ToUpper() + ".";
+            Product.Text = message.product.nome.ToUpper();
+            Allergie.Text = message.allergia_1.nome.ToUpper() + " e " + message.allergia_2.nome.ToUpper();
         }
 
         private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)

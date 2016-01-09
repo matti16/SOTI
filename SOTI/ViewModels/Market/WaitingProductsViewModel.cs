@@ -14,7 +14,7 @@ namespace SOTI.ViewModels.Market
         private bool waiting_confirmation = false;
         private const string CARD = "0";
         private const string FRUTTA = "Frutta a Guscio";
-        private const string LATTE = "Latte";
+        private const string LATTE = "Latticini";
         private const string PESCE = "Pesce";
         private const string UOVA = "Uovo";
 
@@ -38,7 +38,7 @@ namespace SOTI.ViewModels.Market
             }
             else
             {
-                this.HelpMessage = "Premi Verde per confermare, Rosso per annullare.";
+                this.HelpMessage = "Vuoi confermare questo prodotto?";
                 int id = Int32.Parse(message.Food);
                 Cibo readed_food = data.cibi.Find(x => x.id == id);
                 state.ReadedFood(readed_food);
@@ -58,6 +58,7 @@ namespace SOTI.ViewModels.Market
                      (state.Readed_food.pesce && (state.Allergia_1.nome == PESCE || state.Allergia_2.nome == PESCE) ) ||
                      (state.Readed_food.uovo && (state.Allergia_1.nome == UOVA || state.Allergia_2.nome == UOVA) ) )
                 {
+                    state.AddScarto(state.Readed_food);
                     await NavigateToScreen<AllergoloMarketViewModel>();
                 }
                 else

@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using SOTI.Message;
+using SOTI.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace SOTI.Views.Market
     /// <summary>
     /// Logica di interazione per PaymentView.xaml
     /// </summary>
-    public partial class PaymentView : UserControl, IHandle<ScontrinoMessage>
+    public partial class PaymentView : UserControl, IHandle<ScartiMessage> ///,IHandle<ScontrinoMessage> 
     {
         private readonly IEventAggregator eventAggregator;
         private string videoUri = VideoUri.Video + VideoUri.Muscolo;
@@ -85,7 +86,7 @@ namespace SOTI.Views.Market
             audioPlayer.Play();
         }
 
-
+        /* SCONTRINO NO MORE USED
         /// <summary>
         /// Show the information about the shopping.
         /// </summary>
@@ -108,12 +109,34 @@ namespace SOTI.Views.Market
             }
             Tot.Text = message.tot.ToString() + " €   \n";
         }
+        */
 
 
         private void CenterMedia_MediaEnded(object sender, RoutedEventArgs e)
         {
             CenterMedia.Position = TimeSpan.Zero;
             CenterMedia.Play();
+        }
+
+        /// <summary>
+        /// Build the list of thrown products
+        /// </summary>
+        /// <param name="message"></param>
+        public void Handle(ScartiMessage message)
+        {
+            List<Cibo> scarti = message.scarti;
+            foreach (var item in scarti)
+            {
+                Scarti.Text += item.nome + "\n\n";
+                string allergie = "";
+                if (item.latte) { allergie += "Latticini"; }
+                if (item.uovo) { allergie += " Uova"; }
+                if (item.frutta) { allergie += " Frutta a Guscio"; }
+                if (item.pesce) { allergie += " Pesce"; }
+                allergie += "\n\n";
+                Allergie.Text += allergie;
+
+            }
         }
     }
 }
