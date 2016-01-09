@@ -118,6 +118,7 @@ namespace SOTI.Views.Recipe
             string allergia_img = message.recipe.allergia.immagine;
             string recipe_img = message.recipe.immagine;
             this.NomeRicetta.Text = message.recipe.nome.ToUpper();
+            this.AllergiaNome.Text = "PER ALLERGICI A: " + message.recipe.allergia.nome.ToUpper();
             Ricetta.Source = new BitmapImage(new Uri(recipesUri + recipe_img));
             Allergia.Source = new BitmapImage(new Uri(allergieUri + allergia_img));
         }

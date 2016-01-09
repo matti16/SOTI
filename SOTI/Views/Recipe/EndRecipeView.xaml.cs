@@ -92,11 +92,15 @@ namespace SOTI.Views.Recipe
             CenterMedia.Play();
         }
 
+        /// <summary>
+        /// Show info about the cooked recipe
+        /// </summary>
+        /// <param name="message"></param>
         public void Handle(RecipeMessage message)
         {
             this.NomeRicetta.Text = message.recipe.nome.ToUpper();
             this.Ricetta.Source = new BitmapImage(new Uri(recipesUri + message.recipe.immagine));
-
+            this.Allergia.Text = "PER ALLERGICI A: " + message.recipe.allergia.nome.ToUpper();
         }
     }
 }

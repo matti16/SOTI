@@ -52,7 +52,7 @@
                 </TextBlock.Effect>
             </TextBlock>
             <Image x:Name="Ricetta" Grid.Row="1"></Image>
-            <TextBlock Text="ALLERGIA" Margin="0,8,0,0" Grid.Row="2" Foreground="Tomato" FontWeight="Bold" TextAlignment="Center" FontSize="20" FontFamily="Comic Sans MS">
+            <TextBlock x:Name="AllergiaNome"  Margin="0,8,0,0" Grid.Row="2" Foreground="Crimson" FontWeight="Bold" TextAlignment="Center" FontSize="20" FontFamily="Comic Sans MS">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
                 </TextBlock.Effect>
