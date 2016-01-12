@@ -33,6 +33,7 @@
             container.Singleton<SerialCommunication>();
             container.Singleton<StateRicetta>();
             container.Singleton<StateMarket>();
+            container.Singleton<Speech>();
 
             container.PerRequest<MainViewModel>();
             container.PerRequest<GameSelectionViewModel>();

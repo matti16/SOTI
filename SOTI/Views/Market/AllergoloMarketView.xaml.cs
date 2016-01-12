@@ -25,8 +25,8 @@ namespace SOTI.Views.Market
         private readonly IEventAggregator eventAggregator;
         private string videoUri = VideoUri.Video + VideoUri.Allergolo;
 
-        private string audioUri = AudioUri.Audio + AudioUri.Market;
-        private MediaPlayer audioPlayer;
+        //private string audioUri = AudioUri.Audio + AudioUri.Market;
+        //private MediaPlayer audioPlayer;
 
         public AllergoloMarketView()
         {
@@ -48,15 +48,15 @@ namespace SOTI.Views.Market
             this.eventAggregator.PublishOnUIThread(new GUIReadyMessage());
 
 
-            audioPlayer = new MediaPlayer();
-            audioPlayer.Open(new Uri(audioUri + AudioUri.AllergoloMarket, UriKind.Relative));
-            audioPlayer.Play();
+            //audioPlayer = new MediaPlayer();
+            //audioPlayer.Open(new Uri(audioUri + AudioUri.AllergoloMarket, UriKind.Relative));
+            //audioPlayer.Play();
             this.Unloaded += View_Unloaded;
         }
 
         private void View_Unloaded(object sender, RoutedEventArgs e)
         {
-            audioPlayer.Stop();
+            //audioPlayer.Stop();
             this.eventAggregator.Unsubscribe(this);
         }
 

@@ -78,6 +78,7 @@ namespace SOTI.ViewModels.Market
             if (waiting_confirmation)
             {
                 this.eventAggregator.PublishOnUIThread(new FoodConfirmedMessage(false));
+                this.HelpMessage = "Ora passa sulla cassa i prodotti. Quando hai finito, passa la tessera per pagare.";
                 waiting_confirmation = false;
             }
             base.Handle(message);

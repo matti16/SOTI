@@ -50,6 +50,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -105,6 +106,7 @@
     <Compile Include="ViewModels\Recipe\EndRecipeViewModel.cs" />
     <Compile Include="ViewModels\Recipe\RecipeStepViewModel.cs" />
     <Compile Include="ViewModels\SerialCommunication.cs" />
+    <Compile Include="ViewModels\Speech.cs" />
     <Compile Include="ViewModels\StateMarket.cs" />
     <Compile Include="ViewModels\StateRicetta.cs" />
     <Compile Include="Views\AudioUri.cs" />

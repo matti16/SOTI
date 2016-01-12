@@ -23,7 +23,7 @@ namespace SOTI.ViewModels.Market
             this.state = state;
             this.data = data;
 
-            this.HelpMessage = "Fai attenzione alle Allergie di Muscolo! Poi premi Verde per continuare.";
+            this.HelpMessage = "Fai attenzione alle Allergie di Muscolo!";
             this.GreenButtonText = "Conferma";
             this.RedButtonText = "Cambia";
 
