@@ -12,7 +12,7 @@ namespace SOTI.ViewModels.Market
         private readonly DataLayer data;
         private StateMarket state;
         private bool waiting_confirmation = false;
-        private const string CARD = "0";
+        private const int CARD = 0;
         private const string FRUTTA = "Frutta a Guscio";
         private const string LATTE = "Latticini";
         private const string PESCE = "Pesce";
@@ -32,7 +32,7 @@ namespace SOTI.ViewModels.Market
         public override async void Handle(FoodReadedMessage message)
         {
             if (waiting_confirmation) {  return; }
-            if (message.Food == CARD)
+            if (Int32.Parse(message.Food) == CARD)
             {
                 await this.NavigateToScreen<PaymentViewModel>();
             }

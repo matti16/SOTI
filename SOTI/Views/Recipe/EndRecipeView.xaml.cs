@@ -100,7 +100,7 @@ namespace SOTI.Views.Recipe
         {
             this.NomeRicetta.Text = message.recipe.nome.ToUpper();
             this.Ricetta.Source = new BitmapImage(new Uri(recipesUri + message.recipe.immagine));
-            this.Allergia.Text = "PER ALLERGICI A: " + message.recipe.allergia.nome.ToUpper();
+            this.Allergia.Text = "PER ALLERGICI A " + message.recipe.allergia.nome.ToUpper();
         }
     }
 }
