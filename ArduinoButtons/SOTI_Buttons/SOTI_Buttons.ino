@@ -1,7 +1,7 @@
 //We have an Input and an Output for each button.
 //Here the Input for the Buttons
-int redButton = 5;
-int greenButton = 7;
+int greenButton = 5;
+int redButton = 7;
 int blueButton = 9;
 
 //Led Output for the Buttons
@@ -40,8 +40,8 @@ void loop() {
   // put your main code here, to run repeatedly:
   serialEvent();
   
-  int redState = digitalRead(greenButton);
-  int greenState = digitalRead(redButton);
+  int redState = digitalRead(redButton);
+  int greenState = digitalRead(greenButton);
   int blueState = digitalRead(blueButton);
   bool pressed = false;
   

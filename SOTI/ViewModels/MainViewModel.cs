@@ -21,13 +21,13 @@ namespace SOTI.ViewModels
         private readonly SerialCommunication serialCommunication;
 
         /*
-        public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, SerialCommunication serialCommunication)
+        public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, SerialCommunication serialCommunication, DataLayer data)
         {
             this.eventAggregator = eventAggregator;
             this.serialCommunication = serialCommunication;
             ActivateItem(gameSelectionViewModel);
-        }
-        */
+        }*/
+        
 
         public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, DataLayer data)
         {
