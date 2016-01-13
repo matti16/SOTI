@@ -91,6 +91,7 @@
     <Compile Include="Model\DataLayer.cs" />
     <Compile Include="Model\Passo.cs" />
     <Compile Include="Model\Ricetta.cs" />
+    <Compile Include="Model\Tags.cs" />
     <Compile Include="ViewModels\BaseGameScreenViewModel.cs" />
     <Compile Include="ViewModels\GameSelectionViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

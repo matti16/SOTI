@@ -19,19 +19,23 @@ namespace SOTI.ViewModels
     {
         private readonly IEventAggregator eventAggregator;
         private readonly SerialCommunication serialCommunication;
+        private readonly DataLayer data;
 
         /*
         public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, SerialCommunication serialCommunication, DataLayer data)
         {
             this.eventAggregator = eventAggregator;
             this.serialCommunication = serialCommunication;
+            this.data = data;
             ActivateItem(gameSelectionViewModel);
+
         }*/
-        
+
 
         public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, DataLayer data)
         {
             this.eventAggregator = eventAggregator;
+            this.data = data;
             ActivateItem(gameSelectionViewModel);
         }
 
@@ -65,7 +69,9 @@ namespace SOTI.ViewModels
         {
             if (keyArgs.Key == Key.Enter)
             {
-                this.eventAggregator.PublishOnUIThread(new FoodReadedMessage(this.Cibo));
+                string idCibo = data.tags.Find(x => x.tag.Equals(this.Cibo)).id;
+                this.eventAggregator.PublishOnUIThread(new FoodReadedMessage(idCibo));
+                this.Cibo = "";
             }
         }
 

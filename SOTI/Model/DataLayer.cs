@@ -39,16 +39,44 @@ namespace SOTI.Model
         public List<Cibo> cibi;
         public List<Ricetta> ricette;
         public List<Allergia> allergie;
+        public List<Tags> tags;
 
         //Constructor
         public DataLayer()
         {
-                ConnectDB();
-                this.cibi = ReadCibi();
-                this.allergie = ReadAllergie();
-                this.ricette = ReadRicette();
-                ReadPassi();
+            ConnectDB();
+            this.cibi = ReadCibi();
+            this.allergie = ReadAllergie();
+            this.ricette = ReadRicette();
+            this.tags = ReadTags();
+            ReadPassi();
         }
+
+        private List<Tags> ReadTags()
+        {
+            OleDbDataReader reader = null;
+            List<Tags> tags = new List<Tags>();
+            try
+            {
+                OleDbCommand cmd =
+                    new OleDbCommand("Select * FROM Tags", conn);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Tags newItem = new Tags();
+                    newItem.tag = reader["Tag"].ToString();
+                    newItem.id = reader["IdCibo"].ToString();
+                    tags.Add(newItem);
+                }
+
+            }
+            finally
+            {
+                if (reader != null) reader.Close();
+            }
+            return tags;
+        }
+    
 
         private void ReadPassi()
         {
