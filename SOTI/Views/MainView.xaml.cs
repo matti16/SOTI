@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SOTI.Views
 {
@@ -20,9 +21,31 @@ namespace SOTI.Views
     /// </summary>
     public partial class MainView : UserControl
     {
+        private DispatcherTimer timer = new DispatcherTimer();
+
         public MainView()
         {
             InitializeComponent();
+
+            this.Loaded += View_Loaded;
+            this.Unloaded += View_Unloaded;
+            timer.Tick += Timer_Tick;
+        }
+
+        private void View_Loaded(object sender, RoutedEventArgs e)
+        {
+            timer.Interval = new TimeSpan(0, 0, 5);
+            timer.Start();
+        }
+
+        private void View_Unloaded(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            this.Cibo.Focus();
         }
     }
 }

@@ -69,7 +69,11 @@ namespace SOTI.ViewModels
         {
             if (keyArgs.Key == Key.Enter)
             {
-                string idCibo = data.tags.Find(x => x.tag.Equals(this.Cibo)).id;
+                Tags t = data.tags.Find(x => x.tag.Equals(this.Cibo));
+                if (t == null)
+                    return;
+
+                string idCibo = t.id;
                 this.eventAggregator.PublishOnUIThread(new FoodReadedMessage(idCibo));
                 this.Cibo = "";
             }
