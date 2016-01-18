@@ -13,6 +13,22 @@ namespace SOTI.ViewModels
             this.HelpMessage = "Scegli un gioco premendo il pulsante.";
         }
 
+        protected override async void OnActivate()
+        {
+            base.OnActivate();
+            switch (AppBootstrapper.startupGame)
+            {
+                case "--market":
+                    await this.NavigateToScreen<IntroViewModel>();
+                    break;
+                case "--recipe":
+                    await this.NavigateToScreen<ChooseRecipeViewModel>();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public override async void Handle(BlueButtonMessage message)
         {
             //Navigate to the ChooseRecipe Screen

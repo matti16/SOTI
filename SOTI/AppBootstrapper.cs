@@ -11,6 +11,7 @@
     public class AppBootstrapper : BootstrapperBase
     {
         public static readonly SimpleContainer container = new SimpleContainer();
+        public static string startupGame = "";
 
         public AppBootstrapper()
         {
@@ -85,6 +86,11 @@
             settings.ShowInTaskbar = false;
             settings.SizeToContent = SizeToContent.Manual;
             settings.Title = "SOTI";
+
+            foreach (string item in e.Args)
+            {
+                startupGame = item;
+            }
 
             DisplayRootViewFor<MainViewModel>(settings);
         }
