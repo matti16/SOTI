@@ -13,16 +13,16 @@ namespace SOTI.ViewModels
             this.HelpMessage = "Scegli un gioco premendo il pulsante.";
         }
 
-        protected override async void OnActivate()
+        protected override void OnInitialize()
         {
-            base.OnActivate();
+            base.OnInitialize();
             switch (AppBootstrapper.startupGame)
             {
                 case "--market":
-                    await this.NavigateToScreen<IntroViewModel>();
+                    this.eventAggregator.PublishOnBackgroundThread((new NavigationMessage(AppBootstrapper.container.GetInstance<IntroViewModel>())));
                     break;
                 case "--recipe":
-                    await this.NavigateToScreen<ChooseRecipeViewModel>();
+                    this.eventAggregator.PublishOnBackgroundThread((new NavigationMessage(AppBootstrapper.container.GetInstance<ChooseRecipeViewModel>())));
                     break;
                 default:
                     break;
