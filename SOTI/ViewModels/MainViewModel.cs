@@ -70,12 +70,12 @@ namespace SOTI.ViewModels
             if (keyArgs.Key == Key.Enter)
             {
                 Tags t = data.tags.Find(x => x.tag.Equals(this.Cibo));
+                this.Cibo = "";
                 if (t == null)
                     return;
 
                 string idCibo = t.id;
-                this.eventAggregator.PublishOnUIThread(new FoodReadedMessage(idCibo));
-                this.Cibo = "";
+                this.eventAggregator.PublishOnUIThread(new FoodReadedMessage(idCibo));              
             }
         }
 

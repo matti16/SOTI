@@ -264,6 +264,31 @@
     <Resource Include="Media\Images\Allergie\latticini.png" />
     <Resource Include="Media\Images\Cibi\burro.jpg" />
     <Resource Include="Media\Images\Supermarket\exclamation.gif" />
+    <Resource Include="Media\Images\Cibi\aglio.png" />
+    <Resource Include="Media\Images\Cibi\biscotto nocciola.png" />
+    <Resource Include="Media\Images\Cibi\burro di arachidi.png" />
+    <Resource Include="Media\Images\Cibi\cioccolata.png" />
+    <Resource Include="Media\Images\Cibi\cocacola.png" />
+    <Resource Include="Media\Images\Cibi\croissant.png" />
+    <Resource Include="Media\Images\Cibi\gelato alla crema.png" />
+    <Resource Include="Media\Images\Cibi\gelato alla fragola.png" />
+    <Resource Include="Media\Images\Cibi\hamburger.png" />
+    <Resource Include="Media\Images\Cibi\ketchup.png" />
+    <Resource Include="Media\Images\Cibi\limonata.png" />
+    <Resource Include="Media\Images\Cibi\macaron.png" />
+    <Resource Include="Media\Images\Cibi\maionese.png" />
+    <Resource Include="Media\Images\Cibi\milk.png" />
+    <Resource Include="Media\Images\Cibi\muffin alla panna.png" />
+    <Resource Include="Media\Images\Cibi\muffin cioccolato.png" />
+    <Resource Include="Media\Images\Cibi\pane e marmellata.png" />
+    <Resource Include="Media\Images\Cibi\paneburroarachidi.png" />
+    <Resource Include="Media\Images\Cibi\panenutella.png" />
+    <Resource Include="Media\Images\Cibi\pasta.png" />
+    <Resource Include="Media\Images\Cibi\patatinefritte.png" />
+    <Resource Include="Media\Images\Cibi\piselli.png" />
+    <Resource Include="Media\Images\Cibi\pollo.png" />
+    <Resource Include="Media\Images\Cibi\pomodoro.png" />
+    <Resource Include="Media\Images\Recipes\menuhamburgerpatatine.png" />
     <Content Include="SOTI.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
