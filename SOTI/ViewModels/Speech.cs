@@ -19,12 +19,12 @@ namespace SOTI.ViewModels
             //{
             //    VoiceInfo info = voice.VoiceInfo;
 
-                //Console.WriteLine(" Name:          " + info.Name);
-                //Console.WriteLine(" Culture:       " + info.Culture);
-                //Console.WriteLine(" Age:           " + info.Age);
-                //Console.WriteLine(" Gender:        " + info.Gender);
-                //Console.WriteLine(" Description:   " + info.Description);
-                //Console.WriteLine(" ID:            " + info.Id);
+            //    Console.WriteLine(" Name:          " + info.Name);
+            //    Console.WriteLine(" Culture:       " + info.Culture);
+            //    Console.WriteLine(" Age:           " + info.Age);
+            //    Console.WriteLine(" Gender:        " + info.Gender);
+            //    Console.WriteLine(" Description:   " + info.Description);
+            //    Console.WriteLine(" ID:            " + info.Id);
             //}
 
             if (volume >= 0 && volume <= 100)
@@ -48,7 +48,7 @@ namespace SOTI.ViewModels
 
             PromptBuilder builder = new PromptBuilder();
 
-            builder.StartVoice("Microsoft Elsa Desktop");
+            builder.StartVoice("Luca");
             builder.StartSentence();
 
             builder.StartStyle(new PromptStyle() { Emphasis = PromptEmphasis.Strong, Rate = PromptRate.Medium });
