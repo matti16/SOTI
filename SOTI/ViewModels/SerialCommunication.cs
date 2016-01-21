@@ -6,6 +6,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SOTI.ViewModels
 {
@@ -27,7 +28,7 @@ namespace SOTI.ViewModels
         public SerialCommunication(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
-
+      
             port = new SerialPort();
             port.BaudRate = 9600;
             port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
@@ -48,6 +49,9 @@ namespace SOTI.ViewModels
         {
             SerialPort sp = (SerialPort)sender;
             string inData = sp.ReadLine().Substring(0, 1);
+            MediaPlayer audioPlayer = new MediaPlayer();
+            audioPlayer.Open(new Uri("Media/Audio/button.mp3", UriKind.Relative));
+            audioPlayer.Play();
             switch (inData)
             {
                 case GREEN:

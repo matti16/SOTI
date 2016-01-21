@@ -262,7 +262,6 @@
     <Resource Include="Media\Images\Recipes\pasta_wurstel.png" />
     <Resource Include="Media\Images\Allergie\frutta_guscio.png" />
     <Resource Include="Media\Images\Allergie\latticini.png" />
-    <Resource Include="Media\Images\Cibi\burro.jpg" />
     <Resource Include="Media\Images\Supermarket\exclamation.gif" />
     <Resource Include="Media\Images\Cibi\aglio.png" />
     <Resource Include="Media\Images\Cibi\biscotto nocciola.png" />
@@ -289,10 +288,16 @@
     <Resource Include="Media\Images\Cibi\pollo.png" />
     <Resource Include="Media\Images\Cibi\pomodoro.png" />
     <Resource Include="Media\Images\Recipes\menuhamburgerpatatine.png" />
+    <Resource Include="Media\Images\Cibi\burro.png" />
+    <Resource Include="Media\Images\Cibi\margarina.png" />
+    <Resource Include="Media\Images\Recipes\pollo_della_zia.png" />
+    <Resource Include="Media\Images\Recipes\colazione_della_nonna.png" />
+    <Content Include="Media\Audio\button.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SOTI.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Media\Images\Cibi\margarina.jpg" />
     <Content Include="Media\Audio\Market\BillModified.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

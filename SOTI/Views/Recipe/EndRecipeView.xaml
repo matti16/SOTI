@@ -28,7 +28,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".3*"/>
+            <ColumnDefinition Width=".4*"/>
             <ColumnDefinition Width=".6*"/>
             <!--<ColumnDefinition Width=".3*"/> -->
         </Grid.ColumnDefinitions>
@@ -44,13 +44,13 @@
                 <RowDefinition Height=".5*"/>
                 <RowDefinition Height=".1*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" HorizontalAlignment="Center" Foreground="LimeGreen" FontSize="30" FontFamily="Comic Sans MS">
+            <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" HorizontalAlignment="Center" Foreground="LimeGreen" FontSize="20" FontFamily="Comic Sans MS">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
                 </TextBlock.Effect>
             </TextBlock>
             <Image x:Name="Ricetta" Grid.Row="1"></Image>
-            <TextBlock x:Name="Allergia" FontWeight="Bold" Grid.Row="2" HorizontalAlignment="Center" Foreground="Crimson" FontSize="25" FontFamily="Comic Sans MS">
+            <TextBlock x:Name="Allergia" FontWeight="Bold" Grid.Row="2" HorizontalAlignment="Center" Foreground="Crimson" FontSize="20" FontFamily="Comic Sans MS">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
                 </TextBlock.Effect>

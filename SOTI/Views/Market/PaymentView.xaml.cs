@@ -124,17 +124,19 @@ namespace SOTI.Views.Market
         /// <param name="message"></param>
         public void Handle(ScartiMessage message)
         {
+            string sep = ", ";
             List<Cibo> scarti = message.scarti;
             foreach (var item in scarti)
             {
                 Scarti.Text += item.nome + "\n\n";
-                string allergie = "";
-                if (item.latte) { allergie += "Latticini"; }
-                if (item.uovo) { allergie += " Uova"; }
-                if (item.frutta) { allergie += " Frutta a Guscio"; }
-                if (item.pesce) { allergie += " Pesce"; }
-                allergie += "\n\n";
-                Allergie.Text += allergie;
+                List<string> allergie = new List<string>();
+                if (item.latte) { allergie.Add("Latticini"); }
+                if (item.uovo) { allergie.Add("Uova"); }
+                if (item.frutta) { allergie.Add("Frutta a Guscio"); }
+                if (item.pesce) { allergie.Add("Pesce"); }
+                string result = String.Join(sep, allergie);
+                result += "\n\n";
+                Allergie.Text += result;
 
             }
         }

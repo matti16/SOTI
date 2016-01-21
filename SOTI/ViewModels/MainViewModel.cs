@@ -9,6 +9,7 @@ using SOTI.Message;
 using SOTI.Model;
 using SOTI.ViewModels.Recipe;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace SOTI.ViewModels
 {
@@ -20,24 +21,24 @@ namespace SOTI.ViewModels
         private readonly IEventAggregator eventAggregator;
         private readonly SerialCommunication serialCommunication;
         private readonly DataLayer data;
-
-        /*
+        private MediaPlayer audioPlayer;
+        
         public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, SerialCommunication serialCommunication, DataLayer data)
         {
             this.eventAggregator = eventAggregator;
             this.serialCommunication = serialCommunication;
             this.data = data;
+            audioPlayer = new MediaPlayer();
             ActivateItem(gameSelectionViewModel);
+        }
 
-        }*/
-
-
+        /*
         public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, DataLayer data)
         {
             this.eventAggregator = eventAggregator;
             this.data = data;
             ActivateItem(gameSelectionViewModel);
-        }
+        }*/
 
         protected override void OnActivate()
         {
@@ -86,6 +87,8 @@ namespace SOTI.ViewModels
         {
             // Gestione di Arduino
             // Informo tutti gli interessati che il bottone è stato premuto
+            audioPlayer.Open(new Uri("Media/Audio/button.mp3", UriKind.Relative));
+            this.audioPlayer.Play();
             this.eventAggregator.PublishOnUIThread(new GreenButtonMessage());
         }
 
@@ -96,6 +99,8 @@ namespace SOTI.ViewModels
         {
             // Gestione di Arduino
             // Informo tutti gli interessati che il bottone è stato premuto
+            audioPlayer.Open(new Uri("Media/Audio/button.mp3", UriKind.Relative));
+            this.audioPlayer.Play();
             this.eventAggregator.PublishOnUIThread(new RedButtonMessage());
         }
 
@@ -106,6 +111,8 @@ namespace SOTI.ViewModels
         {
             // Gestione di Arduino
             // Informo tutti gli interessati che il bottone è stato premuto
+            audioPlayer.Open(new Uri("Media/Audio/button.mp3", UriKind.Relative));
+            this.audioPlayer.Play();
             this.eventAggregator.PublishOnUIThread(new BlueButtonMessage());
         }
 

@@ -28,8 +28,8 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".3*"/>
-            <ColumnDefinition Width=".6*"/>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width=".5*"/>
             <!--<ColumnDefinition Width=".3*"/> -->
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -65,14 +65,14 @@
         SCONTRINO -->
         
         <!-- LISTA SCARTI -->
-        <Grid Grid.Row="0" Grid.Column="0" Margin="60,60,0,0">
+        <Grid Grid.Row="0" Grid.Column="0" Margin="5,60,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height=".3*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width=".1*"/>
-                <ColumnDefinition Width=".1*"/>
+                <ColumnDefinition Width=".3*"/>
+                <ColumnDefinition Width=".3*"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="PRODOTTI SCARTATI" TextAlignment="Center" FontWeight="Bold" FontSize="20" TextWrapping="Wrap" FontFamily="Comic Sans MS" Foreground="DodgerBlue">

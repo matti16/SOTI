@@ -29,7 +29,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".3*"/>
+            <ColumnDefinition Width=".4*"/>
             <ColumnDefinition Width=".6*"/>
             <!--<ColumnDefinition Width=".3*"/> -->
         </Grid.ColumnDefinitions>
@@ -39,20 +39,20 @@
         </Grid.RowDefinitions>
         <!--<ContentControl x:Name="ActiveItem" Grid.ColumnSpan="3" />-->
 
-        <Grid Grid.Row="0" Grid.Column="0" Margin="50,20,0,0">
+        <Grid Grid.Row="0" Grid.Column="0" Margin="40,20,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
                 <RowDefinition Height=".1*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" TextAlignment="Center" Foreground="DodgerBlue" FontSize="20" FontFamily="Comic Sans MS">
+            <TextBlock x:Name="NomeRicetta" FontWeight="Bold" Grid.Row="0" TextAlignment="Center" Foreground="DodgerBlue" FontSize="22" FontFamily="Comic Sans MS">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
                 </TextBlock.Effect>
             </TextBlock>
             <Image x:Name="Ricetta" Grid.Row="1"></Image>
-            <TextBlock x:Name="AllergiaNome"  Margin="0,8,0,0" Grid.Row="2" Foreground="Crimson" FontWeight="Bold" TextAlignment="Center" FontSize="20" FontFamily="Comic Sans MS">
+            <TextBlock x:Name="AllergiaNome"  Margin="0,8,0,0" Grid.Row="2" Foreground="Crimson" FontWeight="Bold" TextAlignment="Center" FontSize="18" FontFamily="Comic Sans MS">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" />
                 </TextBlock.Effect>

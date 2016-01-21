@@ -17,7 +17,7 @@ namespace SOTI.ViewModels.Recipe
         {
             this.state = state;
 
-            this.HelpMessage = "Porta l'ingrediente corretto!";
+            this.HelpMessage = "Porta l'ingrediente corretto!\nStiamo preparando " + state.Ricetta.nome + ".";
             this.BlueButtonText = "Aiuto";
 
             showPasso();
