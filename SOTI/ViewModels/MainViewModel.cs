@@ -15,7 +15,7 @@ using SOTI.ViewModels.Market;
 namespace SOTI.ViewModels
 {
     /// <summary>
-    /// ViewModel utilizzato per la gestione del ciclo di vita dell'applicazione
+    /// It manages the life cycle of the application.
     /// </summary>
     public class MainViewModel : Conductor<IScreen>.Collection.OneActive, IHandle<NavigationMessage>
     {
