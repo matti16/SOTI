@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace SOTI.ViewModels.Market
 {
-    class IntroViewModel : BaseGameScreenViewModel, IHandle<GUIReadyMessage>
+    public class IntroViewModel : BaseGameScreenViewModel, IHandle<GUIReadyMessage>
     {
         private StateMarket state;
         private readonly DataLayer data;

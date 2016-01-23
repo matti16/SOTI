@@ -16,6 +16,14 @@ namespace SOTI.ViewModels
         protected override void OnInitialize()
         {
             base.OnInitialize();
+
+            // Uncomment one of the two to create a specific game.
+            // MARKET
+            //this.NavigateToScreen<IntroViewModel>();
+
+            // RECIPE
+            //this.NavigateToScreen<ChooseRecipeViewModel>();          
+
             switch (AppBootstrapper.startupGame)
             {
                 case "--market":
