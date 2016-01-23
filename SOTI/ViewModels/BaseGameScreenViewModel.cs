@@ -11,7 +11,7 @@ using System.Windows.Threading;
 namespace SOTI.ViewModels
 {
     /// <summary>
-    /// Classe base da cui tutti i ViewModel che gestiranno le schermate devono ereditare
+    /// Base Class from which all the others View Model will ereditate
     /// </summary>
     public class BaseGameScreenViewModel : Screen, IHandle<RedButtonMessage>, IHandle<GreenButtonMessage>, IHandle<BlueButtonMessage>, IHandle<FoodReadedMessage>
     {
