@@ -24,7 +24,7 @@ namespace SOTI.ViewModels
         private readonly DataLayer data;
         private MediaPlayer audioPlayer;
         
-        /*
+        
         public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, SerialCommunication serialCommunication, DataLayer data)
         {
             this.eventAggregator = eventAggregator;
@@ -32,16 +32,16 @@ namespace SOTI.ViewModels
             this.data = data;
             audioPlayer = new MediaPlayer();
             ActivateItem(gameSelectionViewModel);
-        }*/
+        }
 
-        
+        /*
         public MainViewModel(IEventAggregator eventAggregator, GameSelectionViewModel gameSelectionViewModel, DataLayer data)
         {
             this.eventAggregator = eventAggregator;
             this.data = data;
             audioPlayer = new MediaPlayer();
             ActivateItem(gameSelectionViewModel);
-        }
+        }*/
 
         protected override void OnActivate()
         {
